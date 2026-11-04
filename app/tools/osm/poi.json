@@ -1,0 +1,7905 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-11-04T03:26:19Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 255052939,
+  "lat": 14.4639310,
+  "lon": 120.9671020,
+  "tags": {
+    "addr:city": "Las Piñas",
+    "name": "Las Piñas Plaza Commercial Center",
+    "shop": "mall",
+    "source": "jklinc",
+    "source:url": "http://www.freewebs.com/phroadguide/"
+  }
+},
+{
+  "type": "node",
+  "id": 255062367,
+  "lat": 14.4823000,
+  "lon": 121.0458900,
+  "tags": {
+    "garmin:description": "shopping center",
+    "is_in:city": "Taguig",
+    "is_in:zip": "1630",
+    "name": "Rvc Commercial Center",
+    "shop": "mall",
+    "source": "jklinc",
+    "source:url": "http://www.freewebs.com/phroadguide/"
+  }
+},
+{
+  "type": "node",
+  "id": 255069907,
+  "lat": 14.5475310,
+  "lon": 120.9990080,
+  "tags": {
+    "is_in:city": "Pasay",
+    "is_in:zip": "1300",
+    "name": "Masagana Citymall",
+    "shop": "mall",
+    "source": "jklinc",
+    "source:url": "http://www.freewebs.com/phroadguide/"
+  }
+},
+{
+  "type": "node",
+  "id": 255071890,
+  "lat": 14.4970310,
+  "lon": 120.9924770,
+  "tags": {
+    "is_in:city": "Parañaque",
+    "is_in:zip": "1700",
+    "name": "Irasan Commercial Center",
+    "shop": "mall",
+    "source": "jklinc",
+    "source:url": "http://www.freewebs.com/phroadguide/"
+  }
+},
+{
+  "type": "node",
+  "id": 325180813,
+  "lat": 14.3416661,
+  "lon": 120.9626422,
+  "tags": {
+    "amenity": "college",
+    "name": "Presbyterian Theological Seminary"
+  }
+},
+{
+  "type": "node",
+  "id": 925644559,
+  "lat": 14.3890016,
+  "lon": 120.9675576,
+  "tags": {
+    "amenity": "college",
+    "name": "Dr. Espero College"
+  }
+},
+{
+  "type": "node",
+  "id": 941241329,
+  "lat": 14.3909137,
+  "lon": 120.8501309,
+  "tags": {
+    "addr:city": "Tanza",
+    "addr:postcode": "4108",
+    "addr:street": "Antero Soriano Highway",
+    "name": "Annie's Plaza",
+    "shop": "mall"
+  }
+},
+{
+  "type": "node",
+  "id": 1257056372,
+  "lat": 14.4526880,
+  "lon": 120.9768140,
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:housename": "Elena",
+    "addr:street": "Alabang-Zapote Road",
+    "amenity": "college",
+    "branch": "Las Piñas",
+    "name": "STI"
+  }
+},
+{
+  "type": "node",
+  "id": 1398950209,
+  "lat": 14.4505205,
+  "lon": 120.9802404,
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:housename": "RCS III",
+    "addr:street": "Alabang-Zapote Road",
+    "amenity": "college",
+    "name": "ABE International Business College",
+    "operator": "AMA"
+  }
+},
+{
+  "type": "node",
+  "id": 1599655223,
+  "lat": 14.4593302,
+  "lon": 120.9703837,
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:housenumber": "165",
+    "addr:postcode": "1740",
+    "addr:street": "Alabang-Zapote Road",
+    "amenity": "college",
+    "name": "St. Augustine School of Nursing"
+  }
+},
+{
+  "type": "node",
+  "id": 1728914761,
+  "lat": 14.4422175,
+  "lon": 120.9916161,
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:street": "BF Resort Drive",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "Aesthetic Avenue Medical Clinic"
+  }
+},
+{
+  "type": "node",
+  "id": 1728914773,
+  "lat": 14.4422958,
+  "lon": 120.9915862,
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:street": "BF Resort Drive",
+    "amenity": "hospital",
+    "name": "BF Maternity Clinic"
+  }
+},
+{
+  "type": "node",
+  "id": 2478904498,
+  "lat": 14.4602751,
+  "lon": 120.9695627,
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:postcode": "1740",
+    "addr:street": "Alabang-Zapote Road",
+    "amenity": "college",
+    "name": "Imus Computer College"
+  }
+},
+{
+  "type": "node",
+  "id": 2524731072,
+  "lat": 14.4089011,
+  "lon": 120.9404717,
+  "tags": {
+    "amenity": "bus_station",
+    "bus": "yes",
+    "name": "South Supermarket Filcab Station",
+    "public_transport": "station"
+  }
+},
+{
+  "type": "node",
+  "id": 2524731073,
+  "lat": 14.4045451,
+  "lon": 120.9040454,
+  "tags": {
+    "amenity": "bus_station",
+    "name": "Lancaster Filcab Station",
+    "public_transport": "station",
+    "shelter": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2623062822,
+  "lat": 14.4551356,
+  "lon": 120.9570748,
+  "tags": {
+    "addr:street": "Aguinaldo Highway",
+    "amenity": "college",
+    "level": "2",
+    "mobile": "+63 922 899 4490",
+    "name": "Five Star Standard College",
+    "phone": "+63 46 870 3158",
+    "website": "https://www.fssc.edu.ph/"
+  }
+},
+{
+  "type": "node",
+  "id": 2855102672,
+  "lat": 14.4057451,
+  "lon": 120.9776942,
+  "tags": {
+    "amenity": "bus_station",
+    "name": "Molino UV Express Terminal"
+  }
+},
+{
+  "type": "node",
+  "id": 2975445631,
+  "lat": 14.4459945,
+  "lon": 120.9522065,
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:street": "Tirona Highway",
+    "amenity": "college",
+    "name": "STI College"
+  }
+},
+{
+  "type": "node",
+  "id": 3235755103,
+  "lat": 14.4207304,
+  "lon": 121.0449193,
+  "tags": {
+    "name": "Victory Shopping Center",
+    "shop": "mall"
+  }
+},
+{
+  "type": "node",
+  "id": 3602062697,
+  "lat": 14.3957468,
+  "lon": 120.9685572,
+  "tags": {
+    "addr:city": "Imus",
+    "addr:country": "PH",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:quarter": "Mariano Espeleta II",
+    "addr:street": "Inocencio Street",
+    "amenity": "bus_station",
+    "bus": "yes",
+    "name": "UV Express Terminal",
+    "public_transport": "station"
+  }
+},
+{
+  "type": "node",
+  "id": 3769904782,
+  "lat": 14.4860690,
+  "lon": 121.0431431,
+  "tags": {
+    "shop": "mall"
+  }
+},
+{
+  "type": "node",
+  "id": 3779280746,
+  "lat": 14.3347368,
+  "lon": 120.9539139,
+  "tags": {
+    "amenity": "college",
+    "name": "Far Eastern Polytechnic College"
+  }
+},
+{
+  "type": "node",
+  "id": 4167736901,
+  "lat": 14.3430205,
+  "lon": 121.0386179,
+  "tags": {
+    "name": "Harmony Village Mall",
+    "shop": "mall"
+  }
+},
+{
+  "type": "node",
+  "id": 4187178114,
+  "lat": 14.3975825,
+  "lon": 121.0445508,
+  "tags": {
+    "mapillary": "847914249413018",
+    "name": "Starplaza Agro",
+    "shop": "mall"
+  }
+},
+{
+  "type": "node",
+  "id": 4215291793,
+  "lat": 14.4244970,
+  "lon": 120.9471530,
+  "tags": {
+    "amenity": "bus_station",
+    "bus": "yes",
+    "name": "Mambog Tricycle Terminal",
+    "public_transport": "station"
+  }
+},
+{
+  "type": "node",
+  "id": 4215292193,
+  "lat": 14.4228517,
+  "lon": 120.9584847,
+  "tags": {
+    "alt_name": "Mambog 3 Barangay Hall",
+    "amenity": "townhall",
+    "name": "Mambog III Barangay Hall",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "node",
+  "id": 4215292394,
+  "lat": 14.4226278,
+  "lon": 120.9614443,
+  "tags": {
+    "alt_name": "Mambog 4 Barangay Hall",
+    "amenity": "townhall",
+    "name": "Mambog IV Barangay Hall",
+    "townhall:type": "village"
+  }
+},
+{
+  "type": "node",
+  "id": 4224819994,
+  "lat": 14.4194299,
+  "lon": 120.9373599,
+  "tags": {
+    "addr:barangay": "Bayan Luma III",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Tamsui Avenue",
+    "alt_name": "Bayan Luma 3 Barangay Hall",
+    "amenity": "townhall",
+    "name": "Bayan Luma III Barangay Hall",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "node",
+  "id": 4435497557,
+  "lat": 14.5319004,
+  "lon": 120.9804985,
+  "tags": {
+    "addr:city": "Pasay",
+    "addr:street": "Seaside Boulevard",
+    "addr:street:corner": "Coral Way",
+    "name": "S Maison",
+    "shop": "mall"
+  }
+},
+{
+  "type": "node",
+  "id": 5161037824,
+  "lat": 14.4601444,
+  "lon": 120.9701386,
+  "tags": {
+    "amenity": "college",
+    "name": "Saint Francis of Assisi College Pamplona Annex"
+  }
+},
+{
+  "type": "node",
+  "id": 5326647952,
+  "lat": 14.3388843,
+  "lon": 120.9780436,
+  "tags": {
+    "alt_name": "University of the Philippines in Villar City",
+    "amenity": "university",
+    "image": "https://www.skyscrapercity.com/attachments/up-villar-city-png.7228509/",
+    "name": "University of the Philippines Technology and Innovation Campus",
+    "old_name": "University of the Philippines Vista City",
+    "operator:type": "public",
+    "short_name": "UP TIC;UPTIC;UPVC"
+  }
+},
+{
+  "type": "node",
+  "id": 5522039286,
+  "lat": 14.4124334,
+  "lon": 120.9412959,
+  "tags": {
+    "amenity": "bus_station",
+    "bus": "yes",
+    "level": "0",
+    "name": "Robinsons Place Imus Transport Terminal",
+    "public_transport": "station",
+    "smoking": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 5531076372,
+  "lat": 14.3744498,
+  "lon": 120.8292967,
+  "tags": {
+    "name": "Micara Plaza",
+    "shop": "mall",
+    "toilets": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5534125936,
+  "lat": 14.3856580,
+  "lon": 120.9788388,
+  "tags": {
+    "amenity": "bus_station",
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "Vista Mall Daang Hari Terminal",
+    "network": "P2P",
+    "public_transport": "stop_position",
+    "share_taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5678060673,
+  "lat": 14.4645629,
+  "lon": 120.9673288,
+  "tags": {
+    "amenity": "bus_station",
+    "bus": "yes",
+    "description": "Destinations: Naic, Ternate via Bacao",
+    "highway": "bus_stop",
+    "name": "Zapote Terminal",
+    "public_transport": "platform",
+    "share_taxi": "yes",
+    "source": "Schadow1 Expeditions",
+    "tactile_paving": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 6094516077,
+  "lat": 14.4338750,
+  "lon": 120.9893055,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "King of Kings Servant Healer Medical Clinic"
+  }
+},
+{
+  "type": "node",
+  "id": 6127598092,
+  "lat": 14.4034069,
+  "lon": 120.9031899,
+  "tags": {
+    "amenity": "bus_station",
+    "bus": "yes",
+    "name": "Tricycle terminal",
+    "network": "Holy Family Parish to Kalayaan Avenue vice versa",
+    "public_transport": "station"
+  }
+},
+{
+  "type": "node",
+  "id": 6601658613,
+  "lat": 14.3965586,
+  "lon": 120.9715458,
+  "tags": {
+    "name": "Alegria Plaza Mall",
+    "shop": "mall"
+  }
+},
+{
+  "type": "node",
+  "id": 6601658615,
+  "lat": 14.3979589,
+  "lon": 120.9743380,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "Prime Global Care Medical Center Inc.",
+    "old_name": "Maluto Medical Clinic"
+  }
+},
+{
+  "type": "node",
+  "id": 6863713499,
+  "lat": 14.4460288,
+  "lon": 120.9513676,
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:country": "PH",
+    "addr:floor": "2/F",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "addr:street": "Tirona Highway",
+    "addr:unit": "21;22;23;24",
+    "air_conditioning": "yes",
+    "amenity": "college",
+    "contact:phone": "+63 46 417 0019;+63 2 8555 1132",
+    "email": "mcadbacoor@yahoo.com.ph",
+    "internet_access": "terminal",
+    "internet_access:fee": "customers",
+    "name": "Microcadd Institute",
+    "operator": "Microcadd Institute Inc.",
+    "operator:type": "private",
+    "payment:bdo": "yes",
+    "payment:cash": "yes",
+    "payment:gcash": "yes",
+    "ref:vatin": "PH21314959100006",
+    "website": "https://www.microcadd.com/",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 8337789095,
+  "lat": 14.5064776,
+  "lon": 121.0043272,
+  "tags": {
+    "level": "0",
+    "name": "Duty Free Philippines",
+    "payment:cash": "yes",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
+    "shop": "mall"
+  }
+},
+{
+  "type": "node",
+  "id": 8688080462,
+  "lat": 14.5422736,
+  "lon": 121.0185510,
+  "tags": {
+    "addr:street": "Chino Roces Avenue",
+    "check_date": "2026-05-31",
+    "check_date:opening_hours": "2026-05-31",
+    "level": "0;1",
+    "name": "San Lorenzo Place Mall",
+    "opening_hours": "Mo-Su 10:00-21:00",
+    "phone": "+6384628888",
+    "shop": "mall",
+    "website": "https://megaworld-lifestylemalls.com/malls/san-lorenzo-place-mall#"
+  }
+},
+{
+  "type": "node",
+  "id": 8722075550,
+  "lat": 14.4079077,
+  "lon": 120.9403451,
+  "tags": {
+    "addr:barangay": "Bayan Luma VII",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Aguinaldo Highway",
+    "amenity": "college",
+    "name": "Colegio de Porta Vaga"
+  }
+},
+{
+  "type": "node",
+  "id": 9613435162,
+  "lat": 14.5472090,
+  "lon": 121.0350579,
+  "tags": {
+    "name": "San Antonio Plaza Arcade",
+    "shop": "mall"
+  }
+},
+{
+  "type": "node",
+  "id": 10038352518,
+  "lat": 14.3928066,
+  "lon": 120.9410579,
+  "tags": {
+    "addr:barangay": "Anabu I-E",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Anabu Road",
+    "admin_level": "10",
+    "alt_name": "Anabu 1-E Temporary Barangay Hall",
+    "amenity": "townhall",
+    "government": "administrative",
+    "level": "0",
+    "name": "Anabu I-E Temporary Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "node",
+  "id": 10560082883,
+  "lat": 14.4609924,
+  "lon": 120.9635677,
+  "tags": {
+    "amenity": "townhall",
+    "name": "Aniban 2 Barangay Hall",
+    "townhall:type": "quarter"
+  }
+},
+{
+  "type": "node",
+  "id": 10565314475,
+  "lat": 14.4532025,
+  "lon": 120.9695665,
+  "tags": {
+    "amenity": "townhall",
+    "name": "Ligas 1 Barangay Hall",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "node",
+  "id": 11193091213,
+  "lat": 14.3996443,
+  "lon": 120.9989701,
+  "tags": {
+    "amenity": "townhall",
+    "name": "Primera Clubhouse"
+  }
+},
+{
+  "type": "node",
+  "id": 11980201640,
+  "lat": 14.4569323,
+  "lon": 120.9950964,
+  "tags": {
+    "amenity": "bus_station",
+    "bus": "yes",
+    "internet_access": "no",
+    "name": "Balikatan Tricycle Terminal",
+    "public_transport": "station"
+  }
+},
+{
+  "type": "node",
+  "id": 12247810647,
+  "lat": 14.3961431,
+  "lon": 120.9397172,
+  "tags": {
+    "addr:barangay": "Anabu I-B",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Aguinaldo Highway",
+    "admin_level": "10",
+    "alt_name": "Anabu 1-B Barangay Hall",
+    "amenity": "townhall",
+    "government": "administrative",
+    "name": "Anabu I-B Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "node",
+  "id": 13019606515,
+  "lat": 14.4349646,
+  "lon": 120.8888025,
+  "tags": {
+    "amenity": "townhall",
+    "name": "Magdalo Multipurpose Hall",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "node",
+  "id": 13126324839,
+  "lat": 14.3182891,
+  "lon": 120.8086141,
+  "tags": {
+    "addr:street": "Pasinaya Homes Central, Hillsview - Pasinaya Access Road",
+    "name": "Fortune King Pasinaya Homes Central",
+    "shop": "mall"
+  }
+},
+{
+  "type": "node",
+  "id": 13463464281,
+  "lat": 14.4299906,
+  "lon": 120.9363018,
+  "tags": {
+    "addr:barangay": "Poblacion III-A",
+    "addr:city": "Imus",
+    "addr:housename": "Imus City Sports Complex",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Doctor Lorenzo B. Paredes Street",
+    "admin_level": "10",
+    "alt_name": "Poblacion 3-A Barangay Hall",
+    "amenity": "townhall",
+    "government": "administrative",
+    "name": "Poblacion III-A Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "node",
+  "id": 13565686432,
+  "lat": 14.5055709,
+  "lon": 121.0444122,
+  "tags": {
+    "air_conditioning": "yes",
+    "branch": "Arca South",
+    "changing_table": "no",
+    "contact:facebook": "https://www.facebook.com/share/1DwF7YY6bM/",
+    "name": "Ayala Malls Arca South",
+    "opening_hours": "Mo-Th 10:00-21:00; Fr-Su 10:00-22:00",
+    "operator": "Ayala Malls",
+    "operator:wikidata": "Q16836231",
+    "shop": "mall",
+    "toilets": "yes",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13566969689,
+  "lat": 14.4294700,
+  "lon": 120.9373091,
+  "tags": {
+    "addr:barangay": "Poblacion I-C",
+    "addr:city": "Imus",
+    "addr:housenumber": "6",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "General J. Castañeda Street",
+    "admin_level": "10",
+    "alt_name": "Poblacion 1-C Barangay Hall",
+    "amenity": "townhall",
+    "government": "administrative",
+    "level": "0",
+    "name": "Poblacion I-C Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 5741930,
+  "center": {
+    "lat": 14.5470038,
+    "lon": 120.9981042
+  },
+  "tags": {
+    "addr:street": "Taft Avenue",
+    "name": "Victory Pasay Mall",
+    "old_name": "Pasay City Mall & Public Market",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 24059490,
+  "center": {
+    "lat": 14.5212561,
+    "lon": 120.9973405
+  },
+  "tags": {
+    "addr:street": "Quirino Avenue",
+    "building": "yes",
+    "name": "Pearl Plaza",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 24060839,
+  "center": {
+    "lat": 14.5338662,
+    "lon": 120.9974835
+  },
+  "tags": {
+    "addr:street": "Taft Avenue Extension",
+    "building": "yes",
+    "building:levels": "3",
+    "name": "Baclaran Terminal Plaza",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 24060852,
+  "center": {
+    "lat": 14.5347627,
+    "lon": 120.9981471
+  },
+  "tags": {
+    "building": "retail",
+    "name": "Baclaran LRT Shopping Mall",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 27831200,
+  "center": {
+    "lat": 14.5497426,
+    "lon": 121.0267313
+  },
+  "tags": {
+    "addr:city": "Makati",
+    "brand": "Sm Supermalls",
+    "brand:wikidata": "Q7391510",
+    "building": "retail",
+    "building:levels": "5",
+    "height": "20",
+    "name": "SM Makati",
+    "note": "height is approximate",
+    "opening_hours": "Mo-Th 10:00-21:00; Fr-Su 10:00-22:00",
+    "operator": "SM Supermalls",
+    "operator:wikidata": "Q7391510",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 28049831,
+  "center": {
+    "lat": 14.4496990,
+    "lon": 120.9826040
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:street": "Alabang-Zapote Road",
+    "amenity": "townhall",
+    "building": "yes",
+    "name": "Las Piñas City Hall",
+    "opening_hours": "Mo-Su 08:00-17:00; PH off",
+    "smoking": "no",
+    "townhall:type": "city",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 28422467,
+  "center": {
+    "lat": 14.4495317,
+    "lon": 120.9854203
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "amenity": "university",
+    "name": "University of Perpetual Help System DALTA",
+    "old_name": "University of Perpetual Help Rizal",
+    "wikidata": "Q7896101",
+    "wikipedia": "en:University of Perpetual Help System DALTA"
+  }
+},
+{
+  "type": "way",
+  "id": 30691805,
+  "center": {
+    "lat": 14.5371485,
+    "lon": 120.9879703
+  },
+  "tags": {
+    "addr:city": "Pasay",
+    "addr:street": "EDSA Extension",
+    "addr:street:corner": "Diosdado Macapagal Boulevard",
+    "landuse": "retail",
+    "name": "Met Live Mall",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 39809792,
+  "center": {
+    "lat": 14.5299043,
+    "lon": 120.9890716
+  },
+  "tags": {
+    "addr2:street": "Bradco Avenue",
+    "addr:city": "Parañaque",
+    "addr:street": "President Diosdado Macapagal Boulevard",
+    "landuse": "retail",
+    "name": "Aseana Powerstation",
+    "shop": "mall",
+    "smoking": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 40190900,
+  "center": {
+    "lat": 14.5512173,
+    "lon": 121.0253338
+  },
+  "tags": {
+    "addr:city": "Makati",
+    "air_conditioning": "yes",
+    "building": "retail",
+    "building:levels": "3",
+    "email": "hello@ayalamalls.com",
+    "height": "12",
+    "layer": "1",
+    "name": "Glorietta",
+    "note": "height is approximate",
+    "opening_hours": "Mo-Su 10:00-21:00",
+    "operator": "Ayala Malls",
+    "operator:wikidata": "Q16836231",
+    "phone": "+63 2 7752 7272",
+    "shop": "mall",
+    "website": "https://www.ayalamalls.com/main/malls/ayala-glorietta",
+    "wheelchair": "yes",
+    "wikidata": "Q5571513",
+    "wikimedia_commons": "Category:Glorietta complex",
+    "wikipedia": "en:Glorietta"
+  }
+},
+{
+  "type": "way",
+  "id": 41793219,
+  "center": {
+    "lat": 14.5469350,
+    "lon": 120.9990956
+  },
+  "tags": {
+    "addr:street": "Taft Avenue",
+    "building": "yes",
+    "building:levels": "4",
+    "name": "Wellcome Plaza",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 42293456,
+  "center": {
+    "lat": 14.4489085,
+    "lon": 120.9807908
+  },
+  "tags": {
+    "building": "retail",
+    "building:levels": "2",
+    "layer": "1",
+    "name": "SM Center Las Piñas",
+    "note": "The name is in the landuse polygon",
+    "opening_hours": "Mo-Su 10:00-21:00",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 43251526,
+  "center": {
+    "lat": 14.4187102,
+    "lon": 121.0471012
+  },
+  "tags": {
+    "addr:city": "Muntinlupa",
+    "addr:street": "Montillano Street",
+    "building": "yes",
+    "building:levels": "4",
+    "name": "Lianas Supermarket and Department Store",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 54171493,
+  "center": {
+    "lat": 14.4501517,
+    "lon": 120.9782681
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:street": "C. V. Starr Avenue",
+    "addr:street:corner": "Alabang-Zapote Road",
+    "landuse": "retail",
+    "name": "Vista Mall Las Piñas",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 54362135,
+  "center": {
+    "lat": 14.4808199,
+    "lon": 121.0459946
+  },
+  "tags": {
+    "addr:city": "Parañaque",
+    "addr:street": "East Service Road",
+    "addr:street:corner": "Mañalac Avenue",
+    "branch": "Bicutan",
+    "brand": "WalterMart",
+    "brand:wikidata": "Q39052914",
+    "landuse": "retail",
+    "name": "WalterMart",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 58675011,
+  "center": {
+    "lat": 14.5469249,
+    "lon": 120.9862268
+  },
+  "tags": {
+    "addr:city": "Pasay",
+    "addr:housenumber": "8",
+    "addr:street": "President Diosdado Macapagal Boulevard",
+    "landuse": "retail",
+    "name": "Hobbies of Asia",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 75606586,
+  "center": {
+    "lat": 14.4584669,
+    "lon": 120.9701894
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:postcode": "1740",
+    "addr:street": "Alabang-Zapote Road",
+    "amenity": "townhall",
+    "building": "yes",
+    "name": "Pamplona Uno Barangay Hall",
+    "name:tl": "Pamahalaang Barangay ng Pamplona Uno",
+    "townhall:type": "village"
+  }
+},
+{
+  "type": "way",
+  "id": 82890566,
+  "center": {
+    "lat": 14.4478885,
+    "lon": 121.0440529
+  },
+  "tags": {
+    "addr:city": "Muntinlupa",
+    "addr:street": "West Service Road",
+    "branch": "Muntinlupa West",
+    "brand": "WalterMart",
+    "brand:wikidata": "Q39052914",
+    "name": "W.Mall",
+    "operator": "WalterMart",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 87723975,
+  "center": {
+    "lat": 14.4192282,
+    "lon": 121.0347587
+  },
+  "tags": {
+    "addr:city": "Muntinlupa",
+    "addr:street": "Commerce Avenue",
+    "addr:street:corner": "Filinvest Avenue",
+    "landuse": "retail",
+    "name": "Commercenter",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 89867674,
+  "center": {
+    "lat": 14.3261428,
+    "lon": 120.9356963
+  },
+  "tags": {
+    "addr:city": "Dasmariñas",
+    "addr:country": "PH",
+    "addr:postcode": "4114",
+    "addr:province": "Cavite",
+    "addr:street": "Don Placido Campos Avenue",
+    "building": "commercial",
+    "building:levels": "3",
+    "indoor": "wall",
+    "material": "concrete",
+    "name": "CM Plaza",
+    "shop": "mall",
+    "smoking": "no",
+    "tactile_paving": "no",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "way",
+  "id": 89986061,
+  "center": {
+    "lat": 14.3393784,
+    "lon": 120.9502630
+  },
+  "tags": {
+    "addr:barangay": "San Juan",
+    "addr:city": "Dasmariñas",
+    "addr:country": "PH",
+    "addr:postcode": "4115",
+    "addr:province": "Cavite",
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "San Juan Barangay Hall",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 93218496,
+  "center": {
+    "lat": 14.4605865,
+    "lon": 120.9400264
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "Bacoor Hall of Justice",
+    "wikipedia": "en:Bacoor"
+  }
+},
+{
+  "type": "way",
+  "id": 93309820,
+  "center": {
+    "lat": 14.4096045,
+    "lon": 120.9768175
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "amenity": "hospital",
+    "building": "hospital",
+    "name": "Saint Michael Medical Hospital"
+  }
+},
+{
+  "type": "way",
+  "id": 94750780,
+  "center": {
+    "lat": 14.4573038,
+    "lon": 121.0328794
+  },
+  "tags": {
+    "addr:city": "Parañaque",
+    "addr:street": "Dr. A. Santos Avenue",
+    "addr:street:corner": "President's Avenue",
+    "name": "SM City BF Parañaque",
+    "operator": "SM Supermalls",
+    "operator:wikidata": "Q7391510",
+    "shop": "mall",
+    "wikidata": "Q17088441",
+    "wikipedia": "en:SM City BF Parañaque"
+  }
+},
+{
+  "type": "way",
+  "id": 109969767,
+  "center": {
+    "lat": 14.4600415,
+    "lon": 120.9418707
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:street": "Professor H. Rubio Street",
+    "alt_name": "Saint Michael the Archangel Cathedral;St. Michael the Archangel;Cathedral of St. Michael the Archangel",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "philippine_independent",
+    "name": "Cathedral of Saint Michael the Archangel",
+    "religion": "christian",
+    "wikidata": "Q137946189",
+    "wikimedia_commons": "Category:Cathedral of St. Michael the Archangel (Bacoor)"
+  }
+},
+{
+  "type": "way",
+  "id": 110702706,
+  "center": {
+    "lat": 14.4556192,
+    "lon": 120.9938879
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:street": "CAA Avenue",
+    "amenity": "hospital",
+    "emergency": "yes",
+    "healthcare": "hospital",
+    "name": "Las Piñas Doctors Hospital",
+    "previously": "node:354426861",
+    "ref:doh": "614",
+    "website": "http://www.laspinasdoctorshospitalinc.com/"
+  }
+},
+{
+  "type": "way",
+  "id": 113656093,
+  "center": {
+    "lat": 14.4317875,
+    "lon": 120.8950880
+  },
+  "tags": {
+    "addr:city": "Kawit",
+    "addr:postcode": "4104",
+    "addr:province": "Cavite",
+    "addr:quarter": "Batong Dalig",
+    "addr:street": "Antero Soriano Highway",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "Kawit Municipal Hall",
+    "townhall:type": "city"
+  }
+},
+{
+  "type": "way",
+  "id": 113663397,
+  "center": {
+    "lat": 14.3862587,
+    "lon": 120.8809430
+  },
+  "tags": {
+    "addr2:street": "General Trias Street",
+    "addr:city": "General Trias",
+    "addr:postcode": "4107",
+    "addr:province": "Cavite",
+    "addr:street": "Juan Luna Street",
+    "amenity": "townhall",
+    "building": "yes",
+    "building:levels": "4",
+    "name": "General Trias City Hall",
+    "operator": "City Government of General Trias",
+    "smoking": "no",
+    "tactile_paving": "no",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 117058860,
+  "center": {
+    "lat": 14.4091929,
+    "lon": 120.8569122
+  },
+  "tags": {
+    "addr:city": "Rosario",
+    "addr:street": "General Trias Drive",
+    "name": "SM City Rosario",
+    "opening_hours": "Mo-Su 09:00-21:00",
+    "operator": "SM Supermalls",
+    "operator:wikidata": "Q7391510",
+    "shop": "mall",
+    "wikidata": "Q7391484",
+    "wikimedia_commons": "Category:SM City Rosario",
+    "wikipedia": "en:SM City Rosario"
+  }
+},
+{
+  "type": "way",
+  "id": 118699459,
+  "center": {
+    "lat": 14.5314324,
+    "lon": 121.0498915
+  },
+  "tags": {
+    "addr:city": "Taguig",
+    "addr:postcode": "1630",
+    "addr:province": "Metro Manila",
+    "building": "mall",
+    "name": "Soldiers Mall",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 123562911,
+  "center": {
+    "lat": 14.3496783,
+    "lon": 120.9382663
+  },
+  "tags": {
+    "addr:city": "Dasmariñas",
+    "addr:postcode": "4114",
+    "addr:province": "Cavite",
+    "addr:street": "Aguinaldo Highway",
+    "addr:village": "Salitran 2",
+    "branch": "Dasmariñas",
+    "brand": "Central Mall",
+    "internet_access": "wlan",
+    "internet_access:captive_portal": "yes",
+    "internet_access:fee": "no",
+    "internet_access:operator": "Dasca Cable Services, Inc.",
+    "internet_access:registration": "yes",
+    "internet_access:ssid": "Dasca FiberBlaze - PUBLIC WIFI",
+    "landuse": "commercial",
+    "name": "Central Mall Dasmariñas",
+    "opening_hours": "10:00-21:00",
+    "shop": "mall",
+    "smoking": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 129639463,
+  "center": {
+    "lat": 14.4863973,
+    "lon": 121.0432103
+  },
+  "tags": {
+    "addr:city": "Parañaque",
+    "addr:street": "Doña Soledad Avenue",
+    "landuse": "retail",
+    "name": "SM City Bicutan",
+    "opening_hours": "10:00-22:00",
+    "operator": "SM Supermalls",
+    "operator:wikidata": "Q7391510",
+    "shop": "mall",
+    "smoking": "no",
+    "toilets": "yes",
+    "wheelchair": "yes",
+    "wikidata": "Q7391455"
+  }
+},
+{
+  "type": "way",
+  "id": 131158447,
+  "center": {
+    "lat": 14.4158849,
+    "lon": 120.9502844
+  },
+  "tags": {
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Buhay na Tubig Road",
+    "building": "yes",
+    "name": "JYP Building",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 131228339,
+  "center": {
+    "lat": 14.3772990,
+    "lon": 121.0451252
+  },
+  "tags": {
+    "addr:city": "Muntinlupa",
+    "addr:postcode": "1773",
+    "addr:province": "Metro Manila",
+    "addr:street": "National Road",
+    "landuse": "retail",
+    "name": "SM Center Muntinlupa",
+    "opening_hours": "10:00-21:00",
+    "operator": "SM Supermalls",
+    "operator:wikidata": "Q7391510",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 142853109,
+  "center": {
+    "lat": 14.4033456,
+    "lon": 120.9252710
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Immaculate Heart of Mary Parish",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 148667676,
+  "center": {
+    "lat": 14.5012741,
+    "lon": 120.9992995
+  },
+  "tags": {
+    "addr:city": "Parañaque",
+    "addr:street": "Ninoy Aquino Avenue",
+    "landuse": "retail",
+    "name": "Duty Free Philippines Fiesta Mall",
+    "opening_hours": "Mo-Su 11:00-21:00",
+    "payment:cash": "yes",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
+    "shop": "mall",
+    "smoking": "no",
+    "source": "Bing"
+  }
+},
+{
+  "type": "way",
+  "id": 158466196,
+  "center": {
+    "lat": 14.3737771,
+    "lon": 120.9796323
+  },
+  "tags": {
+    "amenity": "hospital",
+    "name": "Metro South Medical Center",
+    "source": "Bing"
+  }
+},
+{
+  "type": "way",
+  "id": 158626610,
+  "center": {
+    "lat": 14.3283120,
+    "lon": 120.9599771
+  },
+  "tags": {
+    "addr:city": "Dasmariñas",
+    "addr:postcode": "4115",
+    "addr:street": "Congressional Avenue",
+    "building": "yes",
+    "building:levels": "2",
+    "building:levels:underground": "2",
+    "layer": "1",
+    "name": "SM Marketmall Dasmariñas",
+    "opening_hours": "24/7",
+    "opening_hours:covid19": "11:00-18:00",
+    "operator": "SM Prime Holdings and City Government of Dasmariñas",
+    "shop": "mall",
+    "smoking": "no",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 160877866,
+  "center": {
+    "lat": 14.4725035,
+    "lon": 121.0077664
+  },
+  "tags": {
+    "branch": "Sucat",
+    "brand": "WalterMart",
+    "brand:wikidata": "Q39052914",
+    "name": "WalterMart",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 165289608,
+  "center": {
+    "lat": 14.4072693,
+    "lon": 120.8588119
+  },
+  "tags": {
+    "addr:city": "Rosario",
+    "addr:postcode": "4106",
+    "addr:province": "Cavite",
+    "addr:street": "General Trias Drive",
+    "building": "yes",
+    "name": "Emperor Mall",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 169102443,
+  "center": {
+    "lat": 14.4370471,
+    "lon": 120.9072518
+  },
+  "tags": {
+    "addr:city": "Kawit",
+    "addr:postcode": "4104",
+    "addr:province": "Cavite",
+    "addr:street": "Antero Soriano Highway",
+    "building": "commercial",
+    "name": "Mana Town Center",
+    "shop": "mall",
+    "source": "Schadow1 Expeditions",
+    "survey:date": "2022-10-04"
+  }
+},
+{
+  "type": "way",
+  "id": 169195878,
+  "center": {
+    "lat": 14.4480766,
+    "lon": 120.9171473
+  },
+  "tags": {
+    "addr:city": "Kawit",
+    "addr:postcode": "4104",
+    "addr:street": "Tirona Highway",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "Binakayan-Kanluran Barangay Hall"
+  }
+},
+{
+  "type": "way",
+  "id": 169829568,
+  "center": {
+    "lat": 14.4074574,
+    "lon": 120.9562636
+  },
+  "tags": {
+    "addr:street": "Primarosa Street",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Saint James Parish",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 176589453,
+  "center": {
+    "lat": 14.4537497,
+    "lon": 120.9251567
+  },
+  "tags": {
+    "addr:town": "Kawit",
+    "addr:village": "Binakayan",
+    "amenity": "place_of_worship",
+    "denomination": "roman_catholic",
+    "name": "Our Lady of Fatima Parish Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 180153501,
+  "center": {
+    "lat": 14.4489709,
+    "lon": 120.9207023
+  },
+  "tags": {
+    "addr:city": "Kawit",
+    "addr:postcode": "4104",
+    "addr:province": "Cavite",
+    "addr:street": "Tirona Highway",
+    "amenity": "hospital",
+    "building": "house",
+    "name": "Kawit Lying In Clinic"
+  }
+},
+{
+  "type": "way",
+  "id": 180161924,
+  "center": {
+    "lat": 14.4529621,
+    "lon": 120.9288831
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:street": "General Evangelista Street",
+    "amenity": "hospital",
+    "building": "commercial",
+    "name": "Child Specialist and Family Clinic"
+  }
+},
+{
+  "type": "way",
+  "id": 180161934,
+  "center": {
+    "lat": 14.4598388,
+    "lon": 120.9446429
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:street": "General Evangelista Street",
+    "amenity": "hospital",
+    "name": "MNS Ultrasound"
+  }
+},
+{
+  "type": "way",
+  "id": 180161941,
+  "center": {
+    "lat": 14.4602062,
+    "lon": 120.9526226
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:street": "General Evangelista Street",
+    "alt_name": "Maliksi 1 Barangay Hall",
+    "amenity": "townhall",
+    "mapillary": "506004500440967",
+    "name": "Maliksi I Barangay Hall",
+    "name:tl": "Pamahalaang Barangay ng Maliksi I"
+  }
+},
+{
+  "type": "way",
+  "id": 186903242,
+  "center": {
+    "lat": 14.4314462,
+    "lon": 120.9162816
+  },
+  "tags": {
+    "addr:barangay": "Pag-asa I",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Alapan Road",
+    "admin_level": "10",
+    "alt_name": "Pag-asa 1 Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Pag-asa I Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 186905968,
+  "center": {
+    "lat": 14.4421635,
+    "lon": 120.9191858
+  },
+  "tags": {
+    "addr:barangay": "Medicion II-E",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Medicion Street",
+    "admin_level": "10",
+    "alt_name": "Medicion 2-E Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Medicion II-E Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 186905971,
+  "center": {
+    "lat": 14.4353427,
+    "lon": 120.9149717
+  },
+  "tags": {
+    "addr:barangay": "Pag-asa II",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Alapan Road",
+    "admin_level": "10",
+    "alt_name": "Pag-asa 2 Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Pag-asa II Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 186912503,
+  "center": {
+    "lat": 14.4473096,
+    "lon": 120.9238000
+  },
+  "tags": {
+    "addr:city": "Kawit",
+    "addr:postcode": "4104",
+    "addr:street": "General Yengco Street",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "catholic",
+    "name": "Saint Michael Parish Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 188287825,
+  "center": {
+    "lat": 14.3611997,
+    "lon": 120.9319454
+  },
+  "tags": {
+    "addr:barangay": "Anabu II-F",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Jacoba Tirona Paterno Boulevard",
+    "admin_level": "10",
+    "alt_name": "Anabu 2-F Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Anabu II-F Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 188676276,
+  "center": {
+    "lat": 14.2129002,
+    "lon": 120.9680069
+  },
+  "tags": {
+    "addr:city": "Silang",
+    "addr:country": "PH",
+    "addr:housename": "Premier Plaza",
+    "addr:postcode": "4118",
+    "addr:street": "Aguinaldo Highway",
+    "building": "retail",
+    "indoor": "wall",
+    "material": "concrete",
+    "name": "Premier Plaza",
+    "safety:hand_sanitizer:covid19": "yes",
+    "safety:mask:covid19": "yes",
+    "safety:shield:covid19": "yes",
+    "shop": "mall",
+    "smoking": "no",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 190251511,
+  "center": {
+    "lat": 14.4062976,
+    "lon": 120.9343128
+  },
+  "tags": {
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Patindig Araw Road",
+    "amenity": "hospital",
+    "building": "house",
+    "healthcare": "hospital",
+    "name": "St. Jude Maternity Clinic",
+    "phone": "+63 (46) 4713342",
+    "source": "Schadow1 Expeditions"
+  }
+},
+{
+  "type": "way",
+  "id": 196091441,
+  "center": {
+    "lat": 14.4275167,
+    "lon": 120.8808407
+  },
+  "tags": {
+    "addr:city": "Noveleta",
+    "addr:postcode": "4105",
+    "addr:province": "Cavite",
+    "addr:street": "Magdiwang Highway",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "Noveleta Town Hall",
+    "townhall:type": "city"
+  }
+},
+{
+  "type": "way",
+  "id": 202281123,
+  "center": {
+    "lat": 14.4423932,
+    "lon": 120.9004690
+  },
+  "tags": {
+    "addr:city": "Kawit",
+    "addr:postcode": "4104",
+    "addr:province": "Cavite",
+    "alt_name": "Wakas 1 Barangay Hall",
+    "amenity": "townhall",
+    "building": "yes",
+    "name": "Wakas I Barangay Hall",
+    "townhall:type": "village"
+  }
+},
+{
+  "type": "way",
+  "id": 206224876,
+  "center": {
+    "lat": 14.5168570,
+    "lon": 121.0208528
+  },
+  "tags": {
+    "building": "retail",
+    "name": "The Airmen's Mall",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 221685606,
+  "center": {
+    "lat": 14.4616222,
+    "lon": 120.9598771
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:street": "Aguinaldo Boulevard",
+    "alt_name": "Talaba 4 Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "2",
+    "name": "Talaba IV Barangay Hall",
+    "townhall:type": "village"
+  }
+},
+{
+  "type": "way",
+  "id": 222628893,
+  "center": {
+    "lat": 14.5380628,
+    "lon": 121.0010846
+  },
+  "tags": {
+    "addr:city": "Pasay",
+    "addr:postcode": "1300",
+    "addr:street": "Taft Avenue",
+    "addr:street:corner": "EDSA",
+    "building": "yes",
+    "building:levels": "4",
+    "name": "Metro Point Mall",
+    "opening_hours": "Mo-Su 10:00-22:00",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 223224825,
+  "center": {
+    "lat": 14.5362509,
+    "lon": 120.9992580
+  },
+  "tags": {
+    "building": "yes",
+    "name": "Two Shopping Center",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 228087524,
+  "center": {
+    "lat": 14.2929728,
+    "lon": 120.9095842
+  },
+  "tags": {
+    "addr:barangay": "Manggahan",
+    "addr:city": "General Trias",
+    "addr:country": "PH",
+    "addr:postcode": "4107",
+    "addr:province": "Cavite",
+    "addr:street": "Governor's Drive",
+    "building": "yes",
+    "building:levels": "2",
+    "name": "Skymart General Trias",
+    "old_name": "Divimart General Trias",
+    "shop": "mall",
+    "smoking": "no",
+    "source": "Schadow1 Expeditions;DP24 Integrated Media",
+    "tactile_paving": "no",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "way",
+  "id": 228088016,
+  "center": {
+    "lat": 14.2802332,
+    "lon": 120.8706500
+  },
+  "tags": {
+    "addr:city": "Trece Martires",
+    "addr:postcode": "4109",
+    "addr:street": "Governor's Drive",
+    "air_conditioning": "yes",
+    "branch": "Trece Martires",
+    "brand": "WalterMart",
+    "brand:wikidata": "Q39052914",
+    "building": "commercial",
+    "building:levels": "2",
+    "name": "WalterMart",
+    "opening_hours": "Mo-Th 09:00-20:00; Fr-Su 09:00-21:00",
+    "shop": "mall",
+    "smoking": "no",
+    "source": "Schadow1 Expeditions;DP24 Integrated Media",
+    "tactile_paving": "no",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 237193416,
+  "center": {
+    "lat": 14.4119763,
+    "lon": 120.9853734
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:country": "PH",
+    "addr:neighbourhood": "Soldiers Hills IV",
+    "addr:place": "Molino VI",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "amenity": "college",
+    "barrier": "gate",
+    "name": "Woodridge College",
+    "wall": "dry_stone"
+  }
+},
+{
+  "type": "way",
+  "id": 237599127,
+  "center": {
+    "lat": 14.4255133,
+    "lon": 120.9595029
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Addas Parish Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 239011136,
+  "center": {
+    "lat": 14.4482913,
+    "lon": 120.9856287
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:postcode": "1740",
+    "addr:street": "Alabang-Zapote Road",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "University of Perpetual Help Dalta Medical Center",
+    "ref": "UPRI",
+    "ref:doh": "798"
+  }
+},
+{
+  "type": "way",
+  "id": 240105266,
+  "center": {
+    "lat": 14.4802366,
+    "lon": 120.9811726
+  },
+  "tags": {
+    "building": "yes",
+    "name": "Food City",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 240126491,
+  "center": {
+    "lat": 14.4628693,
+    "lon": 120.9687744
+  },
+  "tags": {
+    "addr:housenumber": "46",
+    "addr:street": "Alabang-Zapote Road",
+    "amenity": "hospital",
+    "beds": "101",
+    "building": "hospital",
+    "contact:phone": "+63 0282554802",
+    "mapillary": "506475574476670",
+    "name": "Pamplona Hospital & Medical Center",
+    "ref": "DOH000000000047808"
+  }
+},
+{
+  "type": "way",
+  "id": 240131999,
+  "center": {
+    "lat": 14.4428817,
+    "lon": 120.9969765
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:country": "PH",
+    "addr:postcode": "1740",
+    "addr:street": "Alabang-Zapote Road",
+    "amenity": "hospital",
+    "branch": "Talon",
+    "emergency": "yes",
+    "healthcare": "hospital",
+    "mapillary": "1897086363822338",
+    "name": "Alabang Medical Clinic",
+    "ref:doh": "4395"
+  }
+},
+{
+  "type": "way",
+  "id": 240596947,
+  "center": {
+    "lat": 14.3431766,
+    "lon": 120.9471164
+  },
+  "tags": {
+    "addr:city": "Dasmariñas",
+    "addr:postcode": "4114",
+    "addr:province": "Cavite",
+    "amenity": "college",
+    "building": "college",
+    "name": "Colegio de Salitran"
+  }
+},
+{
+  "type": "way",
+  "id": 242870592,
+  "center": {
+    "lat": 14.4327096,
+    "lon": 120.9976796
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:postcode": "1740",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "Talon Kuatro Barangay Hall",
+    "source": "jklinc",
+    "source:url": "http://www.freewebs.com/phroadguide/",
+    "townhall:type": "village"
+  }
+},
+{
+  "type": "way",
+  "id": 242872440,
+  "center": {
+    "lat": 14.4231898,
+    "lon": 120.9960896
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:postcode": "1740",
+    "addr:street": "Apollo IV",
+    "amenity": "townhall",
+    "name": "Talon 5 Barangay Hall"
+  }
+},
+{
+  "type": "way",
+  "id": 243471148,
+  "center": {
+    "lat": 14.4557673,
+    "lon": 120.9840779
+  },
+  "tags": {
+    "amenity": "townhall",
+    "name": "Pamplona Tres Barangay Hall",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 243471880,
+  "center": {
+    "lat": 14.4494418,
+    "lon": 120.9750173
+  },
+  "tags": {
+    "amenity": "townhall",
+    "name": "Pamplona Dos Barangay Hall"
+  }
+},
+{
+  "type": "way",
+  "id": 243476215,
+  "center": {
+    "lat": 14.4653402,
+    "lon": 120.9682588
+  },
+  "tags": {
+    "addr:city": "Las Pinas",
+    "addr:postcode": "1740",
+    "addr:street": "Alabang-Zapote Road",
+    "addr:street:corner": "P. Diego Cera Avenue",
+    "amenity": "townhall",
+    "building": "civic",
+    "building:levels": "1",
+    "name": "Zapote Barangay Hall",
+    "townhall:type": "barangay",
+    "wikimedia_commons": "Category:Barangay Hall of Zapote, Las Piñas City"
+  }
+},
+{
+  "type": "way",
+  "id": 243781002,
+  "center": {
+    "lat": 14.4545127,
+    "lon": 120.9198546
+  },
+  "tags": {
+    "addr:street": "Covelandia Road",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "Samala-Marquez Barangay Hall",
+    "townhall:type": "village"
+  }
+},
+{
+  "type": "way",
+  "id": 249280944,
+  "center": {
+    "lat": 14.4573854,
+    "lon": 121.0328577
+  },
+  "tags": {
+    "addr:street": "Dr. A. Santos Avenue",
+    "building": "retail",
+    "building:levels": "4",
+    "name": "SM BF Parañaque",
+    "name:en": "SM BF Parañaque",
+    "shop": "mall",
+    "short_name": "SM BF"
+  }
+},
+{
+  "type": "way",
+  "id": 249748199,
+  "center": {
+    "lat": 14.4431231,
+    "lon": 120.9217965
+  },
+  "tags": {
+    "addr:barangay": "Medicion II-D",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Medicion Street",
+    "admin_level": "10",
+    "alt_name": "Medicion 2-D Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "layer": "1",
+    "name": "Medicion II-D Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 250793221,
+  "center": {
+    "lat": 14.4466723,
+    "lon": 120.9084667
+  },
+  "tags": {
+    "addr:city": "Kawit",
+    "addr:postcode": "4104",
+    "addr:province": "Cavite",
+    "amenity": "townhall",
+    "building": "public",
+    "is_in:town": "Kawit",
+    "name": "Marulas Barangay Hall",
+    "townhall:type": "quarter"
+  }
+},
+{
+  "type": "way",
+  "id": 250890124,
+  "center": {
+    "lat": 14.4395675,
+    "lon": 120.8978220
+  },
+  "tags": {
+    "addr:city": "Kawit",
+    "addr:postcode": "4104",
+    "addr:province": "Cavite",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "Panamitan Barangay Hall",
+    "townhall:type": "quarter"
+  }
+},
+{
+  "type": "way",
+  "id": 250890287,
+  "center": {
+    "lat": 14.4349447,
+    "lon": 120.8977574
+  },
+  "tags": {
+    "addr:city": "Kawit",
+    "addr:postcode": "4104",
+    "addr:province": "Cavite",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "Batong Dalig Barangay Hall",
+    "townhall:type": "quarter"
+  }
+},
+{
+  "type": "way",
+  "id": 251025902,
+  "center": {
+    "lat": 14.4250997,
+    "lon": 120.8841667
+  },
+  "tags": {
+    "addr:city": "Noveleta",
+    "addr:postcode": "4105",
+    "addr:province": "Cavite",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "San Antonio 1 Barangay Hall"
+  }
+},
+{
+  "type": "way",
+  "id": 251027599,
+  "center": {
+    "lat": 14.4287990,
+    "lon": 120.8838988
+  },
+  "tags": {
+    "addr:city": "Noveleta",
+    "addr:postcode": "4105",
+    "addr:province": "Cavite",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "San Jose I Barangay Hall",
+    "townhall:type": "quarter"
+  }
+},
+{
+  "type": "way",
+  "id": 251467100,
+  "center": {
+    "lat": 14.4594129,
+    "lon": 120.9320029
+  },
+  "tags": {
+    "addr:place": "Sineguelasan",
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "civic",
+    "name": "Bahay Pamahalaan ng Barangay Sineguelasan",
+    "name:en": "Sineguelasan Barangay Hall",
+    "name:tl": "Bahay Pamahalaan ng Barangay Sineguelasan",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 253577076,
+  "center": {
+    "lat": 14.4383167,
+    "lon": 120.9040757
+  },
+  "tags": {
+    "addr:street": "Daang Bakal Street",
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "civic",
+    "building:levels": "2",
+    "mapillary": "313827907540623",
+    "name": "Bulwagang Pambarangay ng Tabon 1",
+    "name:en": "Tabon I Barangay Hall",
+    "name:tl": "Bulwagang Pambarangay ng Tabon 1",
+    "source": "extrapolation",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 254975986,
+  "center": {
+    "lat": 14.4418927,
+    "lon": 120.9093855
+  },
+  "tags": {
+    "addr:city": "Kawit",
+    "addr:province": "Cavite",
+    "addr:street": "Daang Bakal Street",
+    "amenity": "townhall",
+    "building": "civic",
+    "government": "administrative",
+    "name": "Gahak Barangay Hall",
+    "townhall:type": "village"
+  }
+},
+{
+  "type": "way",
+  "id": 258638222,
+  "center": {
+    "lat": 14.3982488,
+    "lon": 120.9784590
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "addr:street": "Molino 3 Service Road",
+    "alt_name": "Molino 3 Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "2",
+    "government": "administrative",
+    "name": "Molino III Barangay Hall",
+    "office": "government",
+    "opening_hours": "Mo-Fr 08:00-17:00",
+    "operator": "Barangay Government of Molino 3",
+    "townhall:type": "village",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "way",
+  "id": 259579603,
+  "center": {
+    "lat": 14.4190552,
+    "lon": 120.9979740
+  },
+  "tags": {
+    "amenity": "hospital",
+    "name": "Golden Acres Doctors' Hospital"
+  }
+},
+{
+  "type": "way",
+  "id": 262678832,
+  "center": {
+    "lat": 14.4169591,
+    "lon": 120.8985378
+  },
+  "tags": {
+    "addr:city": "Kawit",
+    "addr:postcode": "4104",
+    "addr:street": "Toclong-San Sebastian Road",
+    "amenity": "hospital",
+    "name": "Kawit Kalayaan Hospital",
+    "phone": "+63 (46) 4388523",
+    "ref:doh": "599"
+  }
+},
+{
+  "type": "way",
+  "id": 263667838,
+  "center": {
+    "lat": 14.5491066,
+    "lon": 121.0272584
+  },
+  "tags": {
+    "addr:city": "Makati",
+    "building": "yes",
+    "building:levels": "5",
+    "height": "15",
+    "name": "SM Makati Annex",
+    "note": "height is approximate",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 264058893,
+  "center": {
+    "lat": 14.4070577,
+    "lon": 120.9564972
+  },
+  "tags": {
+    "addr:barangay": "Buhay na Tubig",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Buhay na Tubig Road",
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "civic",
+    "name": "Buhay na Tubig Barangay Hall",
+    "name:en": "Buhay na Tubig Barangay Hall",
+    "name:tl": "Bahay Pamahalaan ng Barangay Buhay na Tubig",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 267372500,
+  "center": {
+    "lat": 14.4135136,
+    "lon": 120.9346274
+  },
+  "tags": {
+    "addr:barangay": "Bayan Luma V",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Sauler Street",
+    "admin_level": "10",
+    "alt_name": "Bayan Luma 5 Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Bayan Luma V Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 273418582,
+  "center": {
+    "lat": 14.4623957,
+    "lon": 120.9619515
+  },
+  "tags": {
+    "amenity": "hospital",
+    "name": "Pamplona Medical Clinic"
+  }
+},
+{
+  "type": "way",
+  "id": 273420439,
+  "center": {
+    "lat": 14.4626260,
+    "lon": 120.9606721
+  },
+  "tags": {
+    "amenity": "hospital",
+    "name": "Christ The King General Hospital"
+  }
+},
+{
+  "type": "way",
+  "id": 284349392,
+  "center": {
+    "lat": 14.4633730,
+    "lon": 120.8818850
+  },
+  "tags": {
+    "addr:city": "Cavite City",
+    "addr:place": "Dalahican",
+    "addr:postcode": "4100",
+    "addr:province": "Cavite",
+    "addr:street": "Manila-Cavite Road",
+    "amenity": "hospital",
+    "building": "hospital",
+    "healthcare": "hospital",
+    "name": "Cavite Medical Center",
+    "postal_code": "4100",
+    "source": "Schadow1 Expeditions",
+    "survey:date": "2018-03-26"
+  }
+},
+{
+  "type": "way",
+  "id": 284349512,
+  "center": {
+    "lat": 14.4584633,
+    "lon": 120.8802783
+  },
+  "tags": {
+    "addr:city": "Cavite City",
+    "addr:postcode": "4100",
+    "addr:province": "Cavite",
+    "addr:street": "Manila-Cavite Road",
+    "amenity": "university",
+    "building": "school",
+    "contact:facebook": "cavitestateuniversitycavitecity",
+    "email": "cvsucavitecity@cvsu.edu.ph",
+    "name": "Cavite State University - Cavite City Campus",
+    "phone": "(046) 431-3580",
+    "source": "Schadow1 Expeditions",
+    "survey:date": "2018-03-26"
+  }
+},
+{
+  "type": "way",
+  "id": 286017530,
+  "center": {
+    "lat": 14.4116555,
+    "lon": 121.0468503
+  },
+  "tags": {
+    "addr:city": "Muntinlupa",
+    "addr:postcode": "1772",
+    "addr:street": "National Road",
+    "addr:subdistrict": "Bayanan",
+    "building": "retail",
+    "building:levels": "4",
+    "building:levels:ref": "1st;2nd;3rd;4th",
+    "contact:email": "southpark.center@ayalalandlogistics.com",
+    "contact:facebook": "southparkcenterph",
+    "contact:instagram": "southparkcenterph",
+    "contact:phone": "+63 2 7944 6588",
+    "height": "15.2",
+    "name": "South Park Center",
+    "old_name": "Ayala Malls South Park",
+    "operator": "AyalaLand Logistics",
+    "operator:parent:wikidata": "Q792735",
+    "operator:short": "ALLHC",
+    "shop": "mall",
+    "start_date": "2016-11-29",
+    "was:operator": "Ayala Malls",
+    "was:operator:wikidata": "Q16836231"
+  }
+},
+{
+  "type": "way",
+  "id": 290639215,
+  "center": {
+    "lat": 14.4466085,
+    "lon": 120.9063900
+  },
+  "tags": {
+    "addr:city": "Kawit",
+    "addr:postcode": "4104",
+    "addr:province": "Cavite",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "Kaingen Multipurpose Hall",
+    "townhall:type": "quarter"
+  }
+},
+{
+  "type": "way",
+  "id": 306853840,
+  "center": {
+    "lat": 14.4293125,
+    "lon": 120.8941217
+  },
+  "tags": {
+    "addr:city": "Kawit",
+    "addr:postcode": "4104",
+    "addr:province": "Cavite",
+    "addr:street": "Antero Soriano Highway",
+    "landuse": "retail",
+    "name": "Lokal Mall",
+    "opening_hours": "Mo-Su 10:00-20:00",
+    "shop": "mall",
+    "source": "Schadow1 Expeditions"
+  }
+},
+{
+  "type": "way",
+  "id": 308870222,
+  "center": {
+    "lat": 14.5188954,
+    "lon": 121.0199377
+  },
+  "tags": {
+    "addr:city": "Pasay",
+    "addr:postcode": "1309",
+    "addr:street": "Newport Boulevard",
+    "building": "yes",
+    "building:levels": "4",
+    "height": "30",
+    "name": "Newport Mall",
+    "previously": "node:1671368560",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 310552687,
+  "center": {
+    "lat": 14.3760350,
+    "lon": 121.0118025
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:postcode": "1740",
+    "addr:street": "Daang Hari",
+    "landuse": "retail",
+    "name": "Evia Lifestyle Center",
+    "shop": "mall",
+    "smoking": "separated",
+    "website": "https://vistamalls.com.ph/mall/evia-lifestyle-center",
+    "wikidata": "Q85760002"
+  }
+},
+{
+  "type": "way",
+  "id": 311537215,
+  "center": {
+    "lat": 14.3982149,
+    "lon": 120.9880300
+  },
+  "tags": {
+    "addr:barangay": "Queen's Row Central",
+    "addr:city": "Bacoor",
+    "addr:district": "Molino",
+    "addr:postcode": "4135",
+    "addr:province": "Cavite",
+    "addr:street": "Queen's Avenue",
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "civic",
+    "building:colour": "white",
+    "contact:facebook": "BarangayQRCentral",
+    "government": "administrative",
+    "mapillary": "947447675874388",
+    "name": "Queen's Row Central Barangay Hall",
+    "name:en": "Queen's Row Central Barangay Hall",
+    "name:tl": "Bulwagang Pambarangay ng Queen's Row Central",
+    "office": "government",
+    "opening_hours": "24/7",
+    "operator": "Pamahalaang Barangay ng Queen's Row Central",
+    "roof:colour": "green",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 316002054,
+  "center": {
+    "lat": 14.4340946,
+    "lon": 121.0418851
+  },
+  "tags": {
+    "addr:city": "Muntinlupa",
+    "addr:housenumber": "398",
+    "addr:postcode": "1771",
+    "addr:street": "Don Jesus Boulevard",
+    "addr:suburb": "Cupang",
+    "building": "retail",
+    "building:levels": "4",
+    "contact:facebook": "MadisonGaleries",
+    "email": "social@madisongaleries.com",
+    "name": "Madison Galeries",
+    "phone": "+63 2 8877 0702",
+    "shop": "mall",
+    "website": "https://www.madisongaleries.com/"
+  }
+},
+{
+  "type": "way",
+  "id": 317656267,
+  "center": {
+    "lat": 14.5226582,
+    "lon": 121.0141361
+  },
+  "tags": {
+    "landuse": "commercial",
+    "name": "Eighty One Mall",
+    "operator": "Megaworld Lifestyle Malls",
+    "operator:wikidata": "Q16951297",
+    "shop": "mall",
+    "was:residential": "apartments"
+  }
+},
+{
+  "type": "way",
+  "id": 318087849,
+  "center": {
+    "lat": 14.2815854,
+    "lon": 120.8659201
+  },
+  "tags": {
+    "air_conditioning": "yes",
+    "building": "commercial",
+    "building:levels": "3",
+    "building:levels:underground": "1",
+    "not:operator:wikidata": "Q7391510",
+    "note": "name at the landuse",
+    "operator": "SM Supermalls",
+    "shop": "mall",
+    "smoking": "no",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 318873379,
+  "center": {
+    "lat": 14.4337304,
+    "lon": 120.9745498
+  },
+  "tags": {
+    "amenity": "townhall",
+    "building": "yes",
+    "name": "San Nicholas 2 Barangay Hall",
+    "townhall:type": "village"
+  }
+},
+{
+  "type": "way",
+  "id": 318880241,
+  "center": {
+    "lat": 14.4466052,
+    "lon": 120.9644253
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "addr:street": "Bacoor Boulevard",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "Niog 3 Barangay Hall",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 320331819,
+  "center": {
+    "lat": 14.5504989,
+    "lon": 121.0257088
+  },
+  "tags": {
+    "building": "yes",
+    "building:levels": "8",
+    "height": "32",
+    "name": "Glorietta 1",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 320472553,
+  "center": {
+    "lat": 14.4575229,
+    "lon": 120.9947907
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:street": "CAA Avenue",
+    "amenity": "townhall",
+    "building": "civic",
+    "government": "administrative",
+    "mapillary": "5693394794033992",
+    "name": "CAA - BF International Barangay Hall",
+    "opening_hours": "24/7",
+    "townhall:type": "village"
+  }
+},
+{
+  "type": "way",
+  "id": 320472772,
+  "center": {
+    "lat": 14.4638142,
+    "lon": 120.9661243
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:street": "Aguinaldo Highway",
+    "alt_name": "Zapote 3 Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "Zapote III Barangay Hall"
+  }
+},
+{
+  "type": "way",
+  "id": 320473048,
+  "center": {
+    "lat": 14.4611768,
+    "lon": 120.9595144
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:street": "Aguinaldo Boulevard",
+    "alt_name": "Talaba 3 Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "Talaba III Barangay Hall",
+    "townhall:type": "village"
+  }
+},
+{
+  "type": "way",
+  "id": 320473139,
+  "center": {
+    "lat": 14.4693711,
+    "lon": 120.9626669
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:street": "Aguinaldo Boulevard",
+    "alt_name": "Zapote 3 Barangay Hall;Longos Barangay Hall;Lungos Barangay Hall",
+    "amenity": "townhall",
+    "building": "yes",
+    "building:levels": "1",
+    "name": "Zapote III Barangay Hall"
+  }
+},
+{
+  "type": "way",
+  "id": 329086755,
+  "center": {
+    "lat": 14.4458356,
+    "lon": 121.0212135
+  },
+  "tags": {
+    "addr:city": "Parañaque",
+    "addr:street": "Aguirre Avenue",
+    "landuse": "retail",
+    "name": "Metrostar Mall",
+    "not:name": "Metro Starmall",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 329989971,
+  "center": {
+    "lat": 14.4360343,
+    "lon": 121.0068225
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:street": "Alabang-Zapote Road",
+    "addr:street:corner": "Marcos Alvarez Avenue",
+    "landuse": "retail",
+    "name": "Colours Town Center",
+    "operator": "RE/MAX Regent Properties",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 339508083,
+  "center": {
+    "lat": 14.4311269,
+    "lon": 120.9680957
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:street": "NoMo Avenue",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "4",
+    "building:levels:underground": "1",
+    "government": "administrative",
+    "name": "Bacoor City Hall Main Building",
+    "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:00-12:00; PH off",
+    "smoking": "no",
+    "townhall:type": "city",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 353748434,
+  "center": {
+    "lat": 14.4443130,
+    "lon": 120.9033231
+  },
+  "tags": {
+    "addr:city": "Kawit",
+    "addr:postcode": "4104",
+    "addr:street": "Tirona Highway",
+    "addr:street:corner": "Kaligtasan Street",
+    "alt_name": "Old Kawit Municipal Hall",
+    "amenity": "townhall",
+    "building": "government",
+    "building:levels": "3",
+    "name": "Kawit Tribunal",
+    "old_name": "Kawit Town Hall",
+    "wikimedia_commons": "Category:Kawit Tribunal"
+  }
+},
+{
+  "type": "way",
+  "id": 353763176,
+  "center": {
+    "lat": 14.4268657,
+    "lon": 120.9161896
+  },
+  "tags": {
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:street": "Alapan Road",
+    "amenity": "college",
+    "name": "Centennial Heritage Colleges"
+  }
+},
+{
+  "type": "way",
+  "id": 363541233,
+  "center": {
+    "lat": 14.4433115,
+    "lon": 120.9963648
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:housenumber": "545 -E",
+    "addr:street": "Alabang-Zapote Road",
+    "amenity": "hospital",
+    "emergency": "yes",
+    "healthcare": "hospital",
+    "name": "Pope John Paul II Hospital and Medical Center",
+    "operator:type": "private",
+    "short_name": "Pope John Paul II Medical Center"
+  }
+},
+{
+  "type": "way",
+  "id": 366954086,
+  "center": {
+    "lat": 14.3964797,
+    "lon": 120.9688653
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "2",
+    "government": "administrative",
+    "name": "Molino 5 Barangay Hall",
+    "office": "government",
+    "opening_hours": "24/7",
+    "townhall:type": "village"
+  }
+},
+{
+  "type": "way",
+  "id": 366978688,
+  "center": {
+    "lat": 14.4042241,
+    "lon": 120.9072648
+  },
+  "tags": {
+    "addr:barangay": "Alapan II-B",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Bucandala - Alapan Road",
+    "admin_level": "10",
+    "alt_name": "Alapan 2-B Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Alapan II-B Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 369509989,
+  "center": {
+    "lat": 14.4605227,
+    "lon": 120.9804624
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:postcode": "1740",
+    "addr:street": "Aurora Drive",
+    "amenity": "townhall",
+    "name": "Pulanglupa Dos Barangay Hall",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 371263393,
+  "center": {
+    "lat": 14.3736846,
+    "lon": 120.9285254
+  },
+  "tags": {
+    "addr:barangay": "Malagasang II-A",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Malagasang Road",
+    "admin_level": "10",
+    "alt_name": "Malagasang 2-A Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Malagasang II-A Barangay Hall",
+    "office": "government",
+    "source": "Schadow1 Expeditions",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 374746043,
+  "center": {
+    "lat": 14.4482440,
+    "lon": 120.9412011
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "amenity": "college",
+    "building": "school",
+    "name": "International School of Hotel & Restaurant Management",
+    "short_name": "ISHRM"
+  }
+},
+{
+  "type": "way",
+  "id": 390757297,
+  "center": {
+    "lat": 14.3959104,
+    "lon": 120.9939322
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "admin_level": "10",
+    "alt_name": "Queen’s Row East Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "Queen's Row East Barangay Hall",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 396504426,
+  "center": {
+    "lat": 14.5080200,
+    "lon": 120.9935292
+  },
+  "tags": {
+    "building": "retail",
+    "mapillary": "1010849819856729",
+    "name": "Divi Mall",
+    "shop": "mall",
+    "source": "interpolation",
+    "source_ref": "https://osm.org/note/3111914"
+  }
+},
+{
+  "type": "way",
+  "id": 406404429,
+  "center": {
+    "lat": 14.4561740,
+    "lon": 120.9574688
+  },
+  "tags": {
+    "addr:barangay": "Niog",
+    "addr:city": "Bacoor",
+    "addr:province": "Cavite",
+    "addr:street": "Niog Road",
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "Niog Barangay Hall",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 407892855,
+  "center": {
+    "lat": 14.3588419,
+    "lon": 120.8990472
+  },
+  "tags": {
+    "addr:barangay": "Pasong Camachile II",
+    "addr:city": "General Trias",
+    "addr:place": "Pasong Camacille 2",
+    "addr:postcode": "4107",
+    "addr:province": "Cavite",
+    "alt_name": "Pasong Camachile 2 Barangay Hall",
+    "amenity": "townhall",
+    "building": "yes",
+    "government": "administrative",
+    "name": "Pasong Camachile II Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 408489955,
+  "center": {
+    "lat": 14.2057954,
+    "lon": 120.9666136
+  },
+  "tags": {
+    "building": "retail",
+    "name": "Dream House Furniture",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 409979241,
+  "center": {
+    "lat": 14.4206285,
+    "lon": 121.0431267
+  },
+  "tags": {
+    "landuse": "retail",
+    "name": "South Station: The Grills",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 411879128,
+  "center": {
+    "lat": 14.3902928,
+    "lon": 120.9410061
+  },
+  "tags": {
+    "addr:barangay": "Anabu I-F",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Anabu Road",
+    "admin_level": "10",
+    "alt_name": "Anabu 1-F Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "2",
+    "government": "administrative",
+    "name": "Anabu I-F Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 411887834,
+  "center": {
+    "lat": 14.3854912,
+    "lon": 120.9409228
+  },
+  "tags": {
+    "addr:barangay": "Anabu II-B",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Anabu Road",
+    "admin_level": "10",
+    "alt_name": "Anabu 2-B Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "2",
+    "government": "administrative",
+    "name": "Anabu II-B Barangay Hall",
+    "name:en": "Anabu II-B Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 411887933,
+  "center": {
+    "lat": 14.3852544,
+    "lon": 120.9409812
+  },
+  "tags": {
+    "addr:barangay": "Anabu II-B",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Anabu Road",
+    "admin_level": "10",
+    "alt_name": "New Anabu 2-B Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "3",
+    "government": "administrative",
+    "name": "New Anabu II-B Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 411899180,
+  "center": {
+    "lat": 14.3894172,
+    "lon": 120.9381301
+  },
+  "tags": {
+    "addr:barangay": "Anabu I-D",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "admin_level": "10",
+    "alt_name": "Anabu 1-D Barangay Hall",
+    "amenity": "townhall",
+    "building": "yes",
+    "building:levels": "2",
+    "government": "administrative",
+    "name": "Anabu I-D Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 414289489,
+  "center": {
+    "lat": 14.4598535,
+    "lon": 120.9401226
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "amenity": "townhall",
+    "building": "civic",
+    "name": "Tabing Dagat Barangay Hall"
+  }
+},
+{
+  "type": "way",
+  "id": 414408040,
+  "center": {
+    "lat": 14.3314494,
+    "lon": 121.0502193
+  },
+  "tags": {
+    "addr:city": "Biñan",
+    "addr:neighbourhood": "Southwoods City",
+    "addr:postcode": "4024",
+    "addr:province": "Laguna",
+    "addr:street": "Ecocentrum Avenue",
+    "landuse": "commercial",
+    "name": "Southwoods Mall",
+    "shop": "mall",
+    "smoking": "no",
+    "start_date": "2017-10-31",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 415762253,
+  "center": {
+    "lat": 14.4635940,
+    "lon": 120.9599870
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "addr:street": "Aguinaldo Boulevard",
+    "alt_name": "Talaba II Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "2",
+    "building:material": "concrete",
+    "indoor": "wall",
+    "material": "concrete",
+    "name": "Talaba 2 Barangay Hall",
+    "smoking": "no",
+    "tactile_paving": "no",
+    "townhall:type": "village",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "way",
+  "id": 416632976,
+  "center": {
+    "lat": 14.4198455,
+    "lon": 120.9676614
+  },
+  "tags": {
+    "amenity": "hospital",
+    "name": "Bacoor Doctors Medical Center"
+  }
+},
+{
+  "type": "way",
+  "id": 416837213,
+  "center": {
+    "lat": 14.4325718,
+    "lon": 120.9854210
+  },
+  "tags": {
+    "amenity": "townhall",
+    "building": "civic",
+    "building:levels": "3",
+    "name": "Talon Dos Barangay Hall",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 417241038,
+  "center": {
+    "lat": 14.4397156,
+    "lon": 120.8888312
+  },
+  "tags": {
+    "addr:city": "Kawit",
+    "addr:postcode": "4104",
+    "addr:province": "Cavite",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Santa Isabel Barangay Hall",
+    "office": "government",
+    "opening_hours": "24/7",
+    "townhall:type": "village"
+  }
+},
+{
+  "type": "way",
+  "id": 420678175,
+  "center": {
+    "lat": 14.4055811,
+    "lon": 120.9905490
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "alt_name": "Makrol Arcade",
+    "building": "commercial",
+    "name": "Mak-rol Arcade",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 420688055,
+  "center": {
+    "lat": 14.3967235,
+    "lon": 120.9421263
+  },
+  "tags": {
+    "addr:barangay": "Anabu I-C",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:subdivision": "Liwayway Homes",
+    "admin_level": "10",
+    "alt_name": "Anabu 1-C Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "2",
+    "government": "administrative",
+    "name": "Anabu I-C Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 420688473,
+  "center": {
+    "lat": 14.3925445,
+    "lon": 120.9412308
+  },
+  "tags": {
+    "addr:barangay": "Anabu I-E",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Anabu Road",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "building:levels": "2",
+    "denomination": "roman_catholic",
+    "name": "Our Lady of Fatima Parish Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 421085700,
+  "center": {
+    "lat": 14.4469082,
+    "lon": 120.9441364
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "amenity": "college",
+    "building": "school",
+    "name": "Montessori Professional College"
+  }
+},
+{
+  "type": "way",
+  "id": 421758118,
+  "center": {
+    "lat": 14.3331243,
+    "lon": 120.9526953
+  },
+  "tags": {
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "4",
+    "fixme": "building parts",
+    "name": "New City Hall Socio-Economic and Multi-Purpose Building",
+    "operator": "City Government of Dasmariñas",
+    "operator:type": "government",
+    "smoking": "no",
+    "townhall:type": "city",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 422167161,
+  "center": {
+    "lat": 14.3676528,
+    "lon": 120.9269482
+  },
+  "tags": {
+    "addr:barangay": "Malagasang II-C",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Malagasang Road",
+    "admin_level": "10",
+    "alt_name": "Malagasang 2-C Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Malagasang II-C Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 422326981,
+  "center": {
+    "lat": 14.3437622,
+    "lon": 120.9452533
+  },
+  "tags": {
+    "addr:city": "Dasmariñas",
+    "addr:postcode": "4114",
+    "addr:province": "Cavite",
+    "amenity": "townhall",
+    "building": "yes",
+    "name": "Salitran III Barangay Hall"
+  }
+},
+{
+  "type": "way",
+  "id": 422379857,
+  "center": {
+    "lat": 14.4385230,
+    "lon": 120.9738207
+  },
+  "tags": {
+    "addr:street": "Molino Road",
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "civic",
+    "mapillary": "879363086796833",
+    "name": "Bulwagang Pambarangay ng San Nicolas",
+    "name:en": "San Nicolas Barangay Hall",
+    "name:tl": "Bulwagang Pambarangay ng San Nicolas",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 422400293,
+  "center": {
+    "lat": 14.3617665,
+    "lon": 120.9277213
+  },
+  "tags": {
+    "addr:barangay": "Malagasang II-D",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Jacoba Tirona Paterno Boulevard",
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Bahay Pamahalaan ng Barangay Malagasang II-D",
+    "name:en": "Malagasang II-D Barangay Hall",
+    "name:tl": "Bahay Pamahalaan ng Barangay Malagasang II-D",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 422582746,
+  "center": {
+    "lat": 14.3379788,
+    "lon": 120.8812963
+  },
+  "tags": {
+    "addr:barangay": "Pasong Kawayan II",
+    "addr:city": "General Trias",
+    "addr:province": "Cavite",
+    "addr:street": "Narra Avenue",
+    "admin_level": "10",
+    "alt_name": "Pasong Kawayan 2 Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "2",
+    "government": "administrative",
+    "name": "Pasong Kawayan II Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 423269608,
+  "center": {
+    "lat": 14.3930938,
+    "lon": 120.8523858
+  },
+  "tags": {
+    "addr:city": "Tanza",
+    "addr:postcode": "4108",
+    "addr:province": "Cavite",
+    "building": "house",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 423389300,
+  "center": {
+    "lat": 14.4311356,
+    "lon": 120.8858864
+  },
+  "tags": {
+    "addr:city": "Noveleta",
+    "addr:postcode": "4105",
+    "addr:province": "Cavite",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "San Jose II Barangay Hall",
+    "townhall:type": "quarter"
+  }
+},
+{
+  "type": "way",
+  "id": 423569557,
+  "center": {
+    "lat": 14.4208894,
+    "lon": 120.8845385
+  },
+  "tags": {
+    "addr:place": "San Antonio Ⅱ",
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "civic",
+    "mapillary": "2130136007141432",
+    "name": "Bahay Pamahalaan ng Barangay San Antonio II",
+    "name:en": "San Antonio II Barangay Hall",
+    "name:tl": "Bahay Pamahalaan ng Barangay San Antonio II",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 423732814,
+  "center": {
+    "lat": 14.3415087,
+    "lon": 120.9496534
+  },
+  "tags": {
+    "addr:city": "Dasmariñas",
+    "addr:country": "PH",
+    "addr:postcode": "4115",
+    "addr:province": "Cavite",
+    "amenity": "townhall",
+    "building": "public",
+    "indoor": "wall",
+    "material": "concrete",
+    "name": "San Isidro Labrador 2 Barangay Hall",
+    "previously": "node:3779237470",
+    "smoking": "no",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "way",
+  "id": 423805927,
+  "center": {
+    "lat": 14.3356825,
+    "lon": 120.9512711
+  },
+  "tags": {
+    "addr:city": "Dasmariñas",
+    "addr:place": "San Manuel",
+    "addr:postcode": "4115",
+    "addr:province": "Cavite",
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "civic",
+    "name": "Bahay Pamahalaan ng Barangay San Manuel",
+    "name:en": "San Manuel Barangay Hall",
+    "name:fil": "Bahay Pamahalaan ng Barangay San Manuel",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 424005971,
+  "center": {
+    "lat": 14.3610452,
+    "lon": 120.8808416
+  },
+  "tags": {
+    "addr:city": "General Trias",
+    "addr:postcode": "4107",
+    "addr:province": "Cavite",
+    "amenity": "townhall",
+    "building": "civic",
+    "building:levels": "2",
+    "name": "Tapia Barangay Hall",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 424008688,
+  "center": {
+    "lat": 14.4290200,
+    "lon": 120.9288846
+  },
+  "tags": {
+    "addr:barangay": "Carsadang Bago I",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Carsadang Bago",
+    "admin_level": "10",
+    "alt_name": "Carsadang Bago 1 Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Carsadang Bago I Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 424068101,
+  "center": {
+    "lat": 14.4050033,
+    "lon": 120.9283673
+  },
+  "tags": {
+    "addr:barangay": "Bucandala II",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Bucandala II Barangay Hall",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 424720539,
+  "center": {
+    "lat": 14.3962255,
+    "lon": 120.9597139
+  },
+  "tags": {
+    "addr:barangay": "Maharlika",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Avenida Street",
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "2",
+    "government": "administrative",
+    "name": "Maharlika Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 424878588,
+  "center": {
+    "lat": 14.3864767,
+    "lon": 120.8812679
+  },
+  "tags": {
+    "addr:city": "General Trias",
+    "addr:place": "Bagumbayan",
+    "addr:postcode": "4107",
+    "addr:province": "Cavite",
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "civic",
+    "name": "Bulwagang Barangay ng Bagumbayan",
+    "name:en": "Bagumbayan Barangay Hall",
+    "name:tl": "Bulwagang Barangay ng Bagumbayan",
+    "previously": "node:4103746491",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 424904275,
+  "center": {
+    "lat": 14.4295012,
+    "lon": 120.9378681
+  },
+  "tags": {
+    "addr:barangay": "Poblacion I-B",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Colonel J. Elises Street",
+    "admin_level": "10",
+    "alt_name": "Poblacion 1-B Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "3",
+    "government": "administrative",
+    "name": "Poblacion I-B Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 425075361,
+  "center": {
+    "lat": 14.4276804,
+    "lon": 120.9449381
+  },
+  "tags": {
+    "addr:barangay": "Palico IV",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "admin_level": "10",
+    "alt_name": "Palico 4 Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Palico IV Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 425075417,
+  "center": {
+    "lat": 14.4325535,
+    "lon": 120.9462884
+  },
+  "tags": {
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "amenity": "hospital",
+    "building": "hospital",
+    "emergency": "yes",
+    "healthcare": "hospital",
+    "healthcare:speciality": "paediatrics;surgery;orthopaedics;internal",
+    "name": "Imus Family Hospital"
+  }
+},
+{
+  "type": "way",
+  "id": 425245949,
+  "center": {
+    "lat": 14.4201399,
+    "lon": 120.9378638
+  },
+  "tags": {
+    "addr:barangay": "Bayan Luma II",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "admin_level": "10",
+    "alt_name": "Bayan Luma 2 Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Bayan Luma II Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 425460661,
+  "center": {
+    "lat": 14.4136083,
+    "lon": 120.9458954
+  },
+  "tags": {
+    "addr:barangay": "Tanzang Luma V",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Tanzang Luma Road",
+    "admin_level": "10",
+    "alt_name": "Tanzang Luma 5 Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "2",
+    "government": "administrative",
+    "name": "Tanzang Luma V Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 425486758,
+  "center": {
+    "lat": 14.3468578,
+    "lon": 120.9812719
+  },
+  "tags": {
+    "addr:city": "Dasmariñas",
+    "addr:postcode": "4114",
+    "addr:province": "Cavite",
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "barangay",
+    "name": "Barangay Salawag",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 426067016,
+  "center": {
+    "lat": 14.4510554,
+    "lon": 120.9433105
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "admin_level": "10",
+    "alt_name": "Habay 1 Barangay Hall;Habay Ⅰ Barangay Hall",
+    "alt_name:en": "Habay 1 Barangay Hall;Habay Ⅰ Barangay Hall",
+    "alt_name:tl": "Bahay Pamahalaan ng Barangay Habay 1;Bahay Pamahalaan ng Barangay Habay Ⅰ",
+    "amenity": "townhall",
+    "building": "civic",
+    "building:colour": "lightgreen",
+    "building:levels": "2",
+    "contact:facebook": "BrgyHabayUno",
+    "contact:phone": "+63 046 440 0848",
+    "inscription": "Barangay Habay I",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "internet_access:operator": "Department of Information and Communications Technology",
+    "internet_access:operator:wikidata": "Q25338953",
+    "name": "Habay I Barangay Hall",
+    "name:tl": "Bahay Pamahalaan ng Barangay Habay I",
+    "opening_hours": "Mo-Fr 08:00-17:00; Sa 08:00-12:00",
+    "operator": "Barangay Habay 1",
+    "operator:facebook": "BrgyHabayUno",
+    "short_name": "Habay I Brgy. Hall;Habay 1 Brgy. Hall;Habay Ⅰ Brgy. Hall",
+    "short_name:en": "Habay I Brgy. Hall;Habay 1 Brgy. Hall;Habay Ⅰ Brgy. Hall",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 426096128,
+  "center": {
+    "lat": 14.4375317,
+    "lon": 120.9367870
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "name": "Our Lady Queen of Peace Parish"
+  }
+},
+{
+  "type": "way",
+  "id": 426295826,
+  "center": {
+    "lat": 14.4213736,
+    "lon": 120.9501029
+  },
+  "tags": {
+    "addr:barangay": "Mambog I",
+    "addr:city": "Bacoor",
+    "addr:province": "Cavite",
+    "addr:street": "Diamond Street",
+    "admin_level": "10",
+    "alt_name": "Mambog 1 Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Mambog I Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 433207454,
+  "center": {
+    "lat": 14.4502136,
+    "lon": 120.9811643
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:place": "Pamplona Tres",
+    "addr:postcode": "1740",
+    "addr:street": "Alabang-Zapote Road",
+    "amenity": "college",
+    "name": "STI College",
+    "source": "Schadow1 Expeditions"
+  }
+},
+{
+  "type": "way",
+  "id": 434316739,
+  "center": {
+    "lat": 14.4224850,
+    "lon": 120.9416733
+  },
+  "tags": {
+    "addr:barangay": "Tanzang Luma I",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Aguinaldo Highway",
+    "addr:street:corner": "Nueno Avenue",
+    "building": "commercial",
+    "building:levels": "4",
+    "layer": "1",
+    "name": "Lumina Point Mall",
+    "opening_hours": "Mo-Su 10:00-20:00",
+    "previously": "way:355434872",
+    "shop": "mall",
+    "smoking": "no",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 434344193,
+  "center": {
+    "lat": 14.4416972,
+    "lon": 120.9721495
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "addr:street": "Molino Road",
+    "alt_name": "Ligas 3 Barangay Hall",
+    "amenity": "townhall",
+    "building": "yes",
+    "government": "administrative",
+    "name": "Ligas III Barangay Hall",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 437546199,
+  "center": {
+    "lat": 14.5253535,
+    "lon": 121.0277302
+  },
+  "tags": {
+    "addr:city": "Taguig",
+    "addr:province": "Metro Manila",
+    "addr:street": "Lawton Avenue",
+    "building": "retail",
+    "building:levels": "3",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 444515061,
+  "center": {
+    "lat": 14.2947479,
+    "lon": 121.0059105
+  },
+  "tags": {
+    "building": "commercial",
+    "building:levels": "2",
+    "name": "Portal Mall",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 449354213,
+  "center": {
+    "lat": 14.3317573,
+    "lon": 121.0498171
+  },
+  "tags": {
+    "addr:city": "Biñan",
+    "addr:neighbourhood": "Southwoods City",
+    "addr:postcode": "4024",
+    "addr:province": "Laguna",
+    "addr:street": "Commerce Avenue",
+    "landuse": "retail",
+    "name": "Coral Center",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 451485141,
+  "center": {
+    "lat": 14.4159161,
+    "lon": 121.0423573
+  },
+  "tags": {
+    "addr:street": "Civic Drive",
+    "building": "yes",
+    "building:levels": "3",
+    "layer": "-1",
+    "name": "Landmark Alabang",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 451510463,
+  "center": {
+    "lat": 14.3840029,
+    "lon": 120.9770361
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:country": "PH",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "addr:quarter": "Molino IV",
+    "addr:street": "Molino Road",
+    "air_conditioning": "yes",
+    "baby_feeding": "room",
+    "branch": "Molino",
+    "brand": "SM City",
+    "contact:facebook": "SMCityMolino",
+    "contact:instagram": "SMCityMolino",
+    "contact:phone": "+63 46 474 3157",
+    "contact:twitter": "SMCityMolino",
+    "internet_access": "wlan",
+    "internet_access:captive_portal": "yes",
+    "internet_access:fee": "no",
+    "internet_access:registration": "yes",
+    "internet_access:registration:type": "mobile;accept_tou",
+    "internet_access:ssid": "SM Free WiFI",
+    "landuse": "retail",
+    "mapillary": "1158413808291537",
+    "music": "recorded",
+    "music_genre": "pop;jazz",
+    "name": "SM City Molino",
+    "old_name": "SM Supercenter Molino;SM Center Molino",
+    "opening_hours": "Mo-Su 10:00-21:00",
+    "operator": "SM Supermalls",
+    "operator:wikidata": "Q7391510",
+    "shop": "mall",
+    "toilets": "separate",
+    "toilets:access": "yes",
+    "toilets:wheelchair": "yes",
+    "was:internet_access:ssid": "SM Free WiFi;SM_Free_WiFI",
+    "wheelchair": "yes",
+    "wikimedia_commons": "File:SM City Molino (Molino, Bacoor, Cavite; 2017-04-03).jpeg"
+  }
+},
+{
+  "type": "way",
+  "id": 505988905,
+  "center": {
+    "lat": 14.4241601,
+    "lon": 120.9996462
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:street": "Marcos Alvarez Avenue",
+    "amenity": "hospital",
+    "building": "hospital",
+    "mapillary": "4925353170911472",
+    "name": "Cabinte Maternity & Children's Hospital"
+  }
+},
+{
+  "type": "way",
+  "id": 508471457,
+  "center": {
+    "lat": 14.5336687,
+    "lon": 120.9985544
+  },
+  "tags": {
+    "addr:city": "Pasay",
+    "addr:street": "Taft Avenue Extension",
+    "landuse": "retail",
+    "name": "My Mall",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 531840447,
+  "center": {
+    "lat": 14.4062708,
+    "lon": 120.9758207
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:country": "PH",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "addr:street": "Bacoor Boulevard",
+    "alt_name": "Lokal Mall",
+    "brand": "Lokal",
+    "building": "retail",
+    "contact:facebook": "lokalmolino",
+    "layer": "1",
+    "mapillary": "695165858176361",
+    "name": "Lokal",
+    "old_name": "V-Central Mall Molino",
+    "shop": "mall",
+    "toilets": "no",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 551068606,
+  "center": {
+    "lat": 14.4313215,
+    "lon": 120.9375172
+  },
+  "tags": {
+    "addr:barangay": "Poblacion II-A",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Sol P. Bella Street",
+    "admin_level": "10",
+    "alt_name": "Poblacion 2-A Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Poblacion II-A Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 552021288,
+  "center": {
+    "lat": 14.4286091,
+    "lon": 120.9204013
+  },
+  "tags": {
+    "addr:barangay": "Carsadang Bago II",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Carsadang Bago",
+    "admin_level": "10",
+    "alt_name": "Carsadang Bago 2 Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Carsadang Bago II Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 555578249,
+  "center": {
+    "lat": 14.5046360,
+    "lon": 121.0446273
+  },
+  "tags": {
+    "addr:city": "Taguig City",
+    "addr:postcode": "1630",
+    "addr:province": "Metro Manila",
+    "addr:street": "Arca Boulevard",
+    "addr:street:corner": "West Union Drive",
+    "addr:subdistrict": "Western Bicutan",
+    "landuse": "retail",
+    "name": "Ayala Malls Arca South",
+    "operator": "Ayala Malls",
+    "operator:wikidata": "Q16836231",
+    "shop": "mall",
+    "start_date": "2026-02-13"
+  }
+},
+{
+  "type": "way",
+  "id": 556840469,
+  "center": {
+    "lat": 14.2864820,
+    "lon": 120.9879815
+  },
+  "tags": {
+    "building": "retail",
+    "building:levels": "2",
+    "name": "Unitop Building 1",
+    "opening_hours": "10:00-21:00",
+    "safety:hand_sanitizer": "yes",
+    "safety:mask": "yes",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 571543448,
+  "center": {
+    "lat": 14.4279929,
+    "lon": 120.8816809
+  },
+  "tags": {
+    "landuse": "commercial",
+    "name": "Primark Town Center Noveleta",
+    "shop": "mall",
+    "smoking": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 575166088,
+  "center": {
+    "lat": 14.3485842,
+    "lon": 120.9396518
+  },
+  "tags": {
+    "addr:city": "Dasmariñas",
+    "addr:postcode": "4114",
+    "amenity": "hospital",
+    "emergency": "yes",
+    "name": "Emilio Aguinaldo College Medical Center-Cavite"
+  }
+},
+{
+  "type": "way",
+  "id": 576523414,
+  "center": {
+    "lat": 14.4687589,
+    "lon": 121.0103677
+  },
+  "tags": {
+    "addr:city": "Parañaque",
+    "addr:street": "Dr. A. Santos Avenue",
+    "landuse": "retail",
+    "name": "SM Hypermarket Sucat-Lopez",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 599429663,
+  "center": {
+    "lat": 14.4567143,
+    "lon": 121.0458220
+  },
+  "tags": {
+    "addr:street": "East Service Road",
+    "building": "yes",
+    "contact:facebook": "VistaMallLakefront",
+    "name": "Vista Mall Lakefront",
+    "opening_hours": "Mo-Su 10:00-21:00",
+    "phone": "+639152190003",
+    "shop": "mall",
+    "website": "https://www.vistamalls.com.ph/malls/lakefront/"
+  }
+},
+{
+  "type": "way",
+  "id": 602075012,
+  "center": {
+    "lat": 14.4139292,
+    "lon": 120.9824625
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:country": "PH",
+    "addr:neighbourhood": "Soldiers Hills IV",
+    "addr:neighbourhood:phase": "2",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "addr:quarter": "Molino VI",
+    "addr:street": "Everlasting Street",
+    "alt_name": "Molino 6 Barangay Hall",
+    "amenity": "townhall",
+    "building": "civic",
+    "building:colour": "white",
+    "contact:email": "brgy.molinovi@gmail.com",
+    "contact:facebook": "brgy.molino6",
+    "contact:phone": "+63 046 572 0455",
+    "name": "Molino VI Barangay Hall",
+    "roof:colour": "red",
+    "townhall:type": "village"
+  }
+},
+{
+  "type": "way",
+  "id": 602075030,
+  "center": {
+    "lat": 14.4127761,
+    "lon": 120.9813789
+  },
+  "tags": {
+    "addr:barangay": "Molino VI",
+    "addr:neighbourhood": "Soldiers' Hills IV",
+    "addr:neighbourhood:name": "Soldiers' Hills",
+    "addr:neighbourhood:phase_number": "II",
+    "addr:neighbourhood:section": "IV",
+    "amenity": "university",
+    "branch": "Bacoor",
+    "brand": "Cavite State University",
+    "contact:email": "cvsubacoor@cvsu.edu.ph",
+    "contact:facebook": "CvSUBacoorCityCampus",
+    "contact:phone": "+63 46 476 5029",
+    "isced:level": "5",
+    "name": "Cavite State University – Bacoor City Campus",
+    "operator:type": "public",
+    "short_name": "CvSU Bacoor"
+  }
+},
+{
+  "type": "way",
+  "id": 605495744,
+  "center": {
+    "lat": 14.4369453,
+    "lon": 120.9052153
+  },
+  "tags": {
+    "addr:city": "Kawit",
+    "addr:postcode": "4104",
+    "addr:province": "Cavite",
+    "addr:quarter": "Tabon",
+    "addr:street": "Antero Soriano Highway",
+    "landuse": "retail",
+    "name": "Robertson Plaza",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 620205157,
+  "center": {
+    "lat": 14.3173140,
+    "lon": 120.9445545
+  },
+  "tags": {
+    "building": "retail",
+    "building:levels": "3",
+    "description:covid19": "Mass COVID-19 Vaccination Facility at 3rd floor level",
+    "healthcare:speciality": "vaccination",
+    "safety:hand_sanitizer:covid19": "yes",
+    "safety:mask:covid19": "yes",
+    "safety:shield:covid19": "optional",
+    "shop": "mall",
+    "vaccination": "covid19",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 634224101,
+  "center": {
+    "lat": 14.4284698,
+    "lon": 120.9358768
+  },
+  "tags": {
+    "addr:barangay": "Poblacion IV-B",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Maestro G. Tirona Street",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "3",
+    "government": "administrative",
+    "name": "Old Imus City Hall Annex Building",
+    "office": "government",
+    "opening_hours": "Mo-Fr 08:00-17:00",
+    "smoking": "no",
+    "townhall:type": "city",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 634224102,
+  "center": {
+    "lat": 14.4287354,
+    "lon": 120.9359614
+  },
+  "tags": {
+    "addr:barangay": "Poblacion IV-B",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Maestro G. Tirona Street",
+    "alt_name": "Old Imus Municipal Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "2",
+    "government": "administrative",
+    "historic": "building",
+    "name": "Old Imus City Hall Main Building",
+    "office": "government",
+    "opening_hours": "Mo-Fr 08:00-17:00",
+    "smoking": "no",
+    "townhall:type": "city",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 638437001,
+  "center": {
+    "lat": 14.3840114,
+    "lon": 120.9780044
+  },
+  "tags": {
+    "amenity": "bus_station",
+    "bus": "yes",
+    "internet_access": "no",
+    "name": "SM Molino Transport Terminal",
+    "public_transport": "station",
+    "smoking": "no",
+    "tactile_paving": "no",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "way",
+  "id": 654492737,
+  "center": {
+    "lat": 14.4297907,
+    "lon": 120.9361004
+  },
+  "tags": {
+    "addr:barangay": "Poblacion III-A",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "General J. Castañeda Street",
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "building:architecture": "baroque",
+    "denomination": "roman_catholic",
+    "historic": "church",
+    "name": "Imus Cathedral",
+    "official_name": "Cathedral of Our Lady of the Pillar",
+    "religion": "christian",
+    "service_times": "Mo-Sa 06:30;We-Th 17:30; Sa 16:00, 17:30; Su 05:00, 06:30, 08:00, 09:30, 16:00, 17:30, 19:00",
+    "wikidata": "Q15228603",
+    "wikimedia_commons": "Category:Imus Cathedral",
+    "wikipedia": "en:Imus Cathedral"
+  }
+},
+{
+  "type": "way",
+  "id": 661740634,
+  "center": {
+    "lat": 14.5324126,
+    "lon": 120.9887076
+  },
+  "tags": {
+    "addr:city": "Pasay",
+    "addr:street": "President Diosdado Macapagal Boulevard",
+    "addr:street:corner": "Coral Way",
+    "alt_name": "WalterMart Mall",
+    "branch": "Macapagal",
+    "brand": "W.Mall",
+    "internet_access": "wlan",
+    "internet_access:captive_portal": "yes",
+    "internet_access:fee": "no",
+    "internet_access:operator": "Philcom",
+    "internet_access:registration": "yes",
+    "internet_access:registration:type": "mobile",
+    "internet_access:ssid": "W Mall Free WiFi",
+    "landuse": "retail",
+    "name": "W.Mall",
+    "opening_hours": "Mo-Su 10:00-20:00",
+    "shop": "mall",
+    "toilets": "yes",
+    "toilets:access": "yes",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 686990093,
+  "center": {
+    "lat": 14.3683402,
+    "lon": 120.9401610
+  },
+  "tags": {
+    "addr:barangay": "Anabu II-E",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Anabu Road",
+    "admin_level": "10",
+    "alt_name": "Anabu 2-E Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "2",
+    "government": "administrative",
+    "name": "Anabu II-E Barangay Hall",
+    "office": "government",
+    "previously": "node:6438098240",
+    "smoking": "no",
+    "townhall:type": "barangay",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "way",
+  "id": 690977720,
+  "center": {
+    "lat": 14.3713751,
+    "lon": 120.9808398
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "2",
+    "name": "Molino IV Barangay Hall",
+    "operator": "Barangay Government of Molino 4",
+    "smoking": "no",
+    "townhall:type": "village",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "way",
+  "id": 699342609,
+  "center": {
+    "lat": 14.5284967,
+    "lon": 120.9874114
+  },
+  "tags": {
+    "addr:city": "Parañaque",
+    "addr:street": "Bradco Avenue",
+    "building": "yes",
+    "name": "K1 Center",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 737501499,
+  "center": {
+    "lat": 14.3817618,
+    "lon": 120.9681026
+  },
+  "tags": {
+    "addr:barangay": "Pasong Buaya II",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Ilaya Proper Pasong Buaya II",
+    "admin_level": "10",
+    "alt_name": "Pasong Buaya 2 Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "2",
+    "government": "administrative",
+    "name": "Pasong Buaya II Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 759516986,
+  "center": {
+    "lat": 14.3675054,
+    "lon": 120.9253475
+  },
+  "tags": {
+    "addr:barangay": "Malagasang II-C",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Daang Hari",
+    "admin_level": "10",
+    "alt_name": "Malagasang 2-C Barangay Hall Annex",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Malagasang II-C Barangay Hall Annex",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 776991549,
+  "center": {
+    "lat": 14.4292045,
+    "lon": 121.0205261
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:street": "Alabang-Zapote Road",
+    "addr:street:corner": "Concha Cruz Drive",
+    "landuse": "retail",
+    "name": "The Village Square Almanza",
+    "operator": "Megaworld",
+    "shop": "mall",
+    "website": "https://megaworld-lifestylemalls.com/malls/the-village-square-alabang/",
+    "website_2": "https://www.megaworldcorp.com/malls/village-square-alabang"
+  }
+},
+{
+  "type": "way",
+  "id": 784480740,
+  "center": {
+    "lat": 14.4590470,
+    "lon": 120.9699894
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:housenumber": "130",
+    "addr:street": "Alabang-Zapote Road",
+    "alt_name": "Christ the King Hospital",
+    "amenity": "hospital",
+    "beds": "20",
+    "emergency": "yes",
+    "healthcare": "hospital",
+    "name": "Christ the King Medical Center",
+    "official_name": "Christ the King Medical Center - Unihealth Las Piñas",
+    "ref:doh": "447",
+    "website": "https://christthekingmed.wixsite.com/ctkmc"
+  }
+},
+{
+  "type": "way",
+  "id": 784721217,
+  "center": {
+    "lat": 14.4085357,
+    "lon": 120.8965783
+  },
+  "tags": {
+    "addr:barangay": "Alapan II-A",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "admin_level": "10",
+    "alt_name": "Alapan 2-A Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "1",
+    "government": "administrative",
+    "name": "Alapan II-A Barangay Hall",
+    "office": "government",
+    "phone": "+63 46 476 7998",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 784855136,
+  "center": {
+    "lat": 14.4501871,
+    "lon": 120.9828922
+  },
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "Las Piñas City Health Office"
+  }
+},
+{
+  "type": "way",
+  "id": 786963232,
+  "center": {
+    "lat": 14.3811720,
+    "lon": 120.8899254
+  },
+  "tags": {
+    "amenity": "hospital",
+    "email": "mamarachelshospitalofmercy@yahoo.com",
+    "emergency": "yes",
+    "healthcare": "hospital",
+    "name": "Mama Rachel Hospital of Mercy Inc.",
+    "name:en": "Mama Rachel Hospital of Mercy Inc.",
+    "phone": "+63 915 068 1172"
+  }
+},
+{
+  "type": "way",
+  "id": 787782007,
+  "center": {
+    "lat": 14.4338707,
+    "lon": 120.9892829
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:street": "BF Resort Drive",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "King of Kings Servant Healer Medical Clinic"
+  }
+},
+{
+  "type": "way",
+  "id": 797720297,
+  "center": {
+    "lat": 14.3890483,
+    "lon": 120.9773249
+  },
+  "tags": {
+    "amenity": "bus_station",
+    "name": "Kabisig MPTSC UVE Terminal",
+    "public_transport": "station"
+  }
+},
+{
+  "type": "way",
+  "id": 841533264,
+  "center": {
+    "lat": 14.3861912,
+    "lon": 120.9018416
+  },
+  "tags": {
+    "addr:city": "General Trias",
+    "addr:postcode": "4104",
+    "addr:province": "Cavite",
+    "addr:street": "F. Manalo Street",
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "Navarro Barangay Hall",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 851372068,
+  "center": {
+    "lat": 14.2872518,
+    "lon": 120.9869580
+  },
+  "tags": {
+    "building": "supermarket",
+    "name": "Unitop Building 2",
+    "safety:hand_sanitizer:covid19": "yes",
+    "safety:mask:covid19": "yes",
+    "safety:shield:covid19": "yes",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 851373086,
+  "center": {
+    "lat": 14.2872529,
+    "lon": 120.9872675
+  },
+  "tags": {
+    "building": "supermarket",
+    "name": "Unitop Building 3",
+    "safety:hand_sanitizer:covid19": "yes",
+    "safety:mask:covid19": "yes",
+    "safety:shield:covid19": "yes",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 851373463,
+  "center": {
+    "lat": 14.2867490,
+    "lon": 120.9870356
+  },
+  "tags": {
+    "building": "supermarket",
+    "name": "Unitop Building 4",
+    "safety:hand_sanitizer:covid19": "yes",
+    "safety:mask:covid19": "yes",
+    "safety:shield:covid19": "yes",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 851373903,
+  "center": {
+    "lat": 14.2867802,
+    "lon": 120.9873160
+  },
+  "tags": {
+    "building": "supermarket",
+    "name": "Unitop Building 5",
+    "safety:hand_sanitizer:covid19": "yes",
+    "safety:mask:covid19": "yes",
+    "safety:shield:covid19": "yes",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 862549351,
+  "center": {
+    "lat": 14.4251827,
+    "lon": 121.0015760
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:street": "Marcos Alvarez Avenue",
+    "building": "yes",
+    "name": "Robinsons Express Marcos Alvarez",
+    "opening_hours": "Mo-Su 8:00-20:00",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 864803113,
+  "center": {
+    "lat": 14.4895179,
+    "lon": 120.9862211
+  },
+  "tags": {
+    "landuse": "retail",
+    "name": "88 Square Mall",
+    "shop": "mall",
+    "type": "multipolygon",
+    "was:name": "Parañaque Meat Processing Plant and Slaughterhouse"
+  }
+},
+{
+  "type": "way",
+  "id": 886595441,
+  "center": {
+    "lat": 14.5342718,
+    "lon": 120.9961672
+  },
+  "tags": {
+    "addr:city": "Pasay",
+    "addr:street": "F.B. Harrison",
+    "landuse": "retail",
+    "name": "Bagong Milenyo Plaza",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 888604946,
+  "center": {
+    "lat": 14.3950117,
+    "lon": 120.9627911
+  },
+  "tags": {
+    "addr:barangay": "Pinagbuklod",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Delgado Street",
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Pinagbuklod Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 890866017,
+  "center": {
+    "lat": 14.4686829,
+    "lon": 120.9805321
+  },
+  "tags": {
+    "amenity": "hospital",
+    "name": "A. Zarate General Hospital"
+  }
+},
+{
+  "type": "way",
+  "id": 894686117,
+  "center": {
+    "lat": 14.3796582,
+    "lon": 120.9766846
+  },
+  "tags": {
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "yes",
+    "name": "Molino 4 Barangay Hall",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 894783461,
+  "center": {
+    "lat": 14.4131258,
+    "lon": 121.0163376
+  },
+  "tags": {
+    "building": "retail",
+    "building:levels": "2",
+    "internet_access": "no",
+    "name": "Alabang West Parade",
+    "shop": "mall",
+    "toilets": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 910799118,
+  "center": {
+    "lat": 14.3421819,
+    "lon": 120.8582981
+  },
+  "tags": {
+    "landuse": "retail",
+    "name": "Vista Mall Tanza",
+    "opening_hours": "Mo-Su 10:00-22:00",
+    "operator": "https://www.vistamalls.com.ph/",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 924173336,
+  "center": {
+    "lat": 14.5269257,
+    "lon": 120.9875398
+  },
+  "tags": {
+    "addr:city": "Parañaque",
+    "addr:postcode": "1700",
+    "currency:PHP": "yes",
+    "landuse": "commercial",
+    "name": "Parqal",
+    "operator": "Aseana Holdings Inc.",
+    "payment:cash": "yes",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
+    "shop": "mall",
+    "smoking": "no",
+    "start_date": "2023-09-30",
+    "stroller": "yes",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 932521740,
+  "center": {
+    "lat": 14.3808295,
+    "lon": 120.9165823
+  },
+  "tags": {
+    "addr:barangay": "Malagasang Ⅰ-G",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Imus Boulevard",
+    "admin_level": "10",
+    "alt_name": "Malagasang 1-G Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Malagasang I-G Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 938640873,
+  "center": {
+    "lat": 14.4453635,
+    "lon": 120.9037573
+  },
+  "tags": {
+    "addr:street": "Tanggulan Street",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "Poblacion Barangay Hall",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 941508873,
+  "center": {
+    "lat": 14.3507875,
+    "lon": 120.9373835
+  },
+  "tags": {
+    "amenity": "college",
+    "name": "Marasigan Institute of Science and Technology"
+  }
+},
+{
+  "type": "way",
+  "id": 941848364,
+  "center": {
+    "lat": 14.4129535,
+    "lon": 120.9405553
+  },
+  "tags": {
+    "addr:barangay": "Bayan Luma IV",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Aguinaldo Highway",
+    "amenity": "hospital",
+    "emergency": "yes",
+    "healthcare": "hospital",
+    "name": "Paredes Medical Center and Hospital",
+    "phone": "+63 46 472 2326"
+  }
+},
+{
+  "type": "way",
+  "id": 952559082,
+  "center": {
+    "lat": 14.4417151,
+    "lon": 120.9167092
+  },
+  "tags": {
+    "addr:barangay": "Medicion II-F",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Medicion Street",
+    "admin_level": "10",
+    "alt_name": "Medicion 2-F Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Medicion II-F Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 954837516,
+  "center": {
+    "lat": 14.4422291,
+    "lon": 120.9243441
+  },
+  "tags": {
+    "addr:barangay": "Medicion II-A",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "General Flaviano Yengco Street",
+    "admin_level": "10",
+    "alt_name": "Medicion 2-A Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Medicion II-A Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 958030290,
+  "center": {
+    "lat": 14.4455301,
+    "lon": 120.9218283
+  },
+  "tags": {
+    "addr:barangay": "Medicion II-C",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Riverside Street",
+    "admin_level": "10",
+    "alt_name": "Medicion 2-C Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Medicion II-C Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 960662804,
+  "center": {
+    "lat": 14.2909820,
+    "lon": 120.9068918
+  },
+  "tags": {
+    "name": "Manggahan Center",
+    "official_name": "Manggahan Center Supermarket and Department Store",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 963824895,
+  "center": {
+    "lat": 14.3901910,
+    "lon": 120.9197472
+  },
+  "tags": {
+    "addr:barangay": "Malagasang I-G",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Imus Boulevard",
+    "amenity": "townhall",
+    "building": "public",
+    "name": "New Imus City Hall",
+    "townhall:type": "city"
+  }
+},
+{
+  "type": "way",
+  "id": 976104526,
+  "center": {
+    "lat": 14.4340466,
+    "lon": 120.9292440
+  },
+  "tags": {
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:street": "General Flaviano Yengco Street",
+    "alt_name": "Medicion 1-D Barangay Hall",
+    "amenity": "townhall",
+    "building": "yes",
+    "name": "Medicion I-D Barangay Hall",
+    "townhall:type": "village"
+  }
+},
+{
+  "type": "way",
+  "id": 978261065,
+  "center": {
+    "lat": 14.4325060,
+    "lon": 120.9287468
+  },
+  "tags": {
+    "addr:barangay": "Medicion I-B",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "admin_level": "10",
+    "alt_name": "Medicion 1-B Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Medicion I-B Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 988449877,
+  "center": {
+    "lat": 14.3736732,
+    "lon": 120.8821741
+  },
+  "tags": {
+    "addr:street": "Hospital Road",
+    "amenity": "hospital",
+    "name": "General Trias Medicare Hospital"
+  }
+},
+{
+  "type": "way",
+  "id": 1020008242,
+  "center": {
+    "lat": 14.4143791,
+    "lon": 120.9661860
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:country": "PH",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "addr:quarter": "Mambog IV",
+    "addr:street": "Bacoor Boulevard",
+    "air_conditioning": "yes",
+    "branch": "Bacoor",
+    "brand": "WalterMart",
+    "brand:wikidata": "Q39052914",
+    "building": "retail",
+    "contact:email": "wsc.admin.bacoor@waltermart.com.ph",
+    "contact:mobile": "+63 998 974 4377;+63 998 541 5143",
+    "contact:phone": "+63 46 884 8090",
+    "mapillary": "2920415331427912",
+    "name": "WalterMart Bacoor",
+    "opening_hours": "Mo-Su 09:00-21:00",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 1022559937,
+  "center": {
+    "lat": 14.3765338,
+    "lon": 120.9429260
+  },
+  "tags": {
+    "addr:barangay": "Anabu II-D",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Anabu Road",
+    "admin_level": "10",
+    "alt_name": "Anabu 2-D Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Anabu II-D Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 1025058135,
+  "center": {
+    "lat": 14.4663686,
+    "lon": 120.9626739
+  },
+  "tags": {
+    "amenity": "townhall",
+    "building": "yes",
+    "name": "Talaba VI Barangay Hall",
+    "townhall:type": "quarter"
+  }
+},
+{
+  "type": "way",
+  "id": 1041689734,
+  "center": {
+    "lat": 14.3966464,
+    "lon": 120.9758488
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:street": "Molino Road",
+    "amenity": "university",
+    "isced:level": "0-6",
+    "name": "University of Perpetual Help System Dalta Molino Campus",
+    "operator:type": "private",
+    "previously": "node:1827141167",
+    "website": "https://perpetualdalta.edu.ph/molino-2/",
+    "wikidata": "Q7896102",
+    "wikipedia": "en:University of Perpetual Help System DALTA – Molino Campus"
+  }
+},
+{
+  "type": "way",
+  "id": 1067782806,
+  "center": {
+    "lat": 14.4269124,
+    "lon": 120.9336660
+  },
+  "tags": {
+    "addr:barangay": "Poblacion IV-B",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "General Flaviano Yengco Street",
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "2",
+    "government": "administrative",
+    "name": "Poblacion IV-B Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 1086528648,
+  "center": {
+    "lat": 14.3941528,
+    "lon": 120.9415300
+  },
+  "tags": {
+    "addr:barangay": "Anabu I-E",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Anabu Hills Road",
+    "admin_level": "10",
+    "alt_name": "Anabu 1-E Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "2",
+    "government": "administrative",
+    "name": "Anabu I-E Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 1086780492,
+  "center": {
+    "lat": 14.3823271,
+    "lon": 120.9370217
+  },
+  "tags": {
+    "addr:barangay": "Anabu II-A",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "admin_level": "10",
+    "alt_name": "Anabu 2-A Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Anabu II-A Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 1086780496,
+  "center": {
+    "lat": 14.3801757,
+    "lon": 120.9423604
+  },
+  "tags": {
+    "addr:barangay": "Anabu II-C",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Anabu Road",
+    "admin_level": "10",
+    "alt_name": "Anabu 2-C Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "2",
+    "government": "administrative",
+    "name": "Anabu II-C Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 1135489894,
+  "center": {
+    "lat": 14.4424376,
+    "lon": 120.9036976
+  },
+  "tags": {
+    "amenity": "townhall",
+    "building": "public",
+    "name": "Tabon II Barangay Hall",
+    "townhall:type": "quarter"
+  }
+},
+{
+  "type": "way",
+  "id": 1136530278,
+  "center": {
+    "lat": 14.4396243,
+    "lon": 120.9358464
+  },
+  "tags": {
+    "amenity": "townhall",
+    "building": "public",
+    "name": "Salinas I Multipurpose Hall",
+    "townhall:type": "quarter"
+  }
+},
+{
+  "type": "way",
+  "id": 1137903725,
+  "center": {
+    "lat": 14.4029038,
+    "lon": 120.9413940
+  },
+  "tags": {
+    "addr:barangay": "Anabu I-A",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Anabu Road",
+    "admin_level": "10",
+    "alt_name": "Anabu 1-A Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "2",
+    "government": "administrative",
+    "name": "Anabu I-A Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 1144032492,
+  "center": {
+    "lat": 14.4248843,
+    "lon": 120.8810789
+  },
+  "tags": {
+    "amenity": "townhall",
+    "building": "public",
+    "name": "Santa Rosa I Multipurpose Hall",
+    "townhall:type": "quarter"
+  }
+},
+{
+  "type": "way",
+  "id": 1144065854,
+  "center": {
+    "lat": 14.3906400,
+    "lon": 120.8838736
+  },
+  "tags": {
+    "amenity": "townhall",
+    "building": "public",
+    "name": "Dulong Bayan Barangay Hall",
+    "townhall:type": "quarter"
+  }
+},
+{
+  "type": "way",
+  "id": 1147052346,
+  "center": {
+    "lat": 14.4526850,
+    "lon": 120.9582137
+  },
+  "tags": {
+    "amenity": "college",
+    "name": "PIMSAT Colleges"
+  }
+},
+{
+  "type": "way",
+  "id": 1152809592,
+  "center": {
+    "lat": 14.4338136,
+    "lon": 120.9974184
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:street": "Sampaguita Street",
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "civic",
+    "name": "Bahay Pamahalaan ng Barangay Talon Kuatro",
+    "name:en": "Talon Kuatro Barangay Hall",
+    "name:tl": "Bahay Pamahalaan ng Barangay Talon Kuatro",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 1164771010,
+  "center": {
+    "lat": 14.4489373,
+    "lon": 120.8801016
+  },
+  "tags": {
+    "amenity": "townhall",
+    "building": "public",
+    "name": "San Rafael IV Barangay Hall",
+    "townhall:type": "quarter"
+  }
+},
+{
+  "type": "way",
+  "id": 1170450160,
+  "center": {
+    "lat": 14.3850262,
+    "lon": 120.8804729
+  },
+  "tags": {
+    "addr:city": "General Trias",
+    "addr:country": "PH",
+    "addr:postcode": "4107",
+    "addr:province": "Cavite",
+    "addr:quarter": "Vibora",
+    "addr:street": "P. Burgos Street",
+    "amenity": "university",
+    "branch": "General Trias City",
+    "brand": "Cavite State University",
+    "brand:wikidata": "Q423303",
+    "contact:email": "cvsugeneraltrias@cvsu.edu.ph",
+    "contact:facebook": "CvSUgeneraltrias2012",
+    "contact:phone": "+63 046 509 4148;+63 046 884 0570",
+    "contact:website": "https://cvsu.edu.ph/general-trias-campus",
+    "name": "Cavite State University – General Trias City Campus"
+  }
+},
+{
+  "type": "way",
+  "id": 1198626932,
+  "center": {
+    "lat": 14.4226017,
+    "lon": 120.9425114
+  },
+  "tags": {
+    "addr:barangay": "Tanzang Luma II",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Tanzang Luma Road",
+    "amenity": "bus_station",
+    "name": "Imus via Alabang UV Express Terminal"
+  }
+},
+{
+  "type": "way",
+  "id": 1200593327,
+  "center": {
+    "lat": 14.4244414,
+    "lon": 120.9419965
+  },
+  "tags": {
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "admin_level": "10",
+    "alt_name": "Tanzang Luma 1 Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Tanzang Luma I Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 1209215636,
+  "center": {
+    "lat": 14.4082380,
+    "lon": 120.9305113
+  },
+  "tags": {
+    "addr:barangay": "Bucandala I",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Guadalupe Extension",
+    "admin_level": "10",
+    "alt_name": "Bucandala 1 Barangay Hall",
+    "amenity": "townhall",
+    "building": "civic",
+    "government": "administrative",
+    "name": "Bucandala I Barangay Hall",
+    "name:en": "Bucandala I Barangay Hall",
+    "name:tl": "Bahay Pamahalaan ng Barangay Bucandala Ⅰ",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 1223996001,
+  "center": {
+    "lat": 14.3986783,
+    "lon": 120.9881506
+  },
+  "tags": {
+    "addr:barangay": "Queen's Row West",
+    "addr:city": "Bacoor",
+    "addr:district": "Molino",
+    "addr:postcode": "4135",
+    "addr:province": "Cavite",
+    "addr:street": "Sampaguita Street",
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "civic",
+    "building:colour": "white",
+    "building:levels": "1",
+    "government": "administrative",
+    "name": "Queen's Row West Barangay Hall",
+    "name:en": "Queen's Row West Barangay Hall",
+    "name:tl": "Bulwagang Pambarangay ng Queen's Row West",
+    "office": "government",
+    "opening_hours": "24/7",
+    "operator:type": "public",
+    "roof:colour": "green",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 1245982196,
+  "center": {
+    "lat": 14.4070200,
+    "lon": 120.9729181
+  },
+  "tags": {
+    "addr:barangay": "Molino III",
+    "addr:street": "Bacoor Boulevard",
+    "addr:street:corner": "Masaito Drive",
+    "contact:email": "paseodebacoor@gmail.com",
+    "contact:facebook": "100063960975006",
+    "contact:mobile": "+63 917 637 2852",
+    "name": "Paseo de Bacoor",
+    "opening_hours": "24/7",
+    "shop": "mall",
+    "toilets": "yes",
+    "toilets:access": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1263799704,
+  "center": {
+    "lat": 14.4062353,
+    "lon": 120.9278991
+  },
+  "tags": {
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Patindig Araw Road",
+    "building": "retail",
+    "name": "Unicity",
+    "old_name": "Divi Mall",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 1298948596,
+  "center": {
+    "lat": 14.3337939,
+    "lon": 121.0282539
+  },
+  "tags": {
+    "addr:city": "San Pedro",
+    "addr:postcode": "4023",
+    "addr:province": "Laguna",
+    "addr:street": "Magsaysay Avenue",
+    "landuse": "retail",
+    "name": "SM Center San Pedro",
+    "opening_hours": "Mo-Su 10:00-21:00",
+    "operator": "SM Supermalls",
+    "operator:wikidata": "Q7391510",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 1305844176,
+  "center": {
+    "lat": 14.4033164,
+    "lon": 120.9263245
+  },
+  "tags": {
+    "addr:barangay": "Bucandala II",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Malagasang Road",
+    "building": "retail",
+    "name": "Kinghome Shopping Mall",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 1306713516,
+  "center": {
+    "lat": 14.2280492,
+    "lon": 121.0495921
+  },
+  "tags": {
+    "alt_name": "SM Neo Verde",
+    "landuse": "construction",
+    "name": "SM Nuvali",
+    "operator": "SM Supermalls",
+    "operator:wikidata": "Q7391510",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 1307933799,
+  "center": {
+    "lat": 14.4081396,
+    "lon": 120.9213884
+  },
+  "tags": {
+    "addr:barangay": "Alapan I-C",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Imus Boulevard",
+    "admin_level": "10",
+    "alt_name": "Alapan 1-C Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Alapan I-C Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 1312915779,
+  "center": {
+    "lat": 14.4283715,
+    "lon": 120.8801855
+  },
+  "tags": {
+    "addr:city": "Noveleta",
+    "addr:postcode": "4105",
+    "addr:province": "Cavite",
+    "name": "8A Shopping Center",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 1315222628,
+  "center": {
+    "lat": 14.3306299,
+    "lon": 120.9364330
+  },
+  "tags": {
+    "addr:city": "Dasmariñas",
+    "addr:postcode": "4114",
+    "addr:province": "Cavite",
+    "addr:street": "Narciso Guevarra Street",
+    "amenity": "college",
+    "name": "STI College Dasmariñas",
+    "website": "sti.edu"
+  }
+},
+{
+  "type": "way",
+  "id": 1318774954,
+  "center": {
+    "lat": 14.3529723,
+    "lon": 120.9817964
+  },
+  "tags": {
+    "addr:city": "Dasmariñas",
+    "addr:country": "PH",
+    "addr:postcode": "4114",
+    "addr:province": "Cavite",
+    "addr:street": "Paliparan Road",
+    "addr:village": "Salawag",
+    "air_conditioning": "yes",
+    "amenity": "hospital",
+    "building:part": "hospital",
+    "healthcare": "hospital",
+    "indoor": "yes",
+    "level": "0;1;2;3;4;5;6",
+    "name": "Dasmariñas City Medical Center",
+    "surveillance": "indoor",
+    "surveillance:type": "camera"
+  }
+},
+{
+  "type": "way",
+  "id": 1323567059,
+  "center": {
+    "lat": 14.3920208,
+    "lon": 120.9442668
+  },
+  "tags": {
+    "addr:barangay": "Anabu I-G",
+    "addr:city": "Imus",
+    "addr:neighbourhood": "Northfield",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Daang Hari-Patindig Araw Bypass Road",
+    "addr:subdivision": "Northfield",
+    "admin_level": "10",
+    "alt_name": "Anabu 1-G Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "building:levels": "3",
+    "government": "administrative",
+    "name": "Anabu I-G Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 1325538014,
+  "center": {
+    "lat": 14.4517921,
+    "lon": 120.9264483
+  },
+  "tags": {
+    "addr:city": "Kawit",
+    "addr:postcode": "4104",
+    "addr:province": "Cavite",
+    "addr:street": "Covelandia Road",
+    "amenity": "hospital",
+    "emergency": "yes",
+    "healthcare": "hospital",
+    "name": "Binakayan Hospital and Medical Center"
+  }
+},
+{
+  "type": "way",
+  "id": 1340478604,
+  "center": {
+    "lat": 14.3921079,
+    "lon": 120.9950760
+  },
+  "tags": {
+    "air_conditioning": "no",
+    "alt_name": "Gardenia Kapit-Bisig MPTSC Multicab Terminal",
+    "amenity": "bus_station",
+    "bus": "yes",
+    "internet_access": "no",
+    "loc_name": "Camella North Gold Multi Cab Terminal",
+    "minibus": "yes",
+    "minibus:type": "passenger_kei_truck",
+    "name": "North Springville Yellow Multicab Terminal",
+    "operator": "Gardenia Kapit-Bisig Multipurpose Transport Service Cooperative",
+    "operator:email": "gardeniakapitbisig@gmail.com",
+    "operator:facebook": "100089922575818",
+    "operator:short": "GKBMPTSC",
+    "psv": "yes",
+    "public_transport": "station"
+  }
+},
+{
+  "type": "way",
+  "id": 1363849747,
+  "center": {
+    "lat": 14.4130336,
+    "lon": 120.9244012
+  },
+  "tags": {
+    "addr:barangay": "Bucandala III",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:street": "Governor Erineo S. Maliksi Avenue",
+    "admin_level": "10",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Bucandala III Barangay Hall",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 1425044331,
+  "center": {
+    "lat": 14.4618625,
+    "lon": 120.9774977
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:postcode": "1740",
+    "addr:street": "Magnolia Street",
+    "amenity": "college",
+    "name": "Dr. Filemon C. Aguilar Information Technology Training Institute"
+  }
+},
+{
+  "type": "way",
+  "id": 1429652473,
+  "center": {
+    "lat": 14.3181918,
+    "lon": 120.8084765
+  },
+  "tags": {
+    "building": "yes",
+    "name": "Fortune King Sabang",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 1451863096,
+  "center": {
+    "lat": 14.2911841,
+    "lon": 120.9081781
+  },
+  "tags": {
+    "addr:barangay": "Manggahan",
+    "addr:city": "General Trias",
+    "addr:country": "PH",
+    "addr:postcode": "4107",
+    "addr:province": "Cavite",
+    "addr:street": "Governor's Drive",
+    "branch": "General Trias",
+    "brand": "WalterMart",
+    "brand:wikidata": "Q39052914",
+    "name": "WalterMart",
+    "payment:cash": "yes",
+    "payment:electronic_purses": "yes",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
+    "shop": "mall",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1454562909,
+  "center": {
+    "lat": 14.4450186,
+    "lon": 120.9521931
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "addr:street": "Aguinaldo Highway",
+    "addr:street:corner": "Tirona Highway",
+    "amenity": "bus_station",
+    "building": "roof",
+    "bus": "yes",
+    "layer": "1",
+    "name": "SM Bacoor Transport Terminal",
+    "previously": "way:92648252",
+    "public_transport": "station",
+    "smoking": "no",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "way",
+  "id": 1455081386,
+  "center": {
+    "lat": 14.2602417,
+    "lon": 120.8764053
+  },
+  "tags": {
+    "name": "Stepmart Inocencio",
+    "old_name": "Divimart Inocencio",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 1467728897,
+  "center": {
+    "lat": 14.4323055,
+    "lon": 120.9341175
+  },
+  "tags": {
+    "addr:barangay": "Toclong I-A",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Tahimik Street",
+    "admin_level": "10",
+    "alt_name": "Toclong 1-A Barangay Hall",
+    "amenity": "townhall",
+    "building": "public",
+    "government": "administrative",
+    "name": "Toclong I-A Barangay Hall",
+    "office": "government",
+    "townhall:type": "barangay"
+  }
+},
+{
+  "type": "way",
+  "id": 1543172585,
+  "center": {
+    "lat": 14.2076382,
+    "lon": 120.9656705
+  },
+  "tags": {
+    "landuse": "construction",
+    "name": "SM City Silang",
+    "operator": "SM Supermalls",
+    "operator:wikidata": "Q7391510",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 1555869793,
+  "center": {
+    "lat": 14.4441912,
+    "lon": 121.0004455
+  },
+  "tags": {
+    "amenity": "college",
+    "name": "St. Francis of Assisi College"
+  }
+},
+{
+  "type": "way",
+  "id": 1557298982,
+  "center": {
+    "lat": 14.4263149,
+    "lon": 120.9458955
+  },
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "Front Entrance",
+    "operator": "Medical Center Imus"
+  }
+},
+{
+  "type": "relation",
+  "id": 179040,
+  "center": {
+    "lat": 14.4234674,
+    "lon": 121.0297921
+  },
+  "tags": {
+    "addr:barangay": "Ayala Alabang",
+    "addr:city": "Muntinlupa",
+    "addr:postcode": "1780",
+    "architect": "GF & PARTNERS ARCHITECTS",
+    "building": "retail",
+    "building:levels": "4",
+    "contact:facebook": "AlabangTownCenter",
+    "email": "hello@ayalamalls.com",
+    "internet_access": "wlan",
+    "internet_access:captive_portal": "yes",
+    "internet_access:fee": "no",
+    "internet_access:maxstay": "2 hour",
+    "internet_access:network:operator": "SkyZenn Teratomo Corporation",
+    "internet_access:registration": "yes",
+    "internet_access:registration:type": "email;birth_date;gender",
+    "internet_access:registration:verification": "no",
+    "internet_access:ssid": "Alabang Town Center Free WiFi",
+    "layer": "-1",
+    "name": "Alabang Town Center",
+    "opening_hours": "Mo-Fr 11:00-21:00; Sa-Su 10:00-21:00",
+    "operator": "Ayala Malls",
+    "operator:wikidata": "Q16836231",
+    "phone": "+63 2 7795 9595",
+    "shop": "mall",
+    "short_name": "ATC",
+    "type": "multipolygon",
+    "was:internet_access:ssid": "@AyalaMalls_FreeGoWiFi",
+    "website": "https://www.ayalamalls.com/main/malls/ayala-alabang-town-centre-mall",
+    "wikidata": "Q4705401"
+  }
+},
+{
+  "type": "relation",
+  "id": 1379060,
+  "center": {
+    "lat": 14.4832266,
+    "lon": 120.9927428
+  },
+  "tags": {
+    "addr:city": "Parañaque",
+    "addr:street": "Dr. A. Santos Avenue",
+    "addr:street:corner": "C-5 Road Extension",
+    "landuse": "retail",
+    "name": "SM City Sucat",
+    "old_name": "SM Supercenter Sucat",
+    "opening_hours": "Mo-Su 10:00-21:00",
+    "operator": "SM Supermalls",
+    "operator:wikidata": "Q7391510",
+    "payment:apple_pay": "yes",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:gcash": "yes",
+    "payment:maya": "yes",
+    "ref:vatin": "003-058-789-00018",
+    "shop": "mall",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 2443500,
+  "center": {
+    "lat": 14.4279024,
+    "lon": 120.9649222
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:street": "Bacoor Boulevard",
+    "contact:facebook": "FilinvestLifemallsMAINSQUARE",
+    "contact:instagram": "mainsquaremall",
+    "email": "mainsquare@filinvestlifemalls.com",
+    "landuse": "retail",
+    "name": "Main Square",
+    "opening_hours": "Mo-Su 10:00-20:00",
+    "operator": "Filinvest Malls",
+    "phone": "+63 2 8861 1154",
+    "shop": "mall",
+    "toilets": "yes",
+    "toilets:access": "yes",
+    "type": "multipolygon",
+    "website": "https://www.filinvestlifemalls.com/filinvest-lifemalls/main-square/",
+    "wheelchair": "yes",
+    "wikimedia_commons": "File:8874Bacoor City Cavite Landmarks 32.jpg"
+  }
+},
+{
+  "type": "relation",
+  "id": 2443660,
+  "center": {
+    "lat": 14.4083283,
+    "lon": 120.9767007
+  },
+  "tags": {
+    "addr:barangay": "Molino II",
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "addr:street": "Molino Road",
+    "building": "retail",
+    "building:levels": "4",
+    "contact:email": "molinomallrfc@gmail.com",
+    "contact:facebook": "molinorfcmall",
+    "contact:phone": "+63 046 477 2760;+63 046 477 3814",
+    "name": "RFC Molino Mall",
+    "operator": "RFC Molino Mall, Inc.",
+    "ref:vatin": "PH005066366000",
+    "shop": "mall",
+    "toilets": "yes",
+    "toilets:access": "yes",
+    "type": "multipolygon",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "relation",
+  "id": 2445940,
+  "center": {
+    "lat": 14.4386658,
+    "lon": 120.9639419
+  },
+  "tags": {
+    "amenity": "college",
+    "name": "Cavite State University - Bacoor Campus",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 2523915,
+  "center": {
+    "lat": 14.4452686,
+    "lon": 120.9504911
+  },
+  "tags": {
+    "access:conditional": "no @ flooding",
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:street": "Aguinaldo Highway",
+    "addr:street:corner": "Tirona Highway",
+    "internet_access": "wlan",
+    "internet_access:captive_portal": "yes",
+    "internet_access:fee": "no",
+    "internet_access:registration": "yes",
+    "internet_access:registration:type": "accept_tou",
+    "internet_access:ssid": "SM Free WiFi",
+    "name": "SM City Bacoor",
+    "opening_hours": "Fr-Sa 10:00-22:00; Su-Th 10:00-21:00",
+    "opening_hours:covid19": "10:00-19:30",
+    "operator": "SM Supermalls",
+    "operator:wikidata": "Q7391510",
+    "shop": "mall",
+    "type": "multipolygon",
+    "wheelchair": "yes",
+    "wikidata": "Q7391451"
+  }
+},
+{
+  "type": "relation",
+  "id": 7072786,
+  "center": {
+    "lat": 14.3970168,
+    "lon": 120.8649939
+  },
+  "tags": {
+    "addr:city": "General Trias",
+    "addr:postcode": "4107",
+    "addr:street": "Antero Soriano Highway",
+    "building": "retail",
+    "building:levels": "3",
+    "handwashing:soap": "yes",
+    "height": "15",
+    "internet_access": "wlan",
+    "internet_access:captive_portal": "no",
+    "internet_access:fee": "no",
+    "internet_access:registration": "no",
+    "internet_access:ssid": "RobinsonsGenTriFreeWIFI4ALL",
+    "music": "recorded",
+    "name": "Robinson's Place General Trias",
+    "opening_hours": "Mo-Su 09:00-21:00",
+    "operator": "Robinsons Malls",
+    "operator:wikidata": "Q7353125",
+    "shop": "mall",
+    "toilets": "yes",
+    "toilets:access": "yes",
+    "toilets:disposal": "flush",
+    "toilets:fee": "no",
+    "toilets:gender_segregated": "yes",
+    "toilets:hands_drying": "no",
+    "toilets:handwashing": "yes",
+    "toilets:paper_supplied": "no",
+    "toilets:position": "seated;urinal",
+    "toilets:wash": "no",
+    "toilets:wheelchair": "designated",
+    "type": "multipolygon",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 7304701,
+  "center": {
+    "lat": 14.3598243,
+    "lon": 120.9821078
+  },
+  "tags": {
+    "building": "commercial",
+    "building:levels": "2",
+    "note": "Name is at the landuse",
+    "opening_hours": "10:00-21:00",
+    "shop": "mall",
+    "smoking": "no",
+    "type": "multipolygon",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 8165012,
+  "center": {
+    "lat": 14.3012953,
+    "lon": 120.9568585
+  },
+  "tags": {
+    "air_conditioning": "yes",
+    "building": "commercial",
+    "building:levels": "2",
+    "elevator": "yes",
+    "indoor": "wall",
+    "material": "concrete",
+    "name": "Main Building",
+    "note": "Name of the mall is at the landuse",
+    "opening_hours": "10:00-21:00",
+    "previously": "way:148900867",
+    "roof:shape": "flat",
+    "safety:hand_sanitizer": "yes",
+    "safety:mask": "yes",
+    "shop": "mall",
+    "smoking": "no",
+    "surveillance": "indoor",
+    "surveillance:type": "camera",
+    "tactile_paving": "no",
+    "type": "multipolygon",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 8186233,
+  "center": {
+    "lat": 14.2422561,
+    "lon": 120.9739447
+  },
+  "tags": {
+    "landuse": "retail",
+    "name": "Vista Mall Silang",
+    "previously": "way:420449031",
+    "shop": "mall",
+    "type": "multipolygon",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 8202427,
+  "center": {
+    "lat": 14.2992397,
+    "lon": 120.9539054
+  },
+  "tags": {
+    "air_conditioning": "yes",
+    "building": "commercial",
+    "building:levels": "3",
+    "healthcare:speciality": "vaccination",
+    "name": "Annex Building",
+    "note": "Name of the mall is at the landuse",
+    "opening_hours": "Mo-Th 10:00-21:00;Fr-Su 10:00-22:00",
+    "safety:hand_sanitizer": "yes",
+    "safety:mask": "yes",
+    "shop": "mall",
+    "surveillance": "indoor",
+    "surveillance:type": "camera",
+    "tactile_paving": "no",
+    "type": "multipolygon",
+    "vaccination": "covid19",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 8202428,
+  "center": {
+    "lat": 14.3000852,
+    "lon": 120.9536095
+  },
+  "tags": {
+    "air_conditioning": "yes",
+    "building": "commercial",
+    "building:levels": "3",
+    "name": "Main Building",
+    "note": "Name of the mall is at the landuse",
+    "opening_hours": "Mo-Th 10:00-21:00;Fr-Su 10:00-22:00",
+    "safety:hand_sanitizer": "yes",
+    "safety:mask": "yes",
+    "shop": "mall",
+    "smoking": "no",
+    "surveillance": "indoor",
+    "surveillance:type": "camera",
+    "tactile_paving": "no",
+    "toilets": "yes",
+    "toilets:access": "yes",
+    "toilets:disposal": "flush",
+    "toilets:fee": "no",
+    "toilets:gender_segregated": "yes",
+    "toilets:hands_drying": "yes",
+    "toilets:handwashing": "yes",
+    "toilets:level": "0;2",
+    "toilets:level:ref": "G;3",
+    "toilets:paper_supplied": "yes",
+    "toilets:paper_supplied:fee": "yes",
+    "toilets:position": "seated;urinal",
+    "toilets:wash": "no",
+    "type": "multipolygon",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 8202453,
+  "center": {
+    "lat": 14.3304123,
+    "lon": 120.9449154
+  },
+  "tags": {
+    "amenity": "university",
+    "name": "De La Salle Medical and Health Sciences Institute",
+    "old_name": "De La Salle Health Sciences Institute;DLSHSI;DLS HSI",
+    "operator": "De La Salle Medical and Health Sciences Institute",
+    "short_name": "DLSMHSI;DLS MHSI",
+    "smoking": "no",
+    "type": "multipolygon",
+    "wheelchair": "yes",
+    "wikidata": "Q5244524",
+    "wikipedia": "en:De La Salle Medical and Health Sciences Institute"
+  }
+},
+{
+  "type": "relation",
+  "id": 8287575,
+  "center": {
+    "lat": 14.3253499,
+    "lon": 120.9414128
+  },
+  "tags": {
+    "air_conditioning": "yes",
+    "building": "retail",
+    "building:levels": "2",
+    "indoor": "wall",
+    "material": "concrete",
+    "note": "Name of the mall is at the landuse",
+    "previously": "way:435087210",
+    "roof:shape": "flat",
+    "shop": "mall",
+    "type": "multipolygon",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 8646163,
+  "center": {
+    "lat": 14.3018166,
+    "lon": 120.9570097
+  },
+  "tags": {
+    "addr:city": "Dasmariñas",
+    "addr:country": "PH",
+    "addr:postcode": "4114",
+    "addr:province": "Cavite",
+    "addr:street": "Governor's Drive",
+    "addr:village": "Sampaloc 1",
+    "alt_name": "SM City Dasmarinas",
+    "fine:smoking": "10,000 PHP",
+    "image": "https://www.smsupermalls.com/data/uploads/2018/03/SM_City_Dasmarinas.jpg",
+    "int_name": "SM City Dasmariñas",
+    "loc_name": "SM Dasma",
+    "name": "SM City Dasmariñas",
+    "official_name": "SM City Dasmariñas",
+    "operator": "SM Supermalls",
+    "operator:wikidata": "Q7391510",
+    "phone": "+63 46 432 3201;+63 46 432 3202;+63 46 432 3203;+63 46 432 3204",
+    "previously": "way:148900865",
+    "shop": "mall",
+    "short_name": "SMD",
+    "site": "mall",
+    "smoking": "no",
+    "source": "SM Supermalls",
+    "start_date": "2004-05-21",
+    "tactile_paving": "no",
+    "toilets": "separate",
+    "toilets:wheelchair": "yes",
+    "type": "multipolygon",
+    "website": "https://www.smsupermalls.com/mall-locator/sm-city-dasmari%C3%B1as/information/",
+    "wheelchair": "yes",
+    "wikidata": "Q7391462",
+    "wikipedia": "en:SM City Dasmariñas"
+  }
+},
+{
+  "type": "relation",
+  "id": 8754473,
+  "center": {
+    "lat": 14.2812850,
+    "lon": 120.8658684
+  },
+  "tags": {
+    "addr:city": "Trece Martires",
+    "addr:postcode": "4109",
+    "addr:street": "Governor's Drive",
+    "internet_access": "wlan",
+    "name": "SM City Trece Martires",
+    "opening_hours": "10:00-21:00",
+    "operator": "SM Supermalls",
+    "operator:wikidata": "Q7391510",
+    "payment:cash": "yes",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
+    "previously": "way:318087850",
+    "shop": "mall",
+    "smoking": "no",
+    "start_date": "2016-05-13",
+    "tactile_paving": "no",
+    "type": "multipolygon",
+    "wheelchair": "yes",
+    "wikidata": "Q24211042",
+    "wikipedia": "en:SM City Trece Martires"
+  }
+},
+{
+  "type": "relation",
+  "id": 8780575,
+  "center": {
+    "lat": 14.3003032,
+    "lon": 120.9537481
+  },
+  "tags": {
+    "addr:city": "Dasmariñas",
+    "addr:country": "PH",
+    "addr:postcode": "4114",
+    "addr:province": "Cavite",
+    "addr:street": "Aguinaldo Highway",
+    "addr:street:corner": "Governor Juanito R. Remulla, Sr. Road",
+    "addr:village": "Sampaloc 1",
+    "air_conditioning": "yes",
+    "alt_name": "Robinsons Place Dasmarinas",
+    "landuse": "retail",
+    "name": "Robinsons Place Dasmariñas",
+    "operator": "Robinsons Malls",
+    "operator:wikidata": "Q7353125",
+    "previously": "way:77302940",
+    "shop": "mall",
+    "smoking": "no",
+    "type": "multipolygon",
+    "was:wikipedia": "en:Robinsons Place Dasmariñas"
+  }
+},
+{
+  "type": "relation",
+  "id": 8789482,
+  "center": {
+    "lat": 14.3454369,
+    "lon": 120.9659587
+  },
+  "tags": {
+    "alt_name": "TUP Cavite",
+    "amenity": "university",
+    "fixme": "geometry is approximate",
+    "name": "Technological University of the Philippines - Cavite",
+    "operator": "Technological University of the Philippines",
+    "previously": "way:583063174",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 8843854,
+  "center": {
+    "lat": 14.3419533,
+    "lon": 120.9572358
+  },
+  "tags": {
+    "addr:city": "Dasmariñas",
+    "addr:country": "PH",
+    "addr:postcode": "4114",
+    "addr:province": "Cavite",
+    "addr:street": "Carlos Trinidad Avenue",
+    "amenity": "college",
+    "branch": "Dasmariñas",
+    "name": "MOL Magsaysay Maritime Academy",
+    "smoking": "no",
+    "type": "multipolygon",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 9035425,
+  "center": {
+    "lat": 14.4461339,
+    "lon": 120.9506011
+  },
+  "tags": {
+    "amenity": "bus_station",
+    "bus": "yes",
+    "internet_access": "no",
+    "name": "Bacoor City Transport Terminal",
+    "previously": "node:4495672195",
+    "public_transport": "station",
+    "smoking": "no",
+    "type": "multipolygon",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "relation",
+  "id": 9336840,
+  "center": {
+    "lat": 14.4208379,
+    "lon": 120.9406773
+  },
+  "tags": {
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "alt_name": "Imus City Transport Terminal",
+    "amenity": "bus_station",
+    "bus": "yes",
+    "name": "Imus Transport Plaza",
+    "previously": "node:1439194307;way:256584092",
+    "public_transport": "station",
+    "smoking": "no",
+    "type": "multipolygon",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "relation",
+  "id": 9351612,
+  "center": {
+    "lat": 14.4130914,
+    "lon": 120.9417695
+  },
+  "tags": {
+    "addr:barangay": "Tanzang Luma V",
+    "addr:city": "Imus",
+    "addr:country": "PH",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Aguinaldo Highway",
+    "landuse": "retail",
+    "name": "Robinsons Place Imus",
+    "opening_hours": "Mo-Su 10:00-21:00",
+    "previously": "way:131566160",
+    "shop": "mall",
+    "smoking": "no",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 9352853,
+  "center": {
+    "lat": 14.4001499,
+    "lon": 120.9394898
+  },
+  "tags": {
+    "addr:barangay": "Anabu I-B",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:street": "Aguinaldo Highway",
+    "amenity": "hospital",
+    "name": "City of Imus Doctors Hospital",
+    "previously": "way:365354608",
+    "smoking": "no",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 9352854,
+  "center": {
+    "lat": 14.3985633,
+    "lon": 120.9392850
+  },
+  "tags": {
+    "addr:barangay": "Anabu I-B",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Aguinaldo Highway",
+    "alt_name": "City Mall",
+    "branch": "Anabu",
+    "brand": "CityMall",
+    "brand:wikidata": "Q22080333",
+    "brand:wikipedia": "en:CityMall (Philippines)",
+    "landuse": "retail",
+    "name": "CityMall",
+    "opening_hours": "Mo-Su 9:00-21:00",
+    "operator": "DoubleDragon Properties",
+    "operator:wikidata": "Q30640951",
+    "previously": "way:365354607",
+    "shop": "mall",
+    "start_date": "2015-08-12",
+    "type": "multipolygon",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 9467534,
+  "center": {
+    "lat": 14.3339785,
+    "lon": 120.9505396
+  },
+  "tags": {
+    "addr:city": "Dasmariñas",
+    "addr:country": "PH",
+    "addr:postcode": "4114",
+    "addr:province": "Cavite",
+    "amenity": "college",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "isced:level": "6",
+    "landuse": "education",
+    "name": "Kolehiyo ng Lungsod ng Dasmariñas",
+    "operator": "City Government of Dasmariñas",
+    "operator:type": "government",
+    "smoking": "no",
+    "type": "multipolygon",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 9503367,
+  "center": {
+    "lat": 14.3998520,
+    "lon": 120.9042513
+  },
+  "tags": {
+    "addr:city": "Imus",
+    "addr:housename": "Lancaster Square",
+    "addr:postcode": "4103",
+    "addr:street": "Lancaster Boulevard",
+    "amenity": "bus_station",
+    "bus": "yes",
+    "email": "lnctapnride@gmail.com",
+    "internet_access": "no",
+    "name": "Lancaster Transport Hub",
+    "phone": "+63 (922) 4912374",
+    "previously": "node:1859839415",
+    "public_transport": "station",
+    "smoking": "no",
+    "source": "Schadow1 Expeditions",
+    "type": "multipolygon",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 10141916,
+  "center": {
+    "lat": 14.3022225,
+    "lon": 120.9556816
+  },
+  "tags": {
+    "air_conditioning": "yes",
+    "building": "commercial",
+    "building:levels": "4",
+    "indoor": "wall",
+    "material": "concrete",
+    "name": "Annex Building",
+    "opening_hours": "10:00-21:00",
+    "previously": "way:148665726",
+    "roof:shape": "flat",
+    "safety:hand_sanitizer": "yes",
+    "safety:mask": "yes",
+    "shop": "mall",
+    "smoking": "no",
+    "surveillance": "indoor",
+    "surveillance:type": "camera",
+    "tactile_paving": "no",
+    "type": "multipolygon",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 10165432,
+  "center": {
+    "lat": 14.5234008,
+    "lon": 120.9882138
+  },
+  "tags": {
+    "addr:city": "Parañaque",
+    "addr:district": "Tambo",
+    "addr:neighbourhood": "Aseana City",
+    "addr:postcode": "1701",
+    "addr:province": "Metro Manila",
+    "addr:street": "ASEAN Avenue",
+    "addr:street:corner": "N. Abueva Street",
+    "air_conditioning": "yes",
+    "building": "retail",
+    "building:levels": "5",
+    "check_date": "2025-01",
+    "internet_access": "no",
+    "layer": "1",
+    "name": "Ayala Malls Manila Bay",
+    "opening_hours": "Mo-Fr 11:00-21:00; Sa-Su 10:00-22:00",
+    "operator": "Ayala Malls",
+    "operator:wikidata": "Q16836231",
+    "safety:hand_sanitizer:covid19": "yes",
+    "safety:mask:covid19": "yes",
+    "shop": "mall",
+    "smoking": "isolated",
+    "start_date": "2019-09-26",
+    "stroller": "yes",
+    "surveillance": "indoor",
+    "surveillance:type": "camera",
+    "toilets": "yes",
+    "toilets:wheelchair": "yes",
+    "type": "multipolygon",
+    "website": "https://www.ayalamalls.com/main/malls/ayala-manila-bay",
+    "wheelchair": "yes",
+    "wikidata": "Q85744455",
+    "wikipedia": "en:Ayala Malls Manila Bay"
+  }
+},
+{
+  "type": "relation",
+  "id": 10697941,
+  "center": {
+    "lat": 14.3019229,
+    "lon": 120.9571183
+  },
+  "tags": {
+    "air_conditioning": "yes",
+    "amenity": "parking",
+    "building": "commercial",
+    "building:levels": "7",
+    "capacity": "1530",
+    "capacity:disabled": "25",
+    "description": "Multi-storey Carpark Building; ongoing expansion",
+    "elevator": "yes",
+    "fee": "yes",
+    "fee:car": "Php20",
+    "fine:not:disabled": "100,000 PHP",
+    "fine:smoking": "10,000 PHP",
+    "indoor": "wall",
+    "lit": "yes",
+    "material": "concrete",
+    "maxheight": "2.4",
+    "name": "Carpark Building",
+    "opening_hours": "08:00-21:00",
+    "park_ride": "no",
+    "parking": "multi-storey",
+    "previously": "way:161754611",
+    "related_law:disabled": "RA 9442",
+    "safety:hand_sanitizer": "yes",
+    "safety:mask": "yes",
+    "shop": "mall",
+    "smoking": "no",
+    "smoothness": "good",
+    "supervised": "yes",
+    "surface": "concrete",
+    "surveillance": "indoor",
+    "surveillance:type": "camera",
+    "type": "multipolygon",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 10706189,
+  "center": {
+    "lat": 14.3263013,
+    "lon": 120.9844000
+  },
+  "tags": {
+    "abandoned": "yes",
+    "addr:city": "Dasmariñas",
+    "addr:country": "PH",
+    "addr:postcode": "4114",
+    "addr:province": "Cavite",
+    "addr:street": "Vibal Avenue",
+    "addr:village": "Salawag",
+    "landuse": "retail",
+    "name": "Vista Mall Salawag",
+    "opening_hours": "10:00-21:00",
+    "opening_hours:covid19": "11:00-18:00",
+    "operator": "Vista Mall",
+    "shop": "mall",
+    "smoking": "no",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 10749166,
+  "center": {
+    "lat": 14.3132617,
+    "lon": 121.0502718
+  },
+  "tags": {
+    "addr:city": "Carmona",
+    "addr:postcode": "4116",
+    "branch": "Carmona",
+    "brand": "Walter Mart",
+    "landuse": "commercial",
+    "name": "WalterMart",
+    "opening_hours": "Mo-Th 09:00-20:00; Fr-Su 09:00-21:00",
+    "previously": "way:145414854",
+    "shop": "mall",
+    "smoking": "no",
+    "source": "Bing",
+    "type": "multipolygon",
+    "wikidata": "Q39052914",
+    "wikipedia": "en:Walter Mart"
+  }
+},
+{
+  "type": "relation",
+  "id": 11809346,
+  "center": {
+    "lat": 14.2866525,
+    "lon": 120.9878447
+  },
+  "tags": {
+    "addr:city": "Dasmariñas",
+    "addr:country": "PH",
+    "addr:postcode": "4114",
+    "addr:province": "Cavite",
+    "addr:street": "Governor's Drive",
+    "addr:village": "Paliparan 1",
+    "fine:smoking": "10,000 PHP",
+    "landuse": "commercial",
+    "name": "Unitop Mall Dasmariñas",
+    "shop": "mall",
+    "smoking": "no",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 13283563,
+  "center": {
+    "lat": 14.3860299,
+    "lon": 120.9614553
+  },
+  "tags": {
+    "addr:barangay": "Pasong Buaya I",
+    "addr:city": "Imus",
+    "addr:neighbourhood": "Vermosa",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Daang Hari",
+    "amenity": "bus_station",
+    "name": "Vermosa Transport Terminal",
+    "start_date": "2024",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 13283564,
+  "center": {
+    "lat": 14.3836202,
+    "lon": 120.9607996
+  },
+  "tags": {
+    "addr:barangay": "Pasong Buaya I",
+    "addr:city": "Imus",
+    "addr:neighbourhood": "Vermosa",
+    "addr:province": "Cavite",
+    "addr:street": "Daang Hari",
+    "addr:street:corner": "Vermosa Boulevard",
+    "air_conditioning": "no",
+    "branch": "Vermosa",
+    "brand": "Ayala Malls",
+    "contact:facebook": "AyalaMallsVermosaOfficial",
+    "landuse": "retail",
+    "name": "Ayala Malls Vermosa",
+    "operator": "Ayala Malls",
+    "operator:wikidata": "Q16836231",
+    "shop": "mall",
+    "start_date": "2023-11-17",
+    "toilets": "yes",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 13298936,
+  "center": {
+    "lat": 14.4285835,
+    "lon": 120.9471358
+  },
+  "tags": {
+    "addr:barangay": "Palico IV",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "amenity": "university",
+    "branch": "Imus",
+    "brand": "Cavite State University",
+    "brand:wikidata": "Q423303",
+    "isced:level": "5",
+    "name": "Cavite State University Imus Campus",
+    "old_name": "Cavite State University – College of Business and Entrepreneurship",
+    "operator:type": "public",
+    "short_name": "CvSU Imus",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 13350493,
+  "center": {
+    "lat": 14.4234834,
+    "lon": 120.9400004
+  },
+  "tags": {
+    "addr:barangay": "Tanzang Luma I",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Nueno Avenue",
+    "landuse": "retail",
+    "name": "Lotus Mall",
+    "shop": "mall",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 13463429,
+  "center": {
+    "lat": 14.3884042,
+    "lon": 120.9413781
+  },
+  "tags": {
+    "addr:barangay": "Anabu I-F",
+    "addr:city": "Imus",
+    "addr:housenumber": "820",
+    "addr:province": "Cavite",
+    "addr:street": "Unida Street",
+    "amenity": "college",
+    "name": "Unida Christian Colleges",
+    "religion": "christian",
+    "short_name": "UCC",
+    "type": "multipolygon",
+    "website": "https://ucc.ph/",
+    "wikidata": "Q7884813",
+    "wikipedia": "en:Unida Christian Colleges"
+  }
+},
+{
+  "type": "relation",
+  "id": 13629379,
+  "center": {
+    "lat": 14.3922929,
+    "lon": 120.8504140
+  },
+  "tags": {
+    "addr:city": "Tanza",
+    "addr:postcode": "4108",
+    "addr:province": "Cavite",
+    "addr:street": "Antero Soriano Highway",
+    "name": "SM City Tanza",
+    "opening_hours": "10:00-21:00",
+    "operator": "SM Supermalls",
+    "operator:wikidata": "Q7391510",
+    "shop": "mall",
+    "smoking": "no",
+    "type": "multipolygon",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 13663272,
+  "center": {
+    "lat": 14.3931971,
+    "lon": 120.9198094
+  },
+  "tags": {
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:street": "Pedro Delos Reyes",
+    "amenity": "hospital",
+    "emergency": "yes",
+    "healthcare": "hospital",
+    "name": "Ospital ng Imus",
+    "phone": "+6346419830029",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 13683525,
+  "center": {
+    "lat": 14.3170172,
+    "lon": 120.9654582
+  },
+  "tags": {
+    "addr:housenumber": "63;64;65;67;68;69A",
+    "air_conditioning": "yes",
+    "contact:website": "https://venturamall.business.site",
+    "landuse": "commercial",
+    "name": "Ventura Mall Dasmariñas",
+    "old_name": "Ventura Town Center",
+    "opening_date": "2023",
+    "shop": "mall",
+    "smoking": "no",
+    "toilets": "yes",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 13772473,
+  "center": {
+    "lat": 14.4592582,
+    "lon": 120.9602679
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:street": "Bacoor Boulevard",
+    "amenity": "hospital",
+    "emergency": "yes",
+    "healthcare": "hospital",
+    "name": "St. Dominic Medical Center",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 13772474,
+  "center": {
+    "lat": 14.4590132,
+    "lon": 120.9604533
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:street": "Bacoor Boulevard",
+    "amenity": "college",
+    "name": "St. Dominic College of Asia",
+    "name:abbr": "SDCA",
+    "type": "multipolygon",
+    "website": "https://stdominiccollege.edu.ph/",
+    "wikimedia_commons": "File:8575Bacoor City Cavite Landmarks 11.jpg"
+  }
+},
+{
+  "type": "relation",
+  "id": 14061902,
+  "center": {
+    "lat": 14.4326237,
+    "lon": 121.0102209
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:neighbourhood": "Almanza Uno",
+    "addr:street": "Alabang-Zapote Road",
+    "name": "SM Southmall",
+    "operator": "SM Supermalls",
+    "operator:wikidata": "Q7391510",
+    "shop": "mall",
+    "smoking": "no",
+    "type": "multipolygon",
+    "wheelchair": "yes",
+    "wikidata": "Q7391506",
+    "wikipedia": "en:SM Southmall"
+  }
+},
+{
+  "type": "relation",
+  "id": 14066527,
+  "center": {
+    "lat": 14.4129198,
+    "lon": 121.0162882
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:street": "Daang Hari",
+    "name": "Alabang West Parade",
+    "shop": "mall",
+    "type": "multipolygon",
+    "website": "https://megaworld-lifestylemalls.com/mall/alabang-west-parade/"
+  }
+},
+{
+  "type": "relation",
+  "id": 14138164,
+  "center": {
+    "lat": 14.4220950,
+    "lon": 120.9386564
+  },
+  "tags": {
+    "addr:street": "Imus City Market Road",
+    "landuse": "retail",
+    "name": "Imus Terminal Mall",
+    "shop": "mall",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 14226611,
+  "center": {
+    "lat": 14.3963891,
+    "lon": 120.9389613
+  },
+  "tags": {
+    "addr:barangay": "Anabu I-B",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "amenity": "college",
+    "name": "City of Imus Polytechnic Institute",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 14283666,
+  "center": {
+    "lat": 14.3834547,
+    "lon": 120.9813524
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:street": "Daang Hari",
+    "alt_name": "South Molino",
+    "description": "SoMo: A Vista Mall",
+    "internet_access": "wlan",
+    "internet_access:captive_portal": "yes",
+    "internet_access:operator": "Ruijie Networks",
+    "internet_access:registration": "yes",
+    "internet_access:registration:type": "accept_tou;accept_aup",
+    "internet_access:ssid": "@SOMOFreeWiFi",
+    "landuse": "retail",
+    "name": "SoMo",
+    "old_name": "Starmall Prima Daanghari;Vista Mall Daang Hari",
+    "opening_hours": "Mo-Th 10:00-20:00; Fr-Su 10:00-21:00",
+    "operator": "Vista Malls",
+    "phone": "+63 2 8842 2513",
+    "shop": "mall",
+    "smoking": "no",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 14296272,
+  "center": {
+    "lat": 14.3771227,
+    "lon": 120.9355326
+  },
+  "tags": {
+    "addr:barangay": "Anabu II-C",
+    "addr:city": "Imus",
+    "addr:housenumber": "2446 C-1",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "D. C. Ilano Boulevard",
+    "facebook": "https://www.facebook.com/p/KALLA-Shopping-Center-61565450684486/",
+    "landuse": "retail",
+    "mapillary": "700410407837467",
+    "name": "KALLA Shopping Center",
+    "old_name": "DIVI Mall Imus",
+    "shop": "mall",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 14296273,
+  "center": {
+    "lat": 14.3767578,
+    "lon": 120.9345569
+  },
+  "tags": {
+    "addr:barangay": "Anabu II-C",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "D. C. Ilano Boulevard",
+    "amenity": "hospital",
+    "beds": "100",
+    "contact:email": "southimusspecialisthospital@gmail.com",
+    "contact:facebook": "southimusspecialisthospital",
+    "contact:phone": "+63 464387745",
+    "healthcare": "hospital",
+    "name": "South Imus Specialist Hospital",
+    "ref": "DOH000000000039696",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 14323373,
+  "center": {
+    "lat": 14.4317455,
+    "lon": 120.9475257
+  },
+  "tags": {
+    "addr:barangay": "Palico IV",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Aguinaldo Highway",
+    "addr:street:corner": "NoMo Avenue",
+    "landuse": "retail",
+    "name": "Vista Mall Imus",
+    "opening_hours": "Mo-Sa 08:00-20:00",
+    "operator": "Vista Malls",
+    "shop": "mall",
+    "smoking": "no",
+    "type": "multipolygon",
+    "website": "https://www.vistamalls.com.ph/",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 14337416,
+  "center": {
+    "lat": 14.4261410,
+    "lon": 120.9465180
+  },
+  "tags": {
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:street": "Palico Diversion Road",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "Medical Center Imus",
+    "phone": "+63 46 472 3031",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 14428675,
+  "center": {
+    "lat": 14.3926814,
+    "lon": 120.9412780
+  },
+  "tags": {
+    "addr:barangay": "Anabu I-E",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Anabu Road",
+    "amenity": "college",
+    "building": "college",
+    "building:levels": "3",
+    "name": "Beatitudes Technological and Theological College - Imus, Cavite, Inc.",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 14496321,
+  "center": {
+    "lat": 14.4356372,
+    "lon": 120.9691316
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:country": "PH",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "addr:street": "Bacoor Boulevard",
+    "addr:subdistrict": "San Nicolas I",
+    "alt_name": "NoMo",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "internet_access:ssid": "@NoMoWiFi",
+    "landuse": "retail",
+    "name": "NOMO",
+    "official_name": "NOMO - A Vista Lifestyle Center",
+    "previously": "way:669869479",
+    "shop": "mall",
+    "type": "multipolygon",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 15597735,
+  "center": {
+    "lat": 14.4692178,
+    "lon": 120.9725491
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:postcode": "1740",
+    "addr:street": "P. Diego Cera Avenue",
+    "amenity": "college",
+    "name": "Bernardo College",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 16195464,
+  "center": {
+    "lat": 14.4189375,
+    "lon": 120.9400030
+  },
+  "tags": {
+    "addr:barangay": "Bayan Luma II",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Tamsui Avenue",
+    "amenity": "hospital",
+    "description": "Secondary Hospital",
+    "emergency": "yes",
+    "healthcare": "hospital",
+    "name": "Our Lady of the Pillar Medical Center",
+    "previously": "node:4160414297",
+    "short_name": "OLPMC",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 16247076,
+  "center": {
+    "lat": 14.3708164,
+    "lon": 120.9396330
+  },
+  "tags": {
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Aguinaldo Highway",
+    "addr:street:corner": "Daang Hari",
+    "baby_feeding": "room",
+    "changing_table": "yes",
+    "changing_table:fee": "yes",
+    "contact:email": "tdi@ayalamalls.com.ph;teamdistrictcavite@gmail.com",
+    "contact:facebook": "TheDistrictImus",
+    "contact:instagram": "ilovethedistrictimus",
+    "contact:tiktok": "ilovethedistrictimus",
+    "internet_access": "wlan",
+    "internet_access:captive_portal": "no",
+    "internet_access:registration": "yes",
+    "internet_access:ssid": "TheDistrictImusFreeWIFI4ALL",
+    "landuse": "retail",
+    "name": "The District Imus",
+    "old_name": "Cavite Commercial Center;Cavite Commercial Towncenter",
+    "opening_hours": "Mo-Su 10:00-21:00",
+    "operator": "Ayala Malls",
+    "operator:wikidata": "Q16836231",
+    "previously": "way:158648322",
+    "shop": "mall",
+    "toilets": "yes",
+    "toilets:access": "yes",
+    "toilets:fee": "no",
+    "toilets:gender_segregated": "yes",
+    "toilets:hands_drying": "electric_hand_dryer",
+    "toilets:handwashing": "yes",
+    "toilets:position": "seated;urinal",
+    "toilets:wash": "bidet_spray",
+    "toilets:wheelchair": "yes",
+    "type": "multipolygon",
+    "was:internet_access:registration:type": "mobile;accept_tou",
+    "was:internet_access:ssid": "@AyalaMalls_FreeGoWiFi"
+  }
+},
+{
+  "type": "relation",
+  "id": 16640724,
+  "center": {
+    "lat": 14.4107295,
+    "lon": 120.9763311
+  },
+  "tags": {
+    "addr:barangay": "Molino II",
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "addr:street": "Molino Road",
+    "amenity": "hospital",
+    "contact:facebook": "100069447519195",
+    "contact:mobile": "+63 0917 819 7567",
+    "contact:phone": "+63 046 477 0830",
+    "healthcare": "hospital",
+    "mapillary": "141208821779557",
+    "name": "Molino Doctors Hospital",
+    "opening_hours": "24/7",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 16640727,
+  "center": {
+    "lat": 14.4058411,
+    "lon": 120.9769762
+  },
+  "tags": {
+    "addr:barangay": "Molino III",
+    "addr:city": "Bacoor",
+    "addr:country": "PH",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "addr:street": "Molino Road",
+    "amenity": "hospital",
+    "contact:email": "info@southeastasianhospital.com",
+    "contact:facebook": "ceamci",
+    "contact:phone": "+63 46 431 0000;+63 25844747",
+    "contact:website": "https://southeastasianhospital.com/",
+    "healthcare": "hospital",
+    "internet_access": "wlan",
+    "internet_access:captive_portal": "yes",
+    "internet_access:fee": "yes",
+    "internet_access:registration": "yes",
+    "internet_access:registration:type": "username;password",
+    "internet_access:ssid": "ceamc-prodata",
+    "mapillary": "1153186651918767",
+    "name": "Cavite East Asia Medical Center",
+    "old_name": "Southeast Asian Medical Center",
+    "opening_hours": "24/7",
+    "operator": "Cavite East Asia Medical Center Inc.",
+    "operator:type": "private",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "payment:gcash": "no",
+    "short_name": "CEAMC;SAMC",
+    "strapline": "…until everyone is well",
+    "toilets": "yes",
+    "toilets:access": "customers",
+    "toilets:disposal": "flush",
+    "toilets:gender_segregated": "no",
+    "toilets:handwashing": "yes",
+    "toilets:level": "0;1",
+    "toilets:level:ref": "G;2",
+    "toilets:position": "seated;urinal",
+    "toilets:wash": "bidet_spray",
+    "toilets:wheelchair": "designated",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 17759451,
+  "center": {
+    "lat": 14.3316308,
+    "lon": 120.9540383
+  },
+  "tags": {
+    "amenity": "bus_station",
+    "fee": "no",
+    "fine:not:bus": "5,000 PHP",
+    "name": "Dasmariñas Arena Bus Station",
+    "orientation": "diagonal",
+    "public_transport": "station",
+    "smoothness": "excellent",
+    "surface": "concrete",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 18083930,
+  "center": {
+    "lat": 14.4422834,
+    "lon": 120.9529336
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "amenity": "place_of_worship",
+    "denomination": "roman_catholic",
+    "fixme": "parish boundary",
+    "landuse": "religious",
+    "name": "Saint Martin de Porres Parish",
+    "religion": "christian",
+    "smoking": "no",
+    "type": "multipolygon",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 18131505,
+  "center": {
+    "lat": 14.4085216,
+    "lon": 120.9238118
+  },
+  "tags": {
+    "addr:city": "Imus",
+    "addr:country": "PH",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Governor Erineo S. Maliksi Avenue",
+    "name": "SM Center Imus",
+    "opening_hours": "Mo-Su 10:00-21:00",
+    "operator": "SM Supermalls",
+    "operator:wikidata": "Q7391510",
+    "phone": "+63 (46) 8627333",
+    "shop": "mall",
+    "smoking": "no",
+    "source": "Schadow1 Expeditions",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 18140873,
+  "center": {
+    "lat": 14.4277952,
+    "lon": 120.8947229
+  },
+  "tags": {
+    "addr:city": "Kawit",
+    "addr:postcode": "4104",
+    "addr:street": "Kalayaan Road",
+    "amenity": "hospital",
+    "email": "spcmc.kawit@gmail.com",
+    "mapillary": "314047680080058",
+    "name": "San Pedro Calungsod Medical Center",
+    "phone": "+63 46 458 1176",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 18167225,
+  "center": {
+    "lat": 14.4430131,
+    "lon": 120.9985132
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:housenumber": "345",
+    "addr:postcode": "1740",
+    "addr:street": "Alabang-Zapote Road",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "internet_access:registration": "yes",
+    "internet_access:registration:type": "mobile",
+    "internet_access:ssid": "@Robinsons_FreeGoWiFi;_FREE Smart WiFi @Robinsons",
+    "landuse": "retail",
+    "name": "Robinsons Place Las Piñas",
+    "operator": "Robinsons Malls",
+    "operator:wikidata": "Q7353125",
+    "shop": "mall",
+    "short_name": "Robinsons Las Piñas",
+    "toilets": "yes",
+    "toilets:access": "yes",
+    "type": "multipolygon",
+    "website": "https://robinsonsmalls.com/mall-info/robinsons-place-las-pinas/",
+    "wikidata": "Q25041393",
+    "wikimedia_commons": "Category:Robinsons Place Las Piñas",
+    "wikipedia": "en:Robinsons Las Piñas"
+  }
+},
+{
+  "type": "relation",
+  "id": 18204745,
+  "center": {
+    "lat": 14.2293953,
+    "lon": 120.9694851
+  },
+  "tags": {
+    "addr:city": "Silang",
+    "addr:postcode": "4118",
+    "addr:province": "Cavite",
+    "addr:street": "Aguinaldo Highway",
+    "brand": "WalterMart",
+    "brand:wikidata": "Q39052914",
+    "currency:PHP": "yes",
+    "landuse": "retail",
+    "name": "WalterMart",
+    "shop": "mall",
+    "smoking": "no",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 18498587,
+  "center": {
+    "lat": 14.4115739,
+    "lon": 120.9532866
+  },
+  "tags": {
+    "addr:barangay": "Buhay na Tubig",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Buhay na Tubig Road",
+    "landuse": "retail",
+    "name": "Robinsons Townville",
+    "operator": "Robinsons Malls",
+    "operator:wikidata": "Q7353125",
+    "shop": "mall",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 18503311,
+  "center": {
+    "lat": 14.4034528,
+    "lon": 120.9593017
+  },
+  "tags": {
+    "addr:barangay": "Buhay na Tubig",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Buhay na Tubig Road",
+    "amenity": "college",
+    "name": "Our Lady of the Pillar Seminary",
+    "type": "multipolygon",
+    "wikidata": "Q25052620",
+    "wikipedia": "en:Our Lady of the Pillar Seminary"
+  }
+},
+{
+  "type": "relation",
+  "id": 18529469,
+  "center": {
+    "lat": 14.3925124,
+    "lon": 120.9400950
+  },
+  "tags": {
+    "addr:barangay": "Anabu I-E",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Aguinaldo Highway",
+    "amenity": "college",
+    "name": "Informatics College",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 18773500,
+  "center": {
+    "lat": 14.4413218,
+    "lon": 120.9471075
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "Southern Tagalog Regional Hospital",
+    "old_name": "Bacoor District Hospital",
+    "operator": "Department of Health (Philippines)",
+    "operator:type": "public",
+    "short_name": "STRH;BDH",
+    "type": "multipolygon",
+    "wikidata": "Q119347954"
+  }
+},
+{
+  "type": "relation",
+  "id": 18773513,
+  "center": {
+    "lat": 14.4492270,
+    "lon": 120.9332902
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:street": "Tirona Highway",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "healthcare:speciality": "general",
+    "name": "Crisostomo General Hospital",
+    "ref:doh": "460",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 19103182,
+  "center": {
+    "lat": 14.4236256,
+    "lon": 121.0298892
+  },
+  "tags": {
+    "addr:city": "Muntinlupa",
+    "addr:street": "Alabang-Zapote Road",
+    "addr:street:corner": "Madrigal Avenue",
+    "contact:facebook": "AlabangTownCenter",
+    "contact:instagram": "alabangtowncenter",
+    "contact:twitter": "alabangtowncntr",
+    "landuse": "retail",
+    "loc_name": "Town Center",
+    "name": "Alabang Town Center",
+    "operator": "Ayala Malls",
+    "operator:wikidata": "Q16836231",
+    "phone": "+63 2 8842 2782",
+    "shop": "mall",
+    "short_name": "ATC",
+    "type": "multipolygon",
+    "website": "https://www.ayalamalls.com/main/malls/ayala-alabang-town-centre-mall",
+    "wikidata": "Q4705401",
+    "wikimedia_commons": "Category:Alabang Town Center",
+    "wikipedia": "en:Alabang Town Center"
+  }
+},
+{
+  "type": "relation",
+  "id": 19355682,
+  "center": {
+    "lat": 14.4256504,
+    "lon": 120.9698585
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:housenumber": "96",
+    "addr:postcode": "4102",
+    "addr:street": "Bayanan Road",
+    "amenity": "college",
+    "name": "Saint Francis of Assisi College",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 19587148,
+  "center": {
+    "lat": 14.4550890,
+    "lon": 120.9952285
+  },
+  "tags": {
+    "addr:street": "CAA Avenue",
+    "amenity": "college",
+    "mapillary": "1360705337618363",
+    "name": "Southville International School and College",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 20199375,
+  "center": {
+    "lat": 14.4531924,
+    "lon": 120.9561714
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "addr:street": "Aguinaldo Highway",
+    "amenity": "college",
+    "name": "St. Dominic College of Asia Digital Campus",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 20395491,
+  "center": {
+    "lat": 14.5410102,
+    "lon": 121.0190324
+  },
+  "tags": {
+    "addr:barangay": "Magallanes",
+    "addr:city": "Makati",
+    "addr:postcode": "1232",
+    "addr:street": "EDSA",
+    "addr:street:corner": "Chino Roces Avenue Extension",
+    "landuse": "retail",
+    "name": "League One Southgate Mall",
+    "shop": "mall",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 21498132,
+  "center": {
+    "lat": 14.3649611,
+    "lon": 120.9120916
+  },
+  "tags": {
+    "addr:barangay": "Pasong Camachile II",
+    "addr:city": "General Trias",
+    "addr:postcode": "4107",
+    "addr:province": "Cavite",
+    "addr:street": "Daang Hari",
+    "amenity": "hospital",
+    "name": "King Solomon Hospital and Medical Center",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 21624091,
+  "center": {
+    "lat": 14.5351613,
+    "lon": 120.9819796
+  },
+  "tags": {
+    "addr:city": "Pasay",
+    "addr:district": "Barangay 76",
+    "addr:postcode": "1300",
+    "addr:quarter": "Barangay 76",
+    "addr:region": "Metro Manila",
+    "addr:street": "Seaside Boulevard",
+    "architect": "Arquitectonica",
+    "check_date": "2026-05-31",
+    "check_date:opening_hours": "2026-05-31",
+    "landuse": "retail",
+    "loc_name": "MoA",
+    "name": "SM Mall of Asia",
+    "opening_hours": "Mo-Fr 11:00-22:00; Sa-Su 10:00-22:00",
+    "operator": "SM Supermalls",
+    "operator:wikidata": "Q7391510",
+    "shop": "mall",
+    "smoking": "no",
+    "type": "multipolygon",
+    "website": "https://www.smsupermalls.com/mall-directory/sm-mall-of-asia/information",
+    "wheelchair": "yes",
+    "wikidata": "Q1435577",
+    "wikimedia_commons": "Category:SM Mall of Asia",
+    "wikipedia": "en:SM Mall of Asia"
+  }
+}
+
+  ]
+}

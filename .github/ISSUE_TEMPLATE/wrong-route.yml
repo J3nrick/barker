@@ -1,0 +1,12 @@
+name: Maling ruta
+description: Mali ang dinadaanan, plakard, o hindi na tumatakbo
+labels: [data, fix]
+body:
+  - type: input
+    id: plakard
+    attributes: { label: Aling ruta, placeholder: "SM MOLINO - TRECE" }
+    validations: { required: true }
+  - type: textarea
+    id: wrong
+    attributes: { label: Ano ang mali at ano ang tama? }
+    validations: { required: true }

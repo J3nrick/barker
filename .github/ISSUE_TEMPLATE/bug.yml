@@ -1,0 +1,11 @@
+name: Bug
+description: May hindi gumagana sa app
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes: { label: Ano ang nangyari at ano ang inaasahan mo? }
+    validations: { required: true }
+  - type: input
+    id: device
+    attributes: { label: Phone at browser, placeholder: "Redmi Note 12, Chrome" }

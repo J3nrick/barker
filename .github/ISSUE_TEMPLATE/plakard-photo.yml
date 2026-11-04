@@ -1,0 +1,15 @@
+name: Litrato ng plakard
+description: Magpadala ng litrato ng plakard para sa testing at tamang pagkakasulat
+labels: [data, plakard]
+body:
+  - type: textarea
+    id: photo
+    attributes: { label: Litrato, description: I-drag dito ang litrato ng plakard. }
+    validations: { required: true }
+  - type: input
+    id: text
+    attributes: { label: Eksaktong nakasulat, placeholder: "SM MOLINO - SM BACOOR" }
+    validations: { required: true }
+  - type: input
+    id: where
+    attributes: { label: Saan kinunan, placeholder: "SM Bacoor terminal" }
