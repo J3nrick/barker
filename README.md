@@ -14,7 +14,7 @@ May baligtad na mode din, ang **"Saan ako sasakay?"**: piliin kung saan ka pupun
 
 Puwede itong i-install sa home screen (PWA). Pagkatapos ng unang gamit, naka-cache na ang app, ang OCR engine at ang mga nakitang bahagi ng mapa, kaya gagana na ito kahit mahina ang signal.
 
-**Live:** https://j3nrick.github.io/dadaan-ba/
+**Live:** https://dadaan-ba.vercel.app (mirror: https://j3nrick.github.io/dadaan-ba/)
 
 ## Patakbuhin
 
