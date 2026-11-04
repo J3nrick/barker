@@ -6,9 +6,13 @@ Open-source na web app para sa mga commuter sa **Imus at Bacoor, Cavite**. Sa pl
 
 ## Paano gumagana
 
-1. **Scan.** Kunan ng litrato ang plakard. Babasahin ang text sa phone mismo gamit ang [Tesseract.js](https://github.com/naptha/tesseract.js), kaya walang ina-upload na litrato.
+1. **Scan.** Kunan ng litrato ang plakard. Pinapalinaw muna ang litrato (grayscale at contrast stretch, at sinusubukan din ang baligtad na kulay para sa maliwanag na letra sa madilim na board). Pagkatapos, babasahin ito sa phone mismo gamit ang [Tesseract.js](https://github.com/naptha/tesseract.js), kaya walang ina-upload na litrato.
 2. **Match.** Ikukumpara ang nabasang text sa listahan ng kilalang plakard gamit ang fuzzy matching. Tatama pa rin ito kahit magulo ang basa, gaya ng `SM M0LIN0 TREC`. Kapag hindi sigurado ang app, ipapakita nito ang top 3.
 3. **Sagot.** Lalabas ang ruta sa mapa, ang mga madadaanang landmark, at ang sagot sa "Dadaan ba sa ___?"
+
+May baligtad na mode din, ang **"Saan ako sasakay?"**: piliin kung saan ka pupunta, at ipapakita ng app ang mga plakard na hahanapin mo.
+
+Puwede itong i-install sa home screen (PWA). Pagkatapos ng unang gamit, naka-cache na ang app, ang OCR engine at ang mga nakitang bahagi ng mapa, kaya gagana na ito kahit mahina ang signal.
 
 **Live:** https://j3nrick.github.io/dadaan-ba/
 
