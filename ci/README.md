@@ -11,4 +11,4 @@ git mv ci/github-actions.yml .github/workflows/ci.yml
 git commit -m "Enable CI" && git push
 ```
 
-Then set *Settings → Pages → Source* to **GitHub Actions**. Until then the site is served from the `gh-pages` branch (`npm run deploy` in `app/`).
+Then set *Settings → Pages → Source* to **GitHub Actions**. Until then the live site (https://j3nrick.github.io/dadaan-ba/) is served from the `gh-pages` branch. Redeploy with `npm run deploy` in `app/`.

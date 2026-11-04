@@ -10,6 +10,8 @@ Open-source na web app para sa mga commuter sa **Imus at Bacoor, Cavite**. Sa pl
 2. **Match.** Ikukumpara ang nabasang text sa listahan ng kilalang plakard gamit ang fuzzy matching. Tatama pa rin ito kahit magulo ang basa, gaya ng `SM M0LIN0 TREC`. Kapag hindi sigurado ang app, ipapakita nito ang top 3.
 3. **Sagot.** Lalabas ang ruta sa mapa, ang mga madadaanang landmark, at ang sagot sa "Dadaan ba sa ___?"
 
+**Live:** https://j3nrick.github.io/dadaan-ba/
+
 ## Patakbuhin
 
 ```bash
