@@ -51,14 +51,47 @@ export function findPlace(question, places) {
   if (!words.length) return null
   let best = null
   for (const place of places) {
-    const all = normalize(place).split(' ')
-    const key = all.filter((t) => !GENERIC.has(t))
-    const toks = key.length ? key : all
-    // The place's words must be said, and the words said should belong to the place.
-    const covered = toks.reduce((sum, t) => sum + Math.max(...words.map((w) => similar(w, t))), 0) / toks.length
-    const used = words.reduce((sum, w) => sum + Math.max(...all.map((t) => similar(w, t))), 0) / words.length
-    const s = covered + used / 2
-    if (covered >= 0.75 && (!best || s > best.s)) best = { place, s }
+    // "Imus Cathedral (Bayan)" can be asked for as a whole or by either part; a part alone ranks a bit lower.
+    const [, out, inside] = place.match(/^(.*?)\s*(?:\((.*)\))?$/)
+    const names = inside
+      ? [
+          [place, 0],
+          [out, 0.05],
+          [inside, 0.05],
+        ]
+      : [[place, 0]]
+    for (const [name, cost] of names) {
+      const all = normalize(name).split(' ')
+      const key = all.filter((t) => !GENERIC.has(t))
+      const toks = key.length ? key : all
+      // The place's words must be said, and the words said should belong to the place.
+      const covered = toks.reduce((sum, t) => sum + Math.max(...words.map((w) => similar(w, t))), 0) / toks.length
+      const used = words.reduce((sum, w) => sum + Math.max(...all.map((t) => similar(w, t))), 0) / words.length
+      const s = covered + used / 2 - cost
+      if (covered >= 0.75 && (!best || s > best.s)) best = { place, s }
+    }
   }
   return best?.place ?? null
+}
+
+const FROM = new Set(['MULA', 'GALING', 'FROM'])
+const TO = new Set(['PAPUNTA', 'PAPUNTANG', 'PUNTA', 'PUPUNTA', 'HANGGANG', 'TO'])
+
+/** "Galing SM Bacoor papuntang PITX" -> { from: 'SM Bacoor', to: 'PITX' }. Without a "galing/mula", it's all destination. */
+export function parseTrip(question, places) {
+  const part = { from: [], to: [] }
+  let into = 'to'
+  for (const w of normalize(question).split(' ')) {
+    if (FROM.has(w)) into = 'from'
+    else if (TO.has(w)) into = 'to'
+    else part[into].push(w)
+  }
+  const from = part.from.length ? findPlace(part.from.join(' '), places) : null
+  return {
+    from,
+    to: findPlace(
+      part.to.join(' '),
+      places.filter((p) => p !== from),
+    ),
+  }
 }

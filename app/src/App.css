@@ -135,3 +135,12 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 .actions .save:disabled { opacity: .45; cursor: not-allowed; }
 .more { margin-top: 16px; }
 .addform .field:first-child { margin-top: 0; }
+
+/* Trips: where you're coming from, and two-ride answers */
+.from { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 16px; padding: 4px 4px 4px 14px; border-radius: 99px; border: 2px solid var(--ink); font-size: 14px; }
+.from button { width: 32px; height: 32px; border-radius: 50%; border: 0; background: var(--ink); color: var(--bg); font-size: 18px; line-height: 1; cursor: pointer; }
+.transfers { list-style: none; margin: 0; padding: 0; display: grid; gap: 24px; }
+.transfers li { display: grid; gap: 12px; padding-left: 16px; border-left: 4px solid var(--red); }
+
+.bar { display: flex; justify-content: space-between; align-items: center; }
+.share { min-height: 40px; padding: 6px 14px; border-radius: 99px; border: 2px solid var(--ink); background: none; font-size: 14px; font-weight: 700; cursor: pointer; }

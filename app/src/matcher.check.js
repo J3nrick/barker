@@ -2,7 +2,8 @@
 // shortcut: OCR strings are hand-made guesses, replace with real Tesseract output from plakard photos in week 1.
 import { readFileSync } from 'node:fs'
 import { match } from './matcher.js'
-import { findPlace } from './voice.js'
+import { findPlace, parseTrip } from './voice.js'
+import { plan } from './trip.js'
 
 const { routes } = JSON.parse(readFileSync(new URL('./routes.json', import.meta.url)))
 const places = [...new Set(routes.flatMap((r) => r.via.map((v) => v.name)))]
@@ -39,7 +40,25 @@ const questions = {
   'papunta ako sa alabang': 'Alabang',
   'saan po ang sakayan ng P2P papuntang Makati': 'Makati',
   'saan ang sakayan papuntang asdfgh': null,
+  'papuntang somo': 'SoMo (Molino)', // the part outside the brackets is enough
 }
+
+// "Galing X papuntang Y", in either order.
+const trips = {
+  'galing SM Bacoor papuntang PITX': 'SM Bacoor > PITX',
+  'papuntang PITX mula sa imus transport plaza': 'Imus Transport Plaza > PITX',
+  'saan ang sakayan papuntang zapote': 'null > Zapote',
+}
+
+// Trip planner: [from, to, what the first answer must be]
+const pos = Object.fromEntries(routes.flatMap((r) => r.via.map((v) => [v.name, v])))
+const plans = [
+  ['SM Bacoor', 'SM Molino', 'direct sm-bacoor-sm-molino'],
+  ['Imus Transport Plaza', 'Alabang', 'direct alabang-imus'],
+  ['Lancaster Filcab Station', 'SM Molino', 'none'], // only shared stop is PITX: a detour, not a transfer
+  ['SM Bacoor', 'Alabang', 'transfer zapote-silang+zapote-alabang'], // change at Zapote
+  ['Imus Transport Plaza', 'Makati', 'transfer zapote-silang+imus-makati'], // change to the P2P at The District Imus
+]
 
 let pass = 0
 let total = 0
@@ -57,6 +76,19 @@ for (const [ocr, want] of Object.entries(cases)) {
 for (const [q, want] of Object.entries(questions)) {
   const got = findPlace(q, places)
   report(got === want, `"${q}" → ${got}`)
+}
+for (const [q, want] of Object.entries(trips)) {
+  const { from, to } = parseTrip(q, places)
+  report(`${from} > ${to}` === want, `"${q}" → ${from} > ${to}`)
+}
+for (const [from, to, want] of plans) {
+  const t = plan(routes, pos[from], to, pos[to])
+  const got = t.direct[0]
+    ? `direct ${t.direct[0].r.id}`
+    : t.transfers[0]
+      ? `transfer ${t.transfers[0].a.id}+${t.transfers[0].b.id}`
+      : 'none'
+  report(got === want, `${from} → ${to}: ${got}`)
 }
 console.log(`\n${pass}/${total} correct`)
 if (pass !== total) process.exitCode = 1

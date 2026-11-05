@@ -3,6 +3,7 @@
 Run: python tools/build_routes.py
 Refresh the extracts first with: python tools/fetch_osm.py
 """
+import hashlib
 import json
 import math
 import re
@@ -216,7 +217,16 @@ def main():
 
     ids = [r["id"] for r in out]
     assert len(ids) == len(set(ids)), "duplicate route ids"
-    data = {"meta": {"source": "OpenStreetMap contributors (ODbL)", "fetched": FETCHED}, "routes": out, "sakayan": load_local()}
+    # Paths are most of the bytes and only needed on the map, so they ship as a separate file the map fetches.
+    # The name carries a content hash so a cached copy never outlives a data update.
+    paths = json.dumps({r["id"]: r.pop("path") for r in out}, separators=(",", ":"))
+    name = f"paths.{hashlib.sha1(paths.encode()).hexdigest()[:8]}.json"
+    public = HERE.parent / "public"
+    for old in public.glob("paths.*.json"):
+        old.unlink()
+    (public / name).write_text(paths, "utf-8")
+    meta = {"source": "OpenStreetMap contributors (ODbL)", "fetched": FETCHED, "paths": name}
+    data = {"meta": meta, "routes": out, "sakayan": load_local()}
     (HERE.parent / "src/routes.json").write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")), "utf-8")
 
 

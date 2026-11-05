@@ -8,7 +8,7 @@ Open-source na web app para sa mga commuter sa **Imus at Bacoor, Cavite**. Sa pl
 
 May tatlong paraan:
 
-- **Itanong** (boses o type): "Saan ang sakayan papuntang PITX?" Ililista ng app ang mga jeep, modern jeep, UV Express, bus at P2P na dadaan doon, pati kung saan sasakay. Kapag pinayagan mo ang lokasyon, ipapakita nito ang pinakamalapit na sakayan sa iyo. Binabasa rin nito nang malakas ang sagot. Gumagamit ito ng Web Speech API ng browser (pinakamaayos sa Chrome sa Android).
+- **Itanong** (boses o type): "Saan ang sakayan papuntang PITX?" Ililista ng app ang mga jeep, modern jeep, UV Express, bus at P2P na dadaan doon, pati kung saan sasakay. Puwede ring sabihin kung saan ka galing: "Galing SM Bacoor papuntang Alabang". Kapag pinayagan mo ang lokasyon (o sinabi kung saan ka galing), ang mga sasakyang malapit lang sa iyo ang ipapakita. Kapag walang direktang sasakyan, ituturo nito ang biyaheng **may isang lipat**, gaya ng "Zapote–Silang hanggang Zapote, lipat sa Zapote–Alabang". Binabasa rin nito nang malakas ang sagot. Gumagamit ito ng Web Speech API ng browser (pinakamaayos sa Chrome sa Android).
 - **Mga sakayan**: mapa at listahan ng mga terminal ng jeep, UV at bus, at ng 49 na paradahan ng tricycle at pedicab sa Imus at Bacoor. Kapag pinayagan ang lokasyon, nauuna ang pinakamalapit sa iyo at may link ng direksyon papunta roon. Puwede ka ring **magdagdag ng sakayan** na kulang: i-pin ito sa mapa at i-save sa phone mo, tapos ipadala sa GitHub para maidagdag para sa lahat.
 - **I-scan**: kunan ng litrato ang plakard.
 
@@ -17,6 +17,8 @@ Ganito gumagana ang scan:
 1. **Scan.** Kunan ng litrato ang plakard. Pinapalinaw muna ang litrato (grayscale at contrast stretch, at sinusubukan din ang baligtad na kulay para sa maliwanag na letra sa madilim na board). Pagkatapos, babasahin ito sa phone mismo gamit ang [Tesseract.js](https://github.com/naptha/tesseract.js), kaya walang ina-upload na litrato.
 2. **Match.** Ikukumpara ang nabasang text sa listahan ng kilalang plakard gamit ang fuzzy matching. Tatama pa rin ito kahit magulo ang basa, gaya ng `SM M0LIN0 TREC`. Kapag hindi sigurado ang app, ipapakita nito ang top 3.
 3. **Sagot.** Lalabas ang ruta sa mapa, ang mga madadaanang landmark, at ang sagot sa "Dadaan ba sa ___?"
+
+Puwedeng i-share ang link ng bawat ruta (`#ruta=imus-gma`), at ang Back button ng phone ay babalik sa listahan sa halip na isara ang app.
 
 Puwede itong i-install sa home screen (PWA). Pagkatapos ng unang gamit, naka-cache na ang app, ang OCR engine at ang mga nakitang bahagi ng mapa, kaya gagana na ito kahit mahina ang signal.
 
@@ -35,7 +37,7 @@ npm run build
 
 ## Route data
 
-Galing sa **[OpenStreetMap](https://www.openstreetmap.org)** ang mga ruta. Kinukuha ng [`app/tools/fetch_osm.py`](app/tools/fetch_osm.py) ang mga OSM extract papunta sa `app/tools/osm/`, at mula roon binubuo ng [`app/tools/build_routes.py`](app/tools/build_routes.py) ang `app/src/routes.json`. Itinuturing na madadaanan ang isang lugar kapag dumaan ang ruta sa loob ng 200 m ng landmark, 150 m ng terminal, o 60 m ng stop. Sa P2P, ang sarili lang nitong mga stop ang binibilang.
+Galing sa **[OpenStreetMap](https://www.openstreetmap.org)** ang mga ruta. Kinukuha ng [`app/tools/fetch_osm.py`](app/tools/fetch_osm.py) ang mga OSM extract papunta sa `app/tools/osm/`, at mula roon binubuo ng [`app/tools/build_routes.py`](app/tools/build_routes.py) ang `app/src/routes.json` at ang `app/public/paths.<hash>.json` (ang mga linya ng ruta, hiwalay para mabilis ang unang load). Itinuturing na madadaanan ang isang lugar kapag dumaan ang ruta sa loob ng 200 m ng landmark, 150 m ng terminal, o 60 m ng stop. Sa P2P, ang sarili lang nitong mga stop ang binibilang.
 
 ```bash
 python app/tools/fetch_osm.py    # i-refresh ang OSM data (mabagal kapag busy ang Overpass)

@@ -1,6 +1,11 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
+import { meta } from './routes.json'
+
+// Route lines live in public/paths.<hash>.json so the app shell stays small; fetched once, on the first map.
+let pathsReq
+const loadPaths = () => (pathsReq ??= fetch(`./${meta.paths}`).then((r) => (r.ok ? r.json() : Promise.reject(r.status))))
 
 // shortcut: tiles load from tile.openstreetmap.org, so the map needs internet; pre-cache Imus–Bacoor tiles for offline (v0.2).
 /**
@@ -12,6 +17,14 @@ export default function RouteMap({ route, dest, here, points, active, onPoint, o
   const map = useRef(null)
   const layer = useRef(null)
   const cb = useRef({})
+  const [paths, setPaths] = useState(null)
+  useEffect(() => {
+    if (route)
+      loadPaths().then(setPaths, () => {
+        pathsReq = null // offline: try again on the next map
+      })
+  }, [route])
+  const path = route && paths?.[route.id]
   useEffect(() => {
     cb.current = { onPoint, onTap }
   })
@@ -33,10 +46,14 @@ export default function RouteMap({ route, dest, here, points, active, onPoint, o
   // Re-fit only when what we're showing changes, not on every selection or pin.
   useEffect(() => {
     // With a location, points come nearest-first: frame you and the closest few, not the whole city.
-    const pts = route ? route.path.flat() : (here ? points.slice(0, 6) : points).map((p) => [p.lat, p.lng])
+    const pts = route
+      ? path
+        ? path.flat()
+        : route.via.map((v) => [v.lat, v.lng])
+      : (here ? points.slice(0, 6) : points).map((p) => [p.lat, p.lng])
     if (here && !route) pts.push([here.lat, here.lng])
     if (pts.length) map.current.fitBounds(L.latLngBounds(pts), { padding: [24, 24], maxZoom: 16 })
-  }, [route, points, here])
+  }, [route, path, points, here])
 
   useEffect(() => {
     const g = layer.current
@@ -47,8 +64,10 @@ export default function RouteMap({ route, dest, here, points, active, onPoint, o
       L.circleMarker(pos, { radius, color: color('--ink'), weight: 3, fillColor: fill, fillOpacity: 1 }).addTo(g)
 
     if (route) {
-      L.polyline(route.path, { color: color('--ink'), weight: 9, opacity: 0.25, lineCap: 'round' }).addTo(g)
-      L.polyline(route.path, { color: color('--red'), weight: 5, lineCap: 'round', lineJoin: 'round' }).addTo(g)
+      if (path) {
+        L.polyline(path, { color: color('--ink'), weight: 9, opacity: 0.25, lineCap: 'round' }).addTo(g)
+        L.polyline(path, { color: color('--red'), weight: 5, lineCap: 'round', lineJoin: 'round' }).addTo(g)
+      }
       for (const stop of route.via) {
         const hit = stop.name === dest
         dot(
@@ -71,7 +90,7 @@ export default function RouteMap({ route, dest, here, points, active, onPoint, o
     }
     if (here) dot([here.lat, here.lng], '#2b6cff', 8).bindTooltip('Ikaw', { direction: 'top' })
     if (pin) dot([pin.lat, pin.lng], color('--red'), 11).bindTooltip('Bagong sakayan', { direction: 'top', permanent: true })
-  }, [route, dest, here, points, active, pin])
+  }, [route, path, dest, here, points, active, pin])
 
   const label = route ? `Mapa ng rutang ${route.plakard}` : 'Mapa ng mga sakayan sa Imus at Bacoor'
   return <div ref={el} className="map" role="img" aria-label={label} />

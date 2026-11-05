@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { CONFIDENT, match } from './matcher.js'
 import { readPlakard } from './ocr.js'
-import { canListen, findPlace, listen, say } from './voice.js'
+import { canListen, listen, parseTrip, say } from './voice.js'
+import { km, plan } from './trip.js'
 import RouteMap from './RouteMap.jsx'
 import data from './routes.json'
 import './App.css'
@@ -12,12 +13,9 @@ const routesTo = (place) => routes.filter((r) => r.via.some((v) => v.name === pl
 
 const KINDS = { jeep: 'Jeep', modern: 'Modern jeep', uv: 'UV Express', bus: 'Bus', p2p: 'P2P bus' }
 const inArea = (v) => v.lat > 14.33 && v.lat < 14.47 && v.lng > 120.9 && v.lng < 121.0 // Imus + Bacoor
-const km = (a, b) => {
-  const dlat = ((b.lat - a.lat) * Math.PI) / 180
-  const dlng = (((b.lng - a.lng) * Math.PI) / 180) * Math.cos((a.lat * Math.PI) / 180)
-  return 6371 * Math.hypot(dlat, dlng)
-}
+const placePos = Object.fromEntries(routes.flatMap((r) => r.via.map((v) => [v.name, v])))
 const fmtKm = (d) => (d < 1 ? `${Math.round(d * 1000)} m` : `${d.toFixed(1)} km`)
+const walk = (d) => (d < 0.05 ? 'nandiyan ka na' : `${fmtKm(d)} lakad`)
 
 // Every sakayan in Imus/Bacoor: OSM terminals and tricycle stands, plus terminals we only know from route stops.
 const withKey = (h) => ({ ...h, key: `${h.name}@${h.lat},${h.lng}` })
@@ -59,12 +57,33 @@ const issueUrl = (s) =>
   })
 const directions = (h) => `https://www.google.com/maps/dir/?api=1&destination=${h.lat},${h.lng}&travelmode=walking`
 
-/** Where to board `route` to reach `goal`: nearest stop to the user if we know where they are, else a terminal in Imus/Bacoor. */
-function boardingPoint(route, goal, here) {
+/** Without a starting point, suggest boarding at a terminal in Imus/Bacoor. */
+function boardingPoint(route, goal) {
   const spots = route.via.filter((v) => v.k !== 'l' && v.name !== goal)
-  if (!spots.length) return null
-  if (here) return spots.map((v) => ({ ...v, d: km(here, v) })).sort((a, b) => a.d - b.d)[0]
-  return spots.find((v) => v.k === 't' && inArea(v)) ?? spots.find(inArea) ?? spots[0]
+  return spots.find((v) => v.k === 't' && inArea(v)) ?? spots.find(inArea) ?? spots[0] ?? null
+}
+
+/** Rides to `goal`; with a start point (GPS or a named place) only nearby ones, plus one-transfer trips when none go direct. */
+function tripFor(goal, start) {
+  const any = routesTo(goal).map((r) => ({ r, at: boardingPoint(r, goal) }))
+  if (!start) return { walk: false, direct: any, transfers: [], far: false }
+  const t = plan(routes, start, goal, placePos[goal])
+  return {
+    ...t,
+    far: !t.walk && !t.direct.length && !t.transfers.length,
+    direct: t.direct.length || t.walk || t.transfers.length ? t.direct : any,
+  }
+}
+
+function say1(goal, from, t) {
+  const ride = (r) => `${KINDS[r.kind]} na ${r.plakard.replace(' - ', ' hanggang ')}`
+  const pre = `Papuntang ${goal}${from ? ` galing ${from}` : ''}: `
+  if (t.walk) return say(`${pre}malapit lang, puwedeng lakarin.`)
+  const d = t.direct[0]
+  if (d && !t.far) return say(`${pre}sumakay ng ${ride(d.r)}${d.at ? ` sa ${d.at.name}` : ''}.`)
+  const x = t.transfers[0]
+  if (x) return say(`${pre}sumakay ng ${ride(x.a)} sa ${x.at.name}, bumaba sa ${x.via.name}, tapos lumipat sa ${ride(x.b)}.`)
+  say(d ? `${pre}may ${t.direct.length} na sasakyan, pero wala malapit sa iyo.` : `Wala pa akong alam na sasakyan papuntang ${goal}.`)
 }
 
 const Icon = ({ d, size = 22 }) => (
@@ -111,9 +130,9 @@ function AskBar({ label, placeholder, onPlace }) {
   const [q, setQ] = useState('')
   const [state, setState] = useState('idle') // idle | listening | miss | nomic
   const resolve = (text, spoken) => {
-    const place = findPlace(text, places)
-    setState(place ? 'idle' : 'miss')
-    if (place) onPlace(place, spoken)
+    const { from, to } = parseTrip(text, places)
+    setState(to ? 'idle' : 'miss')
+    if (to) onPlace(to, spoken, from)
   }
   async function talk() {
     setState('listening')
@@ -352,10 +371,12 @@ export default function App() {
   const [progress, setProgress] = useState(0)
   const [photo, setPhoto] = useState(null)
   const [text, setText] = useState('')
-  const [picked, setPicked] = useState(null)
+  const [picked, setPicked] = useState(() => routes.find((r) => location.hash === `#ruta=${r.id}`) ?? null)
+  const [copied, setCopied] = useState(false)
   const [dest, setDest] = useState('')
   const [mode, setMode] = useState('ask') // ask | scan | hubs
   const [goal, setGoal] = useState('')
+  const [origin, setOrigin] = useState('') // a named starting place, from "galing X papuntang Y"
   const [here, setHere] = useState(null)
   const [locating, setLocating] = useState('') // '' | busy | denied
 
@@ -365,10 +386,8 @@ export default function App() {
   const route = picked ?? (sure ? results[0].route : null)
   const passes = route && dest ? route.via.some((v) => v.name === dest) : null
 
-  const rides = useMemo(() => {
-    const list = routesTo(goal).map((r) => ({ r, at: boardingPoint(r, goal, here) }))
-    return here ? list.sort((a, b) => (a.at?.d ?? 1e9) - (b.at?.d ?? 1e9)) : list
-  }, [goal, here])
+  const start = origin ? placePos[origin] : here
+  const trip = useMemo(() => tripFor(goal, start), [goal, start])
 
   useEffect(() => () => photo && URL.revokeObjectURL(photo), [photo])
 
@@ -401,16 +420,10 @@ export default function App() {
     )
   }
 
-  function askGoal(place, spoken) {
+  function askGoal(place, spoken, from = '') {
     setGoal(place)
-    if (!spoken) return
-    const found = routesTo(place).map((r) => ({ r, at: boardingPoint(r, place, here) }))
-    const first = found[0]
-    say(
-      first
-        ? `Papuntang ${place}: may ${found.length} na masasakyan. Halimbawa, ${KINDS[first.r.kind]} na ${first.r.plakard.replace(' - ', ' hanggang ')}${first.at ? `, sumakay sa ${first.at.name}` : ''}.`
-        : `Wala pa akong alam na sasakyan papuntang ${place}.`,
-    )
+    setOrigin(from ?? '')
+    if (spoken) say1(place, from, tripFor(place, from ? placePos[from] : here))
   }
 
   function askDest(place, spoken) {
@@ -426,11 +439,46 @@ export default function App() {
   }
 
   function reset() {
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search)
     setPicked(null)
     setText('')
     setDest('')
     setPhoto(null)
     setStatus('idle')
+  }
+
+  // The phone's back button closes a route instead of leaving the app; each open route is a history entry.
+  useEffect(() => {
+    if (!route || history.state?.r === route.id) return
+    // Opened from a shared link: put the home screen underneath, so Back lands there instead of on the link again.
+    if (!history.state && location.hash === `#ruta=${route.id}`) history.replaceState(null, '', location.pathname + location.search)
+    history.pushState({ r: route.id }, '', `#ruta=${route.id}`)
+  }, [route])
+  useEffect(() => {
+    // Back/forward, or a pasted #ruta= link in an open tab.
+    const onPop = () => {
+      const linked = routes.find((r) => location.hash === `#ruta=${r.id}`)
+      if (linked) setPicked(linked)
+      else reset()
+    }
+    addEventListener('popstate', onPop)
+    return () => removeEventListener('popstate', onPop)
+  }, [])
+
+  const goBack = () => (history.state?.r ? history.back() : reset())
+
+  async function share() {
+    const url = `${location.origin}${location.pathname}#ruta=${route.id}`
+    try {
+      if (navigator.share) await navigator.share({ title: `${route.plakard} · Dadaan Ba?`, text: `Saan dadaan ang ${route.plakard}`, url })
+      else {
+        await navigator.clipboard.writeText(url)
+        setCopied(true)
+        setTimeout(() => setCopied(false), 2000)
+      }
+    } catch {
+      // share sheet dismissed
+    }
   }
 
   const locateButton = (
@@ -448,7 +496,7 @@ export default function App() {
         ))}
       </datalist>
       <header className="top">
-        <button className="brand" onClick={() => reset() || setGoal('')} aria-label="Dadaan Ba? Bumalik sa simula">
+        <button className="brand" onClick={() => goBack() || setGoal('') || setOrigin('')} aria-label="Dadaan Ba? Bumalik sa simula">
           Dadaan<span>Ba?</span>
         </button>
         <span className="area">Imus · Bacoor</span>
@@ -490,17 +538,32 @@ export default function App() {
                 {goal && (
                   <div className="picks" aria-live="polite">
                     <h2>
-                      Papuntang {goal} <span>{rides.length}</span>
+                      Papuntang {goal} <span>{trip.direct.length || trip.transfers.length}</span>
                     </h2>
-                    {rides.length > 0 && locateButton}
-                    {locating === 'denied' && (
+                    {origin ? (
+                      <p className="from">
+                        Galing sa <b>{origin}</b>
+                        <button onClick={() => setOrigin('')} aria-label="Alisin ang pinanggalingan">
+                          ×
+                        </button>
+                      </p>
+                    ) : (
+                      locateButton
+                    )}
+                    {locating === 'denied' && !origin && (
                       <p className="note error">Hindi makuha ang lokasyon mo. Ang ipinapakita ay ang mga terminal.</p>
                     )}
-                    {rides.length === 0 && (
+                    {trip.walk && <p className="note">Malapit lang ito, mga {fmtKm(km(start, placePos[goal]))}. Puwedeng lakarin.</p>}
+                    {trip.far && (
+                      <p className="note">
+                        Walang dumadaan malapit sa {origin || 'iyo'} papunta diyan. Ito ang lahat ng sasakyang papuntang {goal}:
+                      </p>
+                    )}
+                    {!trip.direct.length && !trip.transfers.length && !trip.walk && (
                       <p className="note">Wala pa kaming alam na sasakyan papunta diyan. Tumulong magdagdag ng ruta sa GitHub.</p>
                     )}
                     <ul>
-                      {rides.map(({ r, at }) => (
+                      {trip.direct.map(({ r, at }) => (
                         <li key={r.id}>
                           <button onClick={() => choose(r, goal)}>
                             <Plakard route={r} small />
@@ -508,7 +571,7 @@ export default function App() {
                               {at ? (
                                 <>
                                   Sakayan: <b>{at.name}</b>
-                                  {at.d !== undefined && ` · ${fmtKm(at.d)} mula sa iyo`}
+                                  {at.d !== undefined && ` · ${walk(at.d)}`}
                                 </>
                               ) : (
                                 'Pumara kahit saan sa ruta'
@@ -519,6 +582,29 @@ export default function App() {
                         </li>
                       ))}
                     </ul>
+                    {trip.transfers.length > 0 && (
+                      <>
+                        <h2>May isang lipat</h2>
+                        <ol className="transfers">
+                          {trip.transfers.map(({ a, at, via, b }) => (
+                            <li key={a.id + b.id}>
+                              <button onClick={() => choose(a, via.name)}>
+                                <Plakard route={a} small />
+                                <span className="hint">
+                                  Sakay sa <b>{at.name}</b> · {walk(at.d)} · bumaba sa <b>{via.name}</b>
+                                </span>
+                              </button>
+                              <button onClick={() => choose(b, goal)}>
+                                <Plakard route={b} small />
+                                <span className="hint">
+                                  Lumipat dito sa <b>{via.name}</b> papuntang {goal}
+                                </span>
+                              </button>
+                            </li>
+                          ))}
+                        </ol>
+                      </>
+                    )}
                   </div>
                 )}
               </>
@@ -622,9 +708,14 @@ export default function App() {
 
         {route && (
           <section className="result">
-            <button className="back" onClick={reset}>
-              ← Bumalik
-            </button>
+            <div className="bar">
+              <button className="back" onClick={goBack}>
+                ← Bumalik
+              </button>
+              <button className="share" onClick={share}>
+                {copied ? 'Nakopya ang link' : 'I-share'}
+              </button>
+            </div>
             <Plakard route={route} />
             {(route.operator || route.roads.length > 0) && (
               <p className="op">
@@ -654,8 +745,9 @@ export default function App() {
                   className="locate"
                   onClick={() => {
                     setGoal(dest)
+                    setOrigin('')
                     setMode('ask')
-                    reset()
+                    goBack()
                   }}
                 >
                   Ano ang sasakyan papuntang {dest}? →
