@@ -20,6 +20,8 @@ How the scan works:
 2. **Match.** The text is fuzzy-matched against the known signboards, so a messy read like `SM M0LIN0 TREC` still lands. When the app isn't sure, it shows the top 3.
 3. **Answer.** The route on a map, the stops along the way, and the answer to "Does it pass ___?"
 
+**Get-off alert:** on a route, pick your stop and tap **Alert me before…**. Barker follows your GPS while you ride, then vibrates and speaks about 500 m before your stop ("Get ready"), again at the stop ("Para po!"), and if you ride past it. Keep the screen on; Barker asks the phone to stay awake while it tracks. Your location never leaves the phone.
+
 Every route has a shareable link (`#route=imus-gma`), and the phone's Back button returns to the list instead of closing the app.
 
 It installs to the home screen (PWA). After the first use, the app, the OCR engine and the map tiles you've seen are cached, so it keeps working on a weak signal.

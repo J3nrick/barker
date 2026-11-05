@@ -47,13 +47,14 @@ A jeepney signboard (*plakard*) only shows the **ends** of a route (e.g. "BACLAR
 - Ride spots: 18 terminals and 49 tricycle/pedicab stands, nearest first, walking directions
 - Add a missing ride spot on the phone, then send it as a prefilled GitHub issue
 - Route map, shareable route links, Back button support
+- Get-off alert: GPS tracking with voice and vibration ~500 m before your stop, at the stop, and if you pass it
 - Installable PWA with offline caching; deployed on Vercel (auto-deploy from `main`) and GitHub Pages
 
 ### Next
 | Version | Contents | Done when… |
 |---|---|---|
 | **v0.3** | Signboard photo test set; fix signboard wording from real photos | ≥ 85% correct matches on 50 real photos |
-| **v0.4** | Direction awareness (which side of the road), "get off soon" GPS alert | Alerts at the right landmark on 3 real trips |
+| **v0.4** | Direction awareness (which side of the road to wait on); test the get-off alert on 3 real trips | Alert fires at the right place on 3 real trips |
 | **v0.5** | Fares (LTFRB fare matrix), offline map tiles for Imus–Bacoor | Fare within ₱2 on 10 real trips |
 | **v1.0** | All of Cavite (Dasmariñas, Kawit, GenTri), Play Store listing | 150+ verified routes |
 

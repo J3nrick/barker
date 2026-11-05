@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs'
 import { match } from './matcher.js'
 import { findPlace, parseTrip } from './voice.js'
 import { plan } from './trip.js'
+import { rideStep } from './ride.js'
 
 const { routes } = JSON.parse(readFileSync(new URL('./routes.json', import.meta.url)))
 const places = [...new Set(routes.flatMap((r) => r.via.map((v) => v.name)))]
@@ -93,6 +94,16 @@ for (const [from, to, want] of plans) {
       ? `transfer ${t.transfers[0].a.id}+${t.transfers[0].b.id}`
       : 'none'
   report(got === want, `${from} → ${to}: ${got}`)
+}
+// Get-off alert: a ride toward a stop, with a bad GPS fix and some jitter on the way.
+{
+  const stop = { lat: 14.4, lng: 120.95 }
+  const at = (kmNorth, acc = 0.01) => ({ lat: 14.4 + kmNorth / 111.2, lng: 120.95, acc })
+  const fixes = [at(2), at(0.4), at(0.1, 0.5), at(0.1), at(0.12), at(-0.5)]
+  const want = 'riding soon soon here here passed'
+  let s = null
+  const got = fixes.map((f) => (s = rideStep(s, f, stop)).phase).join(' ')
+  report(got === want, `ride alert phases: ${got}`)
 }
 console.log(`\n${pass}/${total} correct`)
 if (pass !== total) process.exitCode = 1

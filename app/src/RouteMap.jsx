@@ -43,17 +43,18 @@ export default function RouteMap({ route, dest, here, points, active, onPoint, o
     return () => m.remove()
   }, [])
 
-  // Re-fit only when what we're showing changes, not on every selection or pin.
+  // Re-fit only when what we're showing changes, not on every selection, pin, or GPS fix during a ride.
+  const fitHere = route ? null : here
   useEffect(() => {
     // With a location, points come nearest-first: frame you and the closest few, not the whole city.
     const pts = route
       ? path
         ? path.flat()
         : route.via.map((v) => [v.lat, v.lng])
-      : (here ? points.slice(0, 6) : points).map((p) => [p.lat, p.lng])
-    if (here && !route) pts.push([here.lat, here.lng])
+      : (fitHere ? points.slice(0, 6) : points).map((p) => [p.lat, p.lng])
+    if (fitHere) pts.push([fitHere.lat, fitHere.lng])
     if (pts.length) map.current.fitBounds(L.latLngBounds(pts), { padding: [24, 24], maxZoom: 16 })
-  }, [route, path, points, here])
+  }, [route, path, points, fitHere])
 
   useEffect(() => {
     const g = layer.current

@@ -4,6 +4,7 @@ import { readPlakard } from './ocr.js'
 import { canListen, listen, parseTrip, say } from './voice.js'
 import { km, plan } from './trip.js'
 import RouteMap from './RouteMap.jsx'
+import RideAlert from './RideAlert.jsx'
 import data from './routes.json'
 import './App.css'
 
@@ -751,6 +752,14 @@ export default function App() {
                 </button>
               )}
             </div>
+
+            {passes && (
+              <RideAlert
+                key={route.id + dest}
+                stop={route.via.find((v) => v.name === dest)}
+                onFix={(f) => setHere({ lat: f.lat, lng: f.lng })}
+              />
+            )}
 
             <RouteMap route={route} dest={dest} here={here} />
 

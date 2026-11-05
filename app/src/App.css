@@ -143,3 +143,17 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 
 .bar { display: flex; justify-content: space-between; align-items: center; }
 .share { min-height: 40px; padding: 6px 14px; border-radius: 99px; border: 2px solid var(--ink); background: none; font-size: 14px; font-weight: 700; cursor: pointer; }
+
+/* Get-off alert */
+.ridebox { margin-top: 24px; }
+.alertbtn { width: 100%; border: 0; }
+.ride { display: grid; gap: 6px; margin-top: 24px; padding: 20px; border-radius: var(--r-lg); border: 3px solid var(--ink); background: var(--surface); animation: pop 220ms cubic-bezier(.2, .9, .3, 1.2); }
+.ride strong { font: 30px/1.05 var(--display); text-transform: uppercase; }
+.ride .dist { font-size: 20px; font-weight: 700; }
+.ride small { font-size: 14px; opacity: .85; }
+.ride button { justify-self: start; margin-top: 8px; min-height: 44px; padding: 8px 18px; border-radius: 99px; border: 2px solid currentColor; background: none; font-weight: 700; cursor: pointer; }
+.ride.soon { background: var(--yellow); color: #1b1813; border-color: #1b1813; }
+.ride.here { background: var(--yes); color: #fff; border-color: var(--yes); animation: pop 220ms cubic-bezier(.2, .9, .3, 1.2), pulse 1s ease-in-out 3 alternate; }
+.ride.passed { background: var(--no); color: #fff; border-color: var(--no); }
+@media (prefers-color-scheme: dark) { .ride.here, .ride.passed { color: #12110e; } }
+@keyframes pulse { to { transform: scale(1.02); } }
