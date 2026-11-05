@@ -1,4 +1,5 @@
 // Trip planning over the route list: direct rides, else one transfer at a shared place.
+import { score } from './matcher.js'
 
 /** Distance in km between two {lat, lng}; flat-earth is plenty at city scale. */
 export const km = (a, b) => {
@@ -47,4 +48,23 @@ export function plan(routes, from, goal, goalPos) {
   const seen = new Set()
   const best = transfers.filter((x) => !seen.has(x.b.id) && seen.add(x.b.id))
   return { walk: false, direct, transfers: best.slice(0, 5) }
+}
+
+/**
+ * Which signboard end you ride toward when going from stop `from` to stop `to` on `route`, e.g. "SM MOLINO".
+ * Stops are ordered along the OSM route; we match its first and last stop to the two signboard ends to name the
+ * direction the way the jeep itself does. null when we can't tell (loops, ends that match neither side).
+ */
+export function heading(route, from, to) {
+  const i = route.via.findIndex((v) => v.name === from)
+  const j = route.via.findIndex((v) => v.name === to)
+  const [a, b] = route.plakard.split(' - ')
+  if (route.loop || i < 0 || j < 0 || i === j || !b) return null
+  const first = route.via[0].name
+  const last = route.via.at(-1).name
+  const same = score(a, first) + score(b, last) // signboard reads in the route's order
+  const flipped = score(a, last) + score(b, first)
+  if (Math.abs(same - flipped) < 0.25) return null // neither reading clearly fits
+  const forward = same >= flipped ? b : a
+  return j > i ? forward : forward === a ? b : a
 }

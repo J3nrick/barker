@@ -3,7 +3,7 @@
 import { readFileSync } from 'node:fs'
 import { match } from './matcher.js'
 import { findPlace, parseTrip } from './voice.js'
-import { plan } from './trip.js'
+import { heading, plan } from './trip.js'
 import { rideStep } from './ride.js'
 
 const { routes } = JSON.parse(readFileSync(new URL('./routes.json', import.meta.url)))
@@ -95,6 +95,21 @@ for (const [from, to, want] of plans) {
       : 'none'
   report(got === want, `${from} → ${to}: ${got}`)
 }
+// Which way to face: [route, board, get off, signboard end you ride toward]
+const byId = Object.fromEntries(routes.map((r) => [r.id, r]))
+for (const [id, from, to, want] of [
+  ['sm-bacoor-sm-molino', 'SM Bacoor', 'SM Molino', 'SM MOLINO'],
+  ['sm-bacoor-sm-molino', 'SM Molino', 'SM Bacoor', 'SM BACOOR'],
+  ['zapote-silang', 'Zapote', 'Imus Transport Plaza', 'SILANG'],
+  ['zapote-silang', 'Imus Transport Plaza', 'Zapote', 'ZAPOTE'],
+  ['gma-pitx', 'General Mariano Alvarez Transport Terminal', 'PITX', 'PITX'],
+  ['cavite-city-pitx', 'PITX', 'Saint Anthony of Padua Bus Terminal', 'CAVITE CITY'], // first stop isn't called "Cavite City"
+  ['binakayan-zapote', 'Zeus', 'Talaba', null], // a one-way loop has no end to face
+]) {
+  const got = byId[id].via.some((v) => v.name === from) ? heading(byId[id], from, to) : `no stop ${from}`
+  report(got === want, `${id} ${from} → ${to}: toward ${got}`)
+}
+
 // Get-off alert: a ride toward a stop, with a bad GPS fix and some jitter on the way.
 {
   const stop = { lat: 14.4, lng: 120.95 }

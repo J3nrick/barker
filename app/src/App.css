@@ -157,3 +157,8 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 .ride.passed { background: var(--no); color: #fff; border-color: var(--no); }
 @media (prefers-color-scheme: dark) { .ride.here, .ride.passed { color: #12110e; } }
 @keyframes pulse { to { transform: scale(1.02); } }
+
+/* Which side of the road */
+.toward { color: var(--red); letter-spacing: .02em; }
+.wait { margin: 12px 0 0; padding: 14px 16px; border-radius: var(--r-md); border: 2px dashed var(--ink); font-size: 16px; }
+.wait b:last-of-type { color: var(--red); }

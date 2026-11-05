@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { CONFIDENT, match } from './matcher.js'
 import { readPlakard } from './ocr.js'
 import { canListen, listen, parseTrip, say } from './voice.js'
-import { km, plan } from './trip.js'
+import { heading, km, plan } from './trip.js'
 import RouteMap from './RouteMap.jsx'
 import RideAlert from './RideAlert.jsx'
 import data from './routes.json'
@@ -83,9 +83,13 @@ function say1(goal, from, t) {
   const pre = `To ${goal}${from ? ` from ${from}` : ''}: `
   if (t.walk) return say(`${pre}it's close, you can walk.`)
   const d = t.direct[0]
-  if (d && !t.far) return say(`${pre}take ${ride(d.r)}${d.at ? ` at ${d.at.name}` : ''}.`)
+  const toward = (r, a, b) => (heading(r, a, b) ? `, going toward ${heading(r, a, b)}` : '')
+  if (d && !t.far) return say(`${pre}take ${ride(d.r)}${d.at ? ` at ${d.at.name}${toward(d.r, d.at.name, goal)}` : ''}.`)
   const x = t.transfers[0]
-  if (x) return say(`${pre}take ${ride(x.a)} at ${x.at.name}, get off at ${x.via.name}, then change to ${ride(x.b)}.`)
+  if (x)
+    return say(
+      `${pre}take ${ride(x.a)} at ${x.at.name}${toward(x.a, x.at.name, x.via.name)}, get off at ${x.via.name}, then change to ${ride(x.b)}${toward(x.b, x.via.name, goal)}.`,
+    )
   say(d ? `${pre}${t.direct.length} rides go there, but none pass near you.` : `I don't know any ride to ${goal} yet.`)
 }
 
@@ -125,6 +129,35 @@ function Plakard({ route, small }) {
         </em>
       )}
     </div>
+  )
+}
+
+/** " · toward SM MOLINO": which signboard end to face when boarding, or nothing when we can't tell. */
+function Toward({ route, from, to }) {
+  const end = heading(route, from, to)
+  return end ? (
+    <>
+      {' · toward '}
+      <b className="toward">{end}</b>
+    </>
+  ) : null
+}
+
+/** "Wait at SM Bacoor, on the side of the road where traffic goes toward SM MOLINO." */
+function WaitHere({ route, board, dest }) {
+  if (!board) return null
+  const end = heading(route, board.name, dest)
+  return (
+    <p className="wait">
+      Wait at <b>{board.name}</b>
+      {end ? (
+        <>
+          , on the side of the road where traffic goes toward <b>{end}</b>.
+        </>
+      ) : (
+        '.'
+      )}
+    </p>
   )
 }
 
@@ -376,6 +409,7 @@ export default function App() {
   const [picked, setPicked] = useState(() => routeFromHash())
   const [copied, setCopied] = useState(false)
   const [dest, setDest] = useState('')
+  const [board, setBoard] = useState('') // where the user said they'd get on, from Ask
   const [mode, setMode] = useState('ask') // ask | scan | hubs
   const [goal, setGoal] = useState('')
   const [origin, setOrigin] = useState('') // a named starting place, from "from X to Y"
@@ -387,6 +421,12 @@ export default function App() {
   const sure = results[0]?.score >= CONFIDENT && results[0].score - (results[1]?.score ?? 0) >= 0.1
   const route = picked ?? (sure ? results[0].route : null)
   const passes = route && dest ? route.via.some((v) => v.name === dest) : null
+  // Where you'll get on: what Ask suggested, else the stop on this route nearest to you.
+  const boardAt =
+    route && dest
+      ? (route.via.find((v) => v.name === board && v.name !== dest) ??
+        (here ? route.via.filter((v) => v.name !== dest).reduce((x, y) => (km(here, x) <= km(here, y) ? x : y), route.via[0]) : null))
+      : null
 
   const start = origin ? placePos[origin] : here
   const trip = useMemo(() => tripFor(goal, start), [goal, start])
@@ -433,9 +473,10 @@ export default function App() {
     if (spoken) say(route.via.some((v) => v.name === place) ? `Yes, it passes ${place}.` : `No, it doesn't pass ${place}.`)
   }
 
-  function choose(r, to = dest) {
+  function choose(r, to = dest, at = null) {
     setPicked(r)
     setDest(to)
+    setBoard(at?.name ?? '')
     setText(r.plakard)
     window.scrollTo({ top: 0 })
   }
@@ -445,6 +486,7 @@ export default function App() {
     setPicked(null)
     setText('')
     setDest('')
+    setBoard('')
     setPhoto(null)
     setStatus('idle')
   }
@@ -567,13 +609,14 @@ export default function App() {
                     <ul>
                       {trip.direct.map(({ r, at }) => (
                         <li key={r.id}>
-                          <button onClick={() => choose(r, goal)}>
+                          <button onClick={() => choose(r, goal, at)}>
                             <Plakard route={r} small />
                             <span className="hint">
                               {at ? (
                                 <>
                                   Board at <b>{at.name}</b>
                                   {at.d !== undefined && ` · ${walk(at.d)}`}
+                                  <Toward route={r} from={at.name} to={goal} />
                                 </>
                               ) : (
                                 'Flag it down anywhere on the route'
@@ -590,16 +633,18 @@ export default function App() {
                         <ol className="transfers">
                           {trip.transfers.map(({ a, at, via, b }) => (
                             <li key={a.id + b.id}>
-                              <button onClick={() => choose(a, via.name)}>
+                              <button onClick={() => choose(a, via.name, at)}>
                                 <Plakard route={a} small />
                                 <span className="hint">
-                                  Board at <b>{at.name}</b> · {walk(at.d)} · get off at <b>{via.name}</b>
+                                  Board at <b>{at.name}</b> · {walk(at.d)}
+                                  <Toward route={a} from={at.name} to={via.name} /> · get off at <b>{via.name}</b>
                                 </span>
                               </button>
-                              <button onClick={() => choose(b, goal)}>
+                              <button onClick={() => choose(b, goal, via)}>
                                 <Plakard route={b} small />
                                 <span className="hint">
                                   Change here at <b>{via.name}</b> to {goal}
+                                  <Toward route={b} from={via.name} to={goal} />
                                 </span>
                               </button>
                             </li>
@@ -738,6 +783,7 @@ export default function App() {
                   </span>
                 </p>
               )}
+              {passes && <WaitHere route={route} board={boardAt} dest={dest} />}
               {passes === false && (
                 <button
                   className="locate"

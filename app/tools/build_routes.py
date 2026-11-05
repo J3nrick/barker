@@ -206,6 +206,7 @@ def main():
             "plakard": cfg["plakard"],
             "aliases": cfg["aliases"],
             "kind": cfg["kind"],
+            "loop": "loop" in tags.get("name", "").lower() or None,  # one-way loops have no "toward" end
             "ref": tags.get("ref") if cfg["kind"] in ("bus", "p2p") else None,
             "operator": (tags.get("operator") or "").split(";")[0] or None,
             "roads": [r for r in (tags.get("via") or "").split(";") if r],
