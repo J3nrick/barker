@@ -1,7 +1,6 @@
 .app { max-width: 520px; margin: 0 auto; padding: 0 16px 32px; }
 .top { position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 12px 0; background: var(--bg); }
 .brand { background: none; border: 0; padding: 4px 0; cursor: pointer; font: 28px/1 var(--display); letter-spacing: .5px; color: var(--red); text-transform: uppercase; }
-.brand span { color: var(--ink); margin-left: 6px; }
 .area { font-size: 13px; font-weight: 700; padding: 4px 12px; border-radius: 99px; border: 2px solid var(--ink); }
 
 h1 { font: 44px/1.02 var(--display); text-transform: uppercase; margin: 16px 0 12px; text-wrap: balance; }

@@ -29,7 +29,7 @@ const hubs = (() => {
 })()
 
 // Sakayan the user added on this phone. They also get a prefilled GitHub issue so a maintainer can put them on OSM for everyone.
-const MINE = 'dadaan-ba:mine'
+const MINE = 'dadaan-ba:mine' // pre-rename key, kept so spots saved earlier survive
 const loadMine = () => {
   try {
     return JSON.parse(localStorage.getItem(MINE)) ?? []
@@ -46,7 +46,7 @@ const saveMine = (list) => {
 }
 const ADD_KINDS = ['Tricycle / TODA', 'Jeep', 'Modern jeep', 'UV Express', 'Bus', 'Other']
 const issueUrl = (s) =>
-  'https://github.com/J3nrick/dadaan-ba/issues/new?' +
+  'https://github.com/J3nrick/barker/issues/new?' +
   new URLSearchParams({
     template: 'new-sakayan.yml',
     title: `Ride spot: ${s.name}`,
@@ -471,7 +471,7 @@ export default function App() {
   async function share() {
     const url = `${location.origin}${location.pathname}#route=${route.id}`
     try {
-      if (navigator.share) await navigator.share({ title: `${route.plakard} · Dadaan Ba?`, text: `Where the ${route.plakard} goes`, url })
+      if (navigator.share) await navigator.share({ title: `${route.plakard} · Barker`, text: `Where the ${route.plakard} goes`, url })
       else {
         await navigator.clipboard.writeText(url)
         setCopied(true)
@@ -497,8 +497,8 @@ export default function App() {
         ))}
       </datalist>
       <header className="top">
-        <button className="brand" onClick={() => goBack() || setGoal('') || setOrigin('')} aria-label="Dadaan Ba? Back to start">
-          Dadaan<span>Ba?</span>
+        <button className="brand" onClick={() => goBack() || setGoal('') || setOrigin('')} aria-label="Barker, back to start">
+          Barker
         </button>
         <span className="area">Imus · Bacoor</span>
       </header>

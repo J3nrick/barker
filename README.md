@@ -1,8 +1,10 @@
-# Dadaan Ba?
+# Barker
+
+*Your pocket terminal barker.*
 
 **Ask where to catch a ride to where you're going, or scan the signboard on a jeep, bus or UV to see where it passes.**
 
-An open-source web app for commuters in **Imus and Bacoor, Cavite**. A jeepney signboard (*plakard*) only shows the two ends of the route, not the places in between. If you don't know the area, you also don't know where to catch your ride. That's the gap this app fills.
+An open-source web app for commuters in **Imus and Bacoor, Cavite**. A jeepney signboard (*plakard*) only shows the two ends of the route, not the places in between. If you don't know the area, you also don't know where to catch your ride. That's the gap this app fills, like the barker at a jeepney terminal who calls out where each ride goes. (The project was first called *Dadaan Ba?*, Filipino for "Does it pass here?")
 
 ## How it works
 
@@ -22,7 +24,7 @@ Every route has a shareable link (`#route=imus-gma`), and the phone's Back butto
 
 It installs to the home screen (PWA). After the first use, the app, the OCR engine and the map tiles you've seen are cached, so it keeps working on a weak signal.
 
-**Live:** https://dadaan-ba.vercel.app (mirror: https://j3nrick.github.io/dadaan-ba/)
+**Live:** https://barker-ph.vercel.app (mirror: https://j3nrick.github.io/barker/)
 
 ## Run it
 

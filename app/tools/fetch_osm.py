@@ -14,7 +14,7 @@ from build_routes import ROUTES  # noqa: E402  the route list lives in one place
 
 OUT = Path(__file__).parent / "osm"
 MIRRORS = ["https://overpass-api.de/api/interpreter", "https://overpass.private.coffee/api/interpreter"]
-UA = "dadaan-ba-build/0.2 (+https://github.com/J3nrick/dadaan-ba)"
+UA = "barker-build/0.3 (+https://github.com/J3nrick/barker)"
 AREA = "14.20,120.84,14.60,121.06"  # Imus/Bacoor plus the far ends commuters ride to (PITX, Alabang, Makati edge)
 
 LOCAL = "14.33,120.90,14.47,121.00"  # Imus + Bacoor

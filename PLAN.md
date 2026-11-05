@@ -1,4 +1,6 @@
-# Dadaan Ba? — Project Plan
+# Barker — Project Plan
+
+*Formerly "Dadaan Ba?". A barker is the person at a jeepney terminal who calls out where each ride goes; this app does that job in your pocket.*
 
 > **Ask where to catch your ride, or point your camera at a jeepney signboard, and the app tells you where it goes and whether it passes your stop.**
 
@@ -28,7 +30,7 @@ A jeepney signboard (*plakard*) only shows the **ends** of a route (e.g. "BACLAR
 
 ## 4. How it differs
 
-| | Google Maps / Moovit / Sakay.ph | **Dadaan Ba?** |
+| | Google Maps / Moovit / Sakay.ph | **Barker** |
 |---|---|---|
 | Signboard scanner | ❌ | ✅ |
 | Voice questions in English or Taglish | Partial | ✅ |
