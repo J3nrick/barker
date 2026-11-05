@@ -4,11 +4,11 @@ import { normalize, ratio } from './matcher.js'
 const Recognition = typeof window !== 'undefined' && (window.SpeechRecognition || window.webkitSpeechRecognition)
 export const canListen = Boolean(Recognition)
 
-/** One utterance, Filipino first (Chrome understands Taglish under fil-PH). Resolves to the transcript. */
+/** One utterance in Philippine English; place names and Taglish come through fine. Resolves to the transcript. */
 export function listen() {
   return new Promise((resolve, reject) => {
     const r = new Recognition()
-    r.lang = 'fil-PH'
+    r.lang = 'en-PH'
     r.interimResults = false
     r.maxAlternatives = 1
     r.onresult = (e) => resolve(e.results[0][0].transcript)
@@ -23,16 +23,17 @@ export function say(text) {
   speechSynthesis.cancel()
   const u = new SpeechSynthesisUtterance(text)
   const voices = speechSynthesis.getVoices()
-  u.voice = voices.find((v) => v.lang.startsWith('fil')) ?? voices.find((v) => v.lang === 'en-PH') ?? null
-  u.lang = u.voice?.lang ?? 'fil-PH'
+  u.voice = voices.find((v) => v.lang === 'en-PH') ?? voices.find((v) => v.lang.startsWith('en')) ?? null
+  u.lang = u.voice?.lang ?? 'en-PH'
   speechSynthesis.speak(u)
 }
 
-// Question words and fillers people wrap around the place name, in Filipino and English.
+// Question words and fillers people wrap around the place name, in English and Filipino.
 const FILLER = new Set(
   `SAAN SAN ANG YUNG UNG SAKAYAN SAKAY SASAKAY SUMAKAY PAPUNTA PAPUNTANG PUNTA PUPUNTA PUMUNTA PAPUNTANG
    PA SA NG NA BA PO KO AKO TAYO GUSTO DADAAN DUMADAAN DAAN JEEP JEEPNEY BUS UV P2P ANONG ANO MAY
-   PAANO PANO PUWEDE PWEDE MAKARATING RATING HOW WHERE TO GO GET RIDE IS THE A I WANT WHICH TAKE IN AT DO DOES`.split(/\s+/),
+   PAANO PANO PUWEDE PWEDE MAKARATING RATING HOW WHERE TO GO GET RIDE IS THE A I WANT WHICH TAKE IN AT DO DOES
+   CAN CATCH BOARD WHAT MY ME FIND NEAREST NEAR STOP PASS PASSES THROUGH IT THIS THAT FOR GOING HEADING`.split(/\s+/),
 )
 // Words that alone don't identify a place, so they don't count toward a match.
 const GENERIC = new Set(['SM', 'CITY', 'MALL', 'THE', 'OF', 'HALL', 'TERMINAL', 'CENTER', 'TRANSPORT', 'STATION', 'MAIN', 'BUILDING'])
@@ -75,9 +76,9 @@ export function findPlace(question, places) {
 }
 
 const FROM = new Set(['MULA', 'GALING', 'FROM'])
-const TO = new Set(['PAPUNTA', 'PAPUNTANG', 'PUNTA', 'PUPUNTA', 'HANGGANG', 'TO'])
+const TO = new Set(['PAPUNTA', 'PAPUNTANG', 'PUNTA', 'PUPUNTA', 'HANGGANG', 'TO', 'GOING', 'HEADING', 'TOWARDS'])
 
-/** "Galing SM Bacoor papuntang PITX" -> { from: 'SM Bacoor', to: 'PITX' }. Without a "galing/mula", it's all destination. */
+/** "From SM Bacoor to PITX" (or "galing SM Bacoor papuntang PITX") -> { from: 'SM Bacoor', to: 'PITX' }. Without a "from", it's all destination. */
 export function parseTrip(question, places) {
   const part = { from: [], to: [] }
   let into = 'to'

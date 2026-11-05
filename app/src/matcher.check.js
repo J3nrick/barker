@@ -41,13 +41,17 @@ const questions = {
   'saan po ang sakayan ng P2P papuntang Makati': 'Makati',
   'saan ang sakayan papuntang asdfgh': null,
   'papuntang somo': 'SoMo (Molino)', // the part outside the brackets is enough
+  'how do i get to the nearest stop for pitx': 'PITX',
+  'does it pass sm molino': 'SM Molino',
 }
 
-// "Galing X papuntang Y", in either order.
+// "From X to Y" / "galing X papuntang Y", in either order.
 const trips = {
   'galing SM Bacoor papuntang PITX': 'SM Bacoor > PITX',
   'papuntang PITX mula sa imus transport plaza': 'Imus Transport Plaza > PITX',
   'saan ang sakayan papuntang zapote': 'null > Zapote',
+  'from SM Bacoor to PITX': 'SM Bacoor > PITX',
+  'going to alabang from imus transport plaza': 'Imus Transport Plaza > Alabang',
 }
 
 // Trip planner: [from, to, what the first answer must be]

@@ -31,7 +31,7 @@ QUERIES = {
         'nwr["amenity"="place_of_worship"]["name"~"Cathedral|Parish"](14.38,120.92,14.46,120.96);'
         ");out center tags;"
     ),
-    # Every terminal and tricycle/pedicab stand inside Imus and Bacoor, for "malapit sa iyo".
+    # Every terminal and tricycle/pedicab stand inside Imus and Bacoor, for "nearest to you".
     "local.json": (
         f"[out:json][timeout:120];("
         f'nwr["amenity"~"^(taxi|tricycle_terminal|bus_station|fx_station)$"]({LOCAL});'

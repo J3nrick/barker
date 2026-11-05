@@ -12,7 +12,7 @@ from pathlib import Path
 HERE = Path(__file__).parent
 FETCHED = "2026-11-05"
 
-# OSM relation ids -> plakard text. The route itself (path, operator) comes from OSM;
+# OSM relation ids -> signboard (plakard) text. The route itself (path, operator) comes from OSM;
 # the plakard wording is our best guess from the OSM from/to tags and still needs a photo to confirm.
 ROUTES = [
     {"osm": [17922478, 17934695], "plakard": "SM BACOOR - SM MOLINO", "aliases": ["SM MOLINO - SM BACOOR", "BACOOR - MOLINO VIA MAMBOG"], "kind": "jeep"},
@@ -51,7 +51,7 @@ ROUTES = [
     {"osm": [10463123], "plakard": "ALABANG - IMUS", "aliases": ["IMUS - ALABANG", "ALABANG - IMUS TOLL BRIDGE"], "kind": "uv"},
 ]
 
-# OSM name -> name commuters actually say. Only these become "dinadaanan" stops.
+# OSM name -> name commuters actually say. Only these become stops along a route.
 LANDMARKS = {
     "SM City Bacoor": "SM Bacoor",
     "SM City Molino": "SM Molino",
@@ -100,7 +100,7 @@ LANDMARKS.update({
     "Park Square": "Makati", "Circuit Makati Transport Terminal": "Makati",
     "Park & Ride Lawton": "Lawton", "Park N' Ride Lawton": "Lawton",
 })
-NEAR_M = {"landmark": 200, "stop": 60, "terminal": 150}  # how close a route must pass for a place to count as "dinadaanan"
+NEAR_M = {"landmark": 200, "stop": 60, "terminal": 150}  # how close a route must pass for a place to count as on the route
 GENERIC_WORDS = {"UV", "Express", "Terminal", "Jeepney", "Bus", "City", "South", "North", "Bound", "Station", "Transport"}  # "UV Express Terminal" says nothing about where
 RANK = {"landmark": 0, "stop": 1, "terminal": 2}
 KIND_CODE = {"landmark": "l", "stop": "s", "terminal": "t"}

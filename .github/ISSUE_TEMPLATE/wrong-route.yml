@@ -1,12 +1,12 @@
-name: Maling ruta
-description: Mali ang dinadaanan, plakard, o hindi na tumatakbo
+name: Wrong route
+description: Wrong stops or signboard, or the route no longer runs
 labels: [data, fix]
 body:
   - type: input
     id: plakard
-    attributes: { label: Aling ruta, placeholder: "SM MOLINO - TRECE" }
+    attributes: { label: Which route, placeholder: "SM MOLINO - TRECE" }
     validations: { required: true }
   - type: textarea
     id: wrong
-    attributes: { label: Ano ang mali at ano ang tama? }
+    attributes: { label: What's wrong and what's correct? }
     validations: { required: true }

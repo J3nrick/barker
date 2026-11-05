@@ -1,15 +1,15 @@
-name: Bagong ruta
-description: May jeep na wala pa sa app
+name: New route
+description: A jeep, bus or UV route that isn't in the app yet
 labels: [data, new-route]
 body:
   - type: input
     id: plakard
-    attributes: { label: Nakasulat sa plakard, placeholder: "ZAPOTE - IMUS" }
+    attributes: { label: Signboard text, placeholder: "ZAPOTE - IMUS" }
     validations: { required: true }
   - type: textarea
     id: via
-    attributes: { label: Mga dinadaanan (sunod-sunod), placeholder: "Zapote\nSM Bacoor\nAguinaldo Hwy\nImus Bayan" }
+    attributes: { label: Places it passes (in order), placeholder: "Zapote\nSM Bacoor\nAguinaldo Hwy\nImus Bayan" }
     validations: { required: true }
   - type: input
     id: when
-    attributes: { label: Kailan mo huling nasakyan? }
+    attributes: { label: When did you last ride it? }

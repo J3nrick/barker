@@ -88,10 +88,10 @@ export default function RouteMap({ route, dest, here, points, active, onPoint, o
           })
       }
     }
-    if (here) dot([here.lat, here.lng], '#2b6cff', 8).bindTooltip('Ikaw', { direction: 'top' })
-    if (pin) dot([pin.lat, pin.lng], color('--red'), 11).bindTooltip('Bagong sakayan', { direction: 'top', permanent: true })
+    if (here) dot([here.lat, here.lng], '#2b6cff', 8).bindTooltip('You', { direction: 'top' })
+    if (pin) dot([pin.lat, pin.lng], color('--red'), 11).bindTooltip('New ride spot', { direction: 'top', permanent: true })
   }, [route, path, dest, here, points, active, pin])
 
-  const label = route ? `Mapa ng rutang ${route.plakard}` : 'Mapa ng mga sakayan sa Imus at Bacoor'
+  const label = route ? `Map of the ${route.plakard} route` : 'Map of ride spots in Imus and Bacoor'
   return <div ref={el} className="map" role="img" aria-label={label} />
 }

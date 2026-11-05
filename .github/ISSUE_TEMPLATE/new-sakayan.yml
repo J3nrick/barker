@@ -1,24 +1,24 @@
-name: Bagong sakayan
-description: May terminal o paradahan (jeep, UV, bus o tricycle) na wala pa sa app
+name: New ride spot
+description: A terminal or stand (jeep, UV, bus or tricycle) that isn't in the app yet
 labels: [data, new-sakayan]
 body:
   - type: input
     id: name
-    attributes: { label: Pangalan o tawag dito, placeholder: "Tricycle sa harap ng Puregold Bucandala" }
+    attributes: { label: Name or what people call it, placeholder: "Tricycles in front of Puregold Bucandala" }
     validations: { required: true }
   - type: dropdown
     id: kind
     attributes:
-      label: Anong sasakyan
-      options: [Tricycle / TODA, Jeep, Modern jeep, UV Express, Bus, Iba pa]
+      label: What rides from here
+      options: [Tricycle / TODA, Jeep, Modern jeep, UV Express, Bus, Other]
     validations: { required: true }
   - type: input
     id: location
-    attributes: { label: Lokasyon (lat, lng), description: Kusang napupunan kapag galing sa app., placeholder: "14.4123, 120.9456" }
+    attributes: { label: "Location (lat, lng)", description: Filled in automatically when sent from the app., placeholder: "14.4123, 120.9456" }
     validations: { required: true }
   - type: textarea
     id: rides
-    attributes: { label: Papunta saan ang mga sasakyan dito?, placeholder: "Imus Bayan\nBucandala" }
+    attributes: { label: Where do the rides from here go?, placeholder: "Imus Bayan\nBucandala" }
   - type: textarea
     id: notes
-    attributes: { label: Iba pang detalye (oras, pamasahe, litrato) }
+    attributes: { label: "Other details (hours, fare, photo)" }

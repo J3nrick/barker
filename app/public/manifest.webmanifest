@@ -1,8 +1,8 @@
 {
   "name": "Dadaan Ba?",
   "short_name": "Dadaan Ba?",
-  "description": "Saan ang sakayan? Itanong o i-scan ang plakard ng jeep, bus o UV.",
-  "lang": "fil",
+  "description": "Where to catch your ride: ask, or scan a jeep, bus or UV signboard.",
+  "lang": "en",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

@@ -1,66 +1,66 @@
 # Dadaan Ba?
 
-**Itanong kung saan ang sakayan papunta sa pupuntahan mo, o i-scan ang plakard ng jeep, bus o UV para malaman kung saan ito dadaan.**
+**Ask where to catch a ride to where you're going, or scan the signboard on a jeep, bus or UV to see where it passes.**
 
-Open-source na web app para sa mga commuter sa **Imus at Bacoor, Cavite**. Sa plakard, ang nakasulat lang ay ang dulo ng ruta, hindi ang mga dinadaanan. Kapag hindi ka pamilyar sa lugar, hindi mo rin alam kung saan ka sasakay. Dito pumapasok ang app na ito.
+An open-source web app for commuters in **Imus and Bacoor, Cavite**. A jeepney signboard (*plakard*) only shows the two ends of the route, not the places in between. If you don't know the area, you also don't know where to catch your ride. That's the gap this app fills.
 
-## Paano gumagana
+## How it works
 
-May tatlong paraan:
+Three ways in:
 
-- **Itanong** (boses o type): "Saan ang sakayan papuntang PITX?" Ililista ng app ang mga jeep, modern jeep, UV Express, bus at P2P na dadaan doon, pati kung saan sasakay. Puwede ring sabihin kung saan ka galing: "Galing SM Bacoor papuntang Alabang". Kapag pinayagan mo ang lokasyon (o sinabi kung saan ka galing), ang mga sasakyang malapit lang sa iyo ang ipapakita. Kapag walang direktang sasakyan, ituturo nito ang biyaheng **may isang lipat**, gaya ng "Zapote–Silang hanggang Zapote, lipat sa Zapote–Alabang". Binabasa rin nito nang malakas ang sagot. Gumagamit ito ng Web Speech API ng browser (pinakamaayos sa Chrome sa Android).
-- **Mga sakayan**: mapa at listahan ng mga terminal ng jeep, UV at bus, at ng 49 na paradahan ng tricycle at pedicab sa Imus at Bacoor. Kapag pinayagan ang lokasyon, nauuna ang pinakamalapit sa iyo at may link ng direksyon papunta roon. Puwede ka ring **magdagdag ng sakayan** na kulang: i-pin ito sa mapa at i-save sa phone mo, tapos ipadala sa GitHub para maidagdag para sa lahat.
-- **I-scan**: kunan ng litrato ang plakard.
+- **Ask** (voice or typing): "From SM Bacoor to Alabang", or just "PITX". The app lists every jeep, modern jeep, UV Express, bus and P2P that goes there and where to board it. With your location (or a "from" place) it shows only rides near you, and when nothing goes direct it suggests a trip **with one transfer**, e.g. "Zapote–Silang to Zapote, then change to Zapote–Alabang". Answers are read aloud. Uses the browser's Web Speech API (works best in Chrome on Android); Filipino and Taglish questions work too.
+- **Ride spots**: a map and list of jeep, UV and bus terminals plus 49 tricycle and pedicab stands in Imus and Bacoor. With your location the nearest come first, each with walking directions. You can also **add a missing ride spot**: pin it on the map, save it on your phone, then send it to GitHub so it can be added for everyone.
+- **Scan**: take a photo of a signboard.
 
-Ganito gumagana ang scan:
+How the scan works:
 
-1. **Scan.** Kunan ng litrato ang plakard. Pinapalinaw muna ang litrato (grayscale at contrast stretch, at sinusubukan din ang baligtad na kulay para sa maliwanag na letra sa madilim na board). Pagkatapos, babasahin ito sa phone mismo gamit ang [Tesseract.js](https://github.com/naptha/tesseract.js), kaya walang ina-upload na litrato.
-2. **Match.** Ikukumpara ang nabasang text sa listahan ng kilalang plakard gamit ang fuzzy matching. Tatama pa rin ito kahit magulo ang basa, gaya ng `SM M0LIN0 TREC`. Kapag hindi sigurado ang app, ipapakita nito ang top 3.
-3. **Sagot.** Lalabas ang ruta sa mapa, ang mga madadaanang landmark, at ang sagot sa "Dadaan ba sa ___?"
+1. **Scan.** The photo is cleaned up first (grayscale, contrast stretch, and an inverted pass for light letters on dark boards), then read on the phone itself with [Tesseract.js](https://github.com/naptha/tesseract.js). No photo is uploaded.
+2. **Match.** The text is fuzzy-matched against the known signboards, so a messy read like `SM M0LIN0 TREC` still lands. When the app isn't sure, it shows the top 3.
+3. **Answer.** The route on a map, the stops along the way, and the answer to "Does it pass ___?"
 
-Puwedeng i-share ang link ng bawat ruta (`#ruta=imus-gma`), at ang Back button ng phone ay babalik sa listahan sa halip na isara ang app.
+Every route has a shareable link (`#route=imus-gma`), and the phone's Back button returns to the list instead of closing the app.
 
-Puwede itong i-install sa home screen (PWA). Pagkatapos ng unang gamit, naka-cache na ang app, ang OCR engine at ang mga nakitang bahagi ng mapa, kaya gagana na ito kahit mahina ang signal.
+It installs to the home screen (PWA). After the first use, the app, the OCR engine and the map tiles you've seen are cached, so it keeps working on a weak signal.
 
 **Live:** https://dadaan-ba.vercel.app (mirror: https://j3nrick.github.io/dadaan-ba/)
 
-## Patakbuhin
+## Run it
 
 ```bash
 cd app
 npm install
 npm run dev      # http://localhost:5173
-npm run check    # self-check ng plakard matcher
+npm run check    # self-check: signboard matcher, questions, trip planner
 npm run lint
 npm run build
 ```
 
 ## Route data
 
-Galing sa **[OpenStreetMap](https://www.openstreetmap.org)** ang mga ruta. Kinukuha ng [`app/tools/fetch_osm.py`](app/tools/fetch_osm.py) ang mga OSM extract papunta sa `app/tools/osm/`, at mula roon binubuo ng [`app/tools/build_routes.py`](app/tools/build_routes.py) ang `app/src/routes.json` at ang `app/public/paths.<hash>.json` (ang mga linya ng ruta, hiwalay para mabilis ang unang load). Itinuturing na madadaanan ang isang lugar kapag dumaan ang ruta sa loob ng 200 m ng landmark, 150 m ng terminal, o 60 m ng stop. Sa P2P, ang sarili lang nitong mga stop ang binibilang.
+Routes come from **[OpenStreetMap](https://www.openstreetmap.org)**. [`app/tools/fetch_osm.py`](app/tools/fetch_osm.py) downloads the OSM extracts into `app/tools/osm/`, and [`app/tools/build_routes.py`](app/tools/build_routes.py) turns them into `app/src/routes.json` plus `app/public/paths.<hash>.json` (the route lines, kept separate so the first load is fast). A place counts as "on the route" when the route passes within 200 m of a landmark, 150 m of a terminal or 60 m of a stop. P2P buses only count their own stops.
 
 ```bash
-python app/tools/fetch_osm.py    # i-refresh ang OSM data (mabagal kapag busy ang Overpass)
+python app/tools/fetch_osm.py    # refresh OSM data (slow when Overpass is busy)
 python app/tools/build_routes.py
 ```
 
-Kasalukuyang saklaw (33 ruta na dumadaan sa Imus o Bacoor):
+Current coverage (33 routes through Imus or Bacoor):
 
 - **Jeep (11):** SM Bacoor–SM Molino, Imus–GMA, PITX–Dasma, SM Molino–WalterMart Dasma, SM Molino–Trece, District Imus–District Dasma, Binakayan–Zapote, Zapote–Alabang, SM Molino–Alabang, Tanza–PITX, Lancaster–Patindig Araw
 - **Modern jeep (5):** Zapote–Silang, Vista Mall Imus–NOMO, SoMo–AllHome Kawit, SoMo–Vista Mall GenTri, Cavite City–Zapote
 - **UV Express (5):** Bacoor–PITX, Molino–Lawton, Springville–Alabang, Springville–Ayala, Alabang–Imus
-- **Bus (7):** Routes 26, 27, 28, 29, 31, 32 at 55 papuntang PITX
+- **Bus (7):** Routes 26, 27, 28, 29, 31, 32 and 55 to PITX
 - **P2P (5):** Imus–Makati, NoMo–Makati, SoMo–Makati, SoMo–Alabang, Imus–NAIA
 
-> ⚠️ Hindi pa nakukumpirma sa kalsada ang eksaktong pagkakasulat sa plakard. Kulang pa rin ang mga lumang ruta mula Zapote at SM Bacoor papuntang Imus, Kawit, Noveleta at Tanza. Tingnan ang [CONTRIBUTING.md](CONTRIBUTING.md) kung paano tumulong.
+> ⚠️ The exact signboard wording hasn't been confirmed on the road yet. The older routes from Zapote and SM Bacoor to Imus, Kawit, Noveleta and Tanza are still missing. See [CONTRIBUTING.md](CONTRIBUTING.md) to help.
 
-## Tumulong
+## Contribute
 
-Hindi mo kailangang marunong mag-code. Ang pinakamalaking tulong ay **litrato ng plakard**, **tamang ruta**, at **mga sakayan na kulang** (puwede mo itong idagdag mula mismo sa app, sa tab na Mga sakayan). Basahin ang [CONTRIBUTING.md](CONTRIBUTING.md).
+You don't need to code. The biggest help is **signboard photos**, **correct routes**, and **missing ride spots** (you can add those right in the app, under Ride spots). Read [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Roadmap
 
-Nasa [PLAN.md](PLAN.md) ang buong plano, kasama ang data status at mga risk.
+The full plan, data status and risks are in [PLAN.md](PLAN.md).
 
 ## License
 

@@ -1,15 +1,15 @@
-name: Litrato ng plakard
-description: Magpadala ng litrato ng plakard para sa testing at tamang pagkakasulat
+name: Signboard photo
+description: Send a signboard photo for testing and correct wording
 labels: [data, plakard]
 body:
   - type: textarea
     id: photo
-    attributes: { label: Litrato, description: I-drag dito ang litrato ng plakard. }
+    attributes: { label: Photo, description: Drag the signboard photo here. }
     validations: { required: true }
   - type: input
     id: text
-    attributes: { label: Eksaktong nakasulat, placeholder: "SM MOLINO - SM BACOOR" }
+    attributes: { label: Exactly what it says, placeholder: "SM MOLINO - SM BACOOR" }
     validations: { required: true }
   - type: input
     id: where
-    attributes: { label: Saan kinunan, placeholder: "SM Bacoor terminal" }
+    attributes: { label: Where you took it, placeholder: "SM Bacoor terminal" }
