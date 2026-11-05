@@ -9,4 +9,8 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>,
 )
 
-if (import.meta.env.PROD && 'serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js')
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  // An update replaced an older worker: reload once so this tab runs the new build instead of a stale one.
+  if (navigator.serviceWorker.controller) navigator.serviceWorker.addEventListener('controllerchange', () => location.reload(), { once: true })
+  navigator.serviceWorker.register('./sw.js')
+}
