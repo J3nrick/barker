@@ -1,5 +1,5 @@
-// Offline support: app shell is stale-while-revalidate, OCR engine files and map tiles are cache-first.
-const SHELL = 'shell-v1'
+// Offline support: pages are network-first, other app files stale-while-revalidate, OCR engine files and map tiles are cache-first.
+const SHELL = 'shell-v2'
 const CDN = 'cdn-v1'
 const TILES = 'tiles-v1'
 const MAX_TILES = 600 // shortcut: plain entry cap, not LRU; enough for Imus–Bacoor at street zoom
@@ -30,6 +30,18 @@ async function cacheFirst(name, req, cap) {
   return res
 }
 
+// Pages go to the network first: a cached index.html points at asset hashes that a new deploy has deleted (blank page).
+async function networkFirst(req) {
+  const c = await caches.open(SHELL)
+  try {
+    const res = await fetch(req)
+    if (res.ok) c.put('./', res.clone())
+    return res
+  } catch {
+    return (await c.match('./')) || Response.error()
+  }
+}
+
 async function staleWhileRevalidate(req) {
   const c = await caches.open(SHELL)
   const hit = await c.match(req, { ignoreSearch: req.mode === 'navigate' })
@@ -48,5 +60,5 @@ self.addEventListener('fetch', (e) => {
   const url = new URL(req.url)
   if (url.hostname === 'tile.openstreetmap.org') e.respondWith(cacheFirst(TILES, req, MAX_TILES))
   else if (url.hostname === 'cdn.jsdelivr.net') e.respondWith(cacheFirst(CDN, req))
-  else if (url.origin === self.location.origin) e.respondWith(staleWhileRevalidate(req))
+  else if (url.origin === self.location.origin) e.respondWith(req.mode === 'navigate' ? networkFirst(req) : staleWhileRevalidate(req))
 })
