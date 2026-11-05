@@ -1,13 +1,71 @@
 import { useEffect, useMemo, useState } from 'react'
 import { CONFIDENT, match } from './matcher.js'
 import { readPlakard } from './ocr.js'
+import { canListen, findPlace, listen, say } from './voice.js'
 import RouteMap from './RouteMap.jsx'
 import data from './routes.json'
 import './App.css'
 
 const { routes, meta } = data
-const landmarks = [...new Set(routes.flatMap((r) => r.via.map((v) => v.name)))].sort()
+const places = [...new Set(routes.flatMap((r) => r.via.map((v) => v.name)))].sort()
 const routesTo = (place) => routes.filter((r) => r.via.some((v) => v.name === place))
+
+const KINDS = { jeep: 'Jeep', modern: 'Modern jeep', uv: 'UV Express', bus: 'Bus', p2p: 'P2P bus' }
+const inArea = (v) => v.lat > 14.33 && v.lat < 14.47 && v.lng > 120.9 && v.lng < 121.0 // Imus + Bacoor
+const km = (a, b) => {
+  const dlat = ((b.lat - a.lat) * Math.PI) / 180
+  const dlng = (((b.lng - a.lng) * Math.PI) / 180) * Math.cos((a.lat * Math.PI) / 180)
+  return 6371 * Math.hypot(dlat, dlng)
+}
+const fmtKm = (d) => (d < 1 ? `${Math.round(d * 1000)} m` : `${d.toFixed(1)} km`)
+
+// Every sakayan in Imus/Bacoor: OSM terminals and tricycle stands, plus terminals we only know from route stops.
+const withKey = (h) => ({ ...h, key: `${h.name}@${h.lat},${h.lng}` })
+const hubs = (() => {
+  const list = data.sakayan.map((s) => ({ ...s, rides: s.t === 'terminal' ? routesTo(s.name) : [] }))
+  for (const r of routes)
+    for (const v of r.via)
+      if (v.k === 't' && inArea(v) && !list.some((h) => h.name === v.name))
+        list.push({ name: v.name, lat: v.lat, lng: v.lng, t: 'terminal', rides: routesTo(v.name) })
+  return list.map(withKey).sort((a, b) => b.rides.length - a.rides.length || (a.t === 'trike') - (b.t === 'trike'))
+})()
+
+// Sakayan the user added on this phone. They also get a prefilled GitHub issue so a maintainer can put them on OSM for everyone.
+const MINE = 'dadaan-ba:mine'
+const loadMine = () => {
+  try {
+    return JSON.parse(localStorage.getItem(MINE)) ?? []
+  } catch {
+    return []
+  }
+}
+const saveMine = (list) => {
+  try {
+    localStorage.setItem(MINE, JSON.stringify(list))
+  } catch {
+    // private mode: keep it for this visit only
+  }
+}
+const ADD_KINDS = ['Tricycle / TODA', 'Jeep', 'Modern jeep', 'UV Express', 'Bus', 'Iba pa']
+const issueUrl = (s) =>
+  'https://github.com/J3nrick/dadaan-ba/issues/new?' +
+  new URLSearchParams({
+    template: 'new-sakayan.yml',
+    title: `Sakayan: ${s.name}`,
+    name: s.name,
+    kind: s.kind,
+    location: `${s.lat}, ${s.lng}`,
+    rides: s.goes,
+  })
+const directions = (h) => `https://www.google.com/maps/dir/?api=1&destination=${h.lat},${h.lng}&travelmode=walking`
+
+/** Where to board `route` to reach `goal`: nearest stop to the user if we know where they are, else a terminal in Imus/Bacoor. */
+function boardingPoint(route, goal, here) {
+  const spots = route.via.filter((v) => v.k !== 'l' && v.name !== goal)
+  if (!spots.length) return null
+  if (here) return spots.map((v) => ({ ...v, d: km(here, v) })).sort((a, b) => a.d - b.d)[0]
+  return spots.find((v) => v.k === 't' && inArea(v)) ?? spots.find(inArea) ?? spots[0]
+}
 
 const Icon = ({ d, size = 22 }) => (
   <svg
@@ -27,6 +85,9 @@ const Icon = ({ d, size = 22 }) => (
 const CAMERA = 'M4 8h3l2-3h6l2 3h3v11H4zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z'
 const CHECK = 'M5 12.5l4.5 4.5L19 7'
 const CROSS = 'M6 6l12 12M18 6L6 18'
+const MIC = 'M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5 11a7 7 0 0 0 14 0M12 18v3'
+const PIN = 'M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21zM12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z'
+const ARROW = 'M5 12h14M13 6l6 6-6 6'
 
 function Plakard({ route, small }) {
   const [a, b] = route.plakard.split(' - ')
@@ -35,8 +96,254 @@ function Plakard({ route, small }) {
       <span>{a}</span>
       {b && <span className="dash" aria-hidden="true" />}
       {b && <span>{b}</span>}
-      {route.kind === 'modern' && <em>Modern</em>}
+      {route.kind !== 'jeep' && (
+        <em className={route.kind}>
+          {KINDS[route.kind]}
+          {route.ref && ` ${route.ref}`}
+        </em>
+      )}
     </div>
+  )
+}
+
+/** Free-text or spoken question -> a known place. */
+function AskBar({ label, placeholder, onPlace }) {
+  const [q, setQ] = useState('')
+  const [state, setState] = useState('idle') // idle | listening | miss | nomic
+  const resolve = (text, spoken) => {
+    const place = findPlace(text, places)
+    setState(place ? 'idle' : 'miss')
+    if (place) onPlace(place, spoken)
+  }
+  async function talk() {
+    setState('listening')
+    try {
+      const heard = await listen()
+      setQ(heard)
+      if (heard) resolve(heard, true)
+      else setState('idle')
+    } catch {
+      setState('nomic')
+    }
+  }
+  return (
+    <form
+      className="askform"
+      onSubmit={(e) => {
+        e.preventDefault()
+        resolve(q, false)
+      }}
+    >
+      <label className="field">
+        <span>{label}</span>
+        <div className="askbar">
+          <input
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            list="places"
+            placeholder={placeholder}
+            autoComplete="off"
+            enterKeyHint="search"
+          />
+          {canListen && (
+            <button type="button" className="mic" onClick={talk} aria-pressed={state === 'listening'} aria-label="Itanong gamit ang boses">
+              <Icon d={MIC} />
+            </button>
+          )}
+          <button type="submit" className="go" aria-label="Hanapin">
+            <Icon d={ARROW} />
+          </button>
+        </div>
+      </label>
+      <div aria-live="polite">
+        {state === 'listening' && <p className="note listening">Nakikinig… sabihin kung saan ka pupunta.</p>}
+        {state === 'miss' && <p className="note error">Hindi ko kilala ang lugar na iyan. Subukan ang ibang tawag o pumili sa listahan.</p>}
+        {state === 'nomic' && <p className="note error">Hindi magamit ang mikropono. I-type na lang ang tanong.</p>}
+      </div>
+    </form>
+  )
+}
+
+function SakayanView({ here, locateButton, locating, onRide }) {
+  const [show, setShow] = useState('all') // all | terminal | trike
+  const [open, setOpen] = useState('')
+  const [all, setAll] = useState(false)
+  const [mine, setMine] = useState(loadMine)
+  const [draft, setDraft] = useState(null) // { name, kind, goes, lat, lng } while adding
+
+  const list = useMemo(() => {
+    const own = mine.map((m) => withKey({ ...m, rides: [], mine: true }))
+    const shown = [...own, ...hubs].filter((h) => show === 'all' || h.t === show)
+    return here ? shown.sort((a, b) => km(here, a) - km(here, b)) : shown
+  }, [show, here, mine])
+  const visible = all ? list : list.slice(0, 20)
+
+  function save(e) {
+    e.preventDefault()
+    const s = {
+      ...draft,
+      name: draft.name.trim(),
+      lat: +draft.lat.toFixed(5),
+      lng: +draft.lng.toFixed(5),
+      t: draft.kind === ADD_KINDS[0] ? 'trike' : 'terminal',
+    }
+    const next = [s, ...mine]
+    setMine(next)
+    saveMine(next)
+    setDraft(null)
+    setShow('all')
+    setOpen(withKey(s).key)
+  }
+  function remove(key) {
+    const next = mine.filter((m) => withKey(m).key !== key)
+    setMine(next)
+    saveMine(next)
+  }
+
+  return (
+    <>
+      <h1>Mga sakayan</h1>
+      <p>
+        Mga terminal ng jeep, UV at bus, at mga paradahan ng tricycle sa Imus at Bacoor. Gamitin ang lokasyon mo para makita ang
+        pinakamalapit.
+      </p>
+      {locateButton}
+      {locating === 'denied' && <p className="note error">Hindi makuha ang lokasyon mo.</p>}
+      <div className="chips filter" role="group" aria-label="Uri ng sakayan">
+        {[
+          ['all', 'Lahat'],
+          ['terminal', 'Jeep · UV · Bus'],
+          ['trike', 'Tricycle'],
+        ].map(([k, label]) => (
+          <button key={k} aria-pressed={show === k} onClick={() => setShow(k)}>
+            {label}
+          </button>
+        ))}
+      </div>
+      <RouteMap
+        points={list}
+        here={here}
+        active={open}
+        onPoint={setOpen}
+        pin={draft?.lat ? draft : null}
+        onTap={(pos) => draft && setDraft({ ...draft, ...pos })}
+      />
+
+      <h2>
+        {here ? 'Pinakamalapit sa iyo' : 'Lahat ng sakayan'} <span>{list.length}</span>
+      </h2>
+      <ul className="hubs">
+        {visible.map((h) => (
+          <li key={h.key}>
+            <button className="hub" aria-expanded={open === h.key} onClick={() => setOpen(open === h.key ? '' : h.key)}>
+              <span>
+                <b>{h.name}</b>
+                <small>
+                  {h.mine ? `Idinagdag mo · ${h.kind}` : h.t === 'trike' ? 'Tricycle' : 'Terminal'}
+                  {here && ` · ${fmtKm(km(here, h))} mula sa iyo`}
+                </small>
+              </span>
+              {h.rides.length > 0 && <span className="count">{h.rides.length} sasakyan</span>}
+            </button>
+            {open === h.key && (
+              <div className="hubinfo">
+                {h.t === 'trike' && !h.mine && (
+                  <p className="note">
+                    Para sa maikling biyahe papasok sa subdivision o barangay. Itanong sa dispatcher ang ruta at pamasahe.
+                  </p>
+                )}
+                {h.mine && h.goes && <p className="note">Papunta: {h.goes}</p>}
+                {h.rides.length > 0 && (
+                  <ul className="rides">
+                    {h.rides.map((r) => (
+                      <li key={r.id}>
+                        <button onClick={() => onRide(r)}>
+                          <Plakard route={r} small />
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <div className="actions">
+                  <a href={directions(h)} target="_blank" rel="noreferrer">
+                    Direksyon papunta rito →
+                  </a>
+                  {h.mine && (
+                    <>
+                      <a href={issueUrl(h)} target="_blank" rel="noreferrer">
+                        Ipadala sa GitHub para makita ng lahat →
+                      </a>
+                      <button onClick={() => remove(h.key)}>Burahin</button>
+                    </>
+                  )}
+                </div>
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+      {list.length > visible.length && (
+        <button className="locate more" onClick={() => setAll(true)}>
+          Ipakita lahat ({list.length})
+        </button>
+      )}
+
+      <h2>May kulang na sakayan?</h2>
+      {!draft ? (
+        <button className="locate" onClick={() => setDraft({ name: '', kind: ADD_KINDS[0], goes: '', ...(here ?? {}) })}>
+          + Magdagdag ng sakayan
+        </button>
+      ) : (
+        <form className="addform" onSubmit={save}>
+          <label className="field">
+            <span>Pangalan</span>
+            <input
+              required
+              value={draft.name}
+              onChange={(e) => setDraft({ ...draft, name: e.target.value })}
+              placeholder="hal. Tricycle sa harap ng Puregold"
+            />
+          </label>
+          <label className="field">
+            <span>Anong sasakyan</span>
+            <select value={draft.kind} onChange={(e) => setDraft({ ...draft, kind: e.target.value })}>
+              {ADD_KINDS.map((k) => (
+                <option key={k}>{k}</option>
+              ))}
+            </select>
+          </label>
+          <label className="field">
+            <span>Papunta saan? (hindi required)</span>
+            <input
+              value={draft.goes}
+              onChange={(e) => setDraft({ ...draft, goes: e.target.value })}
+              placeholder="hal. Imus Bayan, Bucandala"
+            />
+          </label>
+          <p className="note">
+            {draft.lat
+              ? `Lokasyon: ${draft.lat.toFixed(5)}, ${draft.lng.toFixed(5)}. Tapikin ang mapa para baguhin.`
+              : 'Tapikin ang mapa sa itaas kung saan ang sakayan, o gamitin ang lokasyon mo.'}
+          </p>
+          <div className="actions">
+            <button type="submit" className="save" disabled={!draft.lat || !draft.name.trim()}>
+              I-save
+            </button>
+            {here && (
+              <button type="button" onClick={() => setDraft({ ...draft, ...here })}>
+                Dito mismo ako
+              </button>
+            )}
+            <button type="button" onClick={() => setDraft(null)}>
+              Kanselahin
+            </button>
+          </div>
+          <p className="note">
+            Sa phone mo lang muna ito makikita. Pagkatapos i-save, puwede mo itong ipadala sa GitHub para maidagdag para sa lahat.
+          </p>
+        </form>
+      )}
+    </>
   )
 }
 
@@ -47,14 +354,21 @@ export default function App() {
   const [text, setText] = useState('')
   const [picked, setPicked] = useState(null)
   const [dest, setDest] = useState('')
-  const [mode, setMode] = useState('scan') // scan | find
+  const [mode, setMode] = useState('ask') // ask | scan | hubs
   const [goal, setGoal] = useState('')
+  const [here, setHere] = useState(null)
+  const [locating, setLocating] = useState('') // '' | busy | denied
 
   const results = useMemo(() => (text.trim() ? match(text, routes) : []), [text])
   // Confident only when the best match also clearly beats the runner-up.
   const sure = results[0]?.score >= CONFIDENT && results[0].score - (results[1]?.score ?? 0) >= 0.1
   const route = picked ?? (sure ? results[0].route : null)
   const passes = route && dest ? route.via.some((v) => v.name === dest) : null
+
+  const rides = useMemo(() => {
+    const list = routesTo(goal).map((r) => ({ r, at: boardingPoint(r, goal, here) }))
+    return here ? list.sort((a, b) => (a.at?.d ?? 1e9) - (b.at?.d ?? 1e9)) : list
+  }, [goal, here])
 
   useEffect(() => () => photo && URL.revokeObjectURL(photo), [photo])
 
@@ -74,6 +388,36 @@ export default function App() {
     }
   }
 
+  function locate() {
+    if (!('geolocation' in navigator)) return setLocating('denied')
+    setLocating('busy')
+    navigator.geolocation.getCurrentPosition(
+      (p) => {
+        setHere({ lat: p.coords.latitude, lng: p.coords.longitude })
+        setLocating('')
+      },
+      () => setLocating('denied'),
+      { enableHighAccuracy: true, timeout: 15000 },
+    )
+  }
+
+  function askGoal(place, spoken) {
+    setGoal(place)
+    if (!spoken) return
+    const found = routesTo(place).map((r) => ({ r, at: boardingPoint(r, place, here) }))
+    const first = found[0]
+    say(
+      first
+        ? `Papuntang ${place}: may ${found.length} na masasakyan. Halimbawa, ${KINDS[first.r.kind]} na ${first.r.plakard.replace(' - ', ' hanggang ')}${first.at ? `, sumakay sa ${first.at.name}` : ''}.`
+        : `Wala pa akong alam na sasakyan papuntang ${place}.`,
+    )
+  }
+
+  function askDest(place, spoken) {
+    setDest(place)
+    if (spoken) say(route.via.some((v) => v.name === place) ? `Oo, dadaan ito sa ${place}.` : `Hindi dadaan sa ${place}.`)
+  }
+
   function choose(r, to = dest) {
     setPicked(r)
     setDest(to)
@@ -85,15 +429,26 @@ export default function App() {
     setPicked(null)
     setText('')
     setDest('')
-    setGoal('')
     setPhoto(null)
     setStatus('idle')
   }
 
+  const locateButton = (
+    <button className="locate" onClick={locate} disabled={locating === 'busy'}>
+      <Icon d={PIN} size={18} />
+      {locating === 'busy' ? 'Hinahanap ka…' : here ? 'Na-update ang lokasyon mo' : 'Gamitin ang lokasyon ko'}
+    </button>
+  )
+
   return (
     <div className="app">
+      <datalist id="places">
+        {places.map((p) => (
+          <option key={p} value={p} />
+        ))}
+      </datalist>
       <header className="top">
-        <button className="brand" onClick={reset} aria-label="Dadaan Ba? Bumalik sa simula">
+        <button className="brand" onClick={() => reset() || setGoal('')} aria-label="Dadaan Ba? Bumalik sa simula">
           Dadaan<span>Ba?</span>
         </button>
         <span className="area">Imus · Bacoor</span>
@@ -103,38 +458,63 @@ export default function App() {
         {!route && (
           <section className="hero">
             <div className="tabs" role="tablist" aria-label="Paraan ng paghahanap">
-              <button role="tab" aria-selected={mode === 'scan'} onClick={() => setMode('scan')}>
-                May jeep sa harap ko
+              <button role="tab" aria-selected={mode === 'ask'} onClick={() => setMode('ask')}>
+                Itanong
               </button>
-              <button role="tab" aria-selected={mode === 'find'} onClick={() => setMode('find')}>
-                Saan ako sasakay?
+              <button role="tab" aria-selected={mode === 'scan'} onClick={() => setMode('scan')}>
+                I-scan
+              </button>
+              <button role="tab" aria-selected={mode === 'hubs'} onClick={() => setMode('hubs')}>
+                Mga sakayan
               </button>
             </div>
 
-            {mode === 'find' ? (
+            {mode === 'ask' && (
               <>
-                <h1>Anong jeep papunta diyan?</h1>
-                <p>Piliin kung saan ka pupunta. Sasabihin namin kung anong plakard ang hahanapin.</p>
-                <label className="field">
-                  <span>Pupunta ako sa…</span>
-                  <select value={goal} onChange={(e) => setGoal(e.target.value)}>
-                    <option value="">Pumili ng lugar</option>
-                    {landmarks.map((l) => (
-                      <option key={l}>{l}</option>
-                    ))}
-                  </select>
-                </label>
+                <h1>Saan ka pupunta?</h1>
+                <p>Itanong gamit ang boses o i-type. Sasabihin namin kung anong jeep, bus o UV ang sasakyan, at kung saan ang sakayan.</p>
+                <AskBar label="Itanong" placeholder="hal. sakayan papuntang PITX" onPlace={askGoal} />
+
+                {!goal && (
+                  <div className="chips" aria-label="Mga halimbawa">
+                    {['SM Molino', 'PITX', 'Imus Transport Plaza', 'The District Imus', 'Alabang', 'Makati']
+                      .filter((p) => places.includes(p))
+                      .map((p) => (
+                        <button key={p} onClick={() => askGoal(p, false)}>
+                          {p}
+                        </button>
+                      ))}
+                  </div>
+                )}
+
                 {goal && (
                   <div className="picks" aria-live="polite">
                     <h2>
-                      Hanapin ang plakard na ito <span>{routesTo(goal).length}</span>
+                      Papuntang {goal} <span>{rides.length}</span>
                     </h2>
+                    {rides.length > 0 && locateButton}
+                    {locating === 'denied' && (
+                      <p className="note error">Hindi makuha ang lokasyon mo. Ang ipinapakita ay ang mga terminal.</p>
+                    )}
+                    {rides.length === 0 && (
+                      <p className="note">Wala pa kaming alam na sasakyan papunta diyan. Tumulong magdagdag ng ruta sa GitHub.</p>
+                    )}
                     <ul>
-                      {routesTo(goal).map((r) => (
+                      {rides.map(({ r, at }) => (
                         <li key={r.id}>
                           <button onClick={() => choose(r, goal)}>
                             <Plakard route={r} small />
-                            <span className="hint">Dadaan malapit sa {goal} · tingnan ang ruta →</span>
+                            <span className="hint">
+                              {at ? (
+                                <>
+                                  Sakayan: <b>{at.name}</b>
+                                  {at.d !== undefined && ` · ${fmtKm(at.d)} mula sa iyo`}
+                                </>
+                              ) : (
+                                'Pumara kahit saan sa ruta'
+                              )}{' '}
+                              · tingnan ang ruta →
+                            </span>
                           </button>
                         </li>
                       ))}
@@ -142,10 +522,14 @@ export default function App() {
                   </div>
                 )}
               </>
-            ) : (
+            )}
+
+            {mode === 'hubs' && <SakayanView here={here} locateButton={locateButton} locating={locating} onRide={(r) => choose(r, '')} />}
+
+            {mode === 'scan' && (
               <>
-                <h1>Saan ba dadaan ang jeep na 'yan?</h1>
-                <p>Kunan ng litrato ang plakard. Sasabihin namin kung saan ito dadaan.</p>
+                <h1>Saan ba dadaan ang sasakyang 'yan?</h1>
+                <p>Kunan ng litrato ang plakard ng jeep, bus o UV. Sasabihin namin kung saan ito dadaan.</p>
 
                 <label className={`scan${status === 'reading' ? ' busy' : ''}`}>
                   <input type="file" accept="image/*" capture="environment" onChange={onPhoto} disabled={status === 'reading'} />
@@ -171,6 +555,7 @@ export default function App() {
                 <label className="field">
                   <span>O i-type ang nakasulat</span>
                   <input
+                    className="plate"
                     value={text}
                     onChange={(e) => {
                       setText(e.target.value)
@@ -208,22 +593,28 @@ export default function App() {
                   </div>
                 )}
 
-                {!text && (
-                  <div className="catalog">
-                    <h2>
-                      Mga rutang alam namin <span>{routes.length}</span>
-                    </h2>
-                    <ul>
-                      {routes.map((r) => (
-                        <li key={r.id}>
-                          <button onClick={() => choose(r)}>
-                            <Plakard route={r} small />
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                {!text &&
+                  Object.entries(KINDS).map(([kind, name]) => {
+                    const list = routes.filter((r) => r.kind === kind)
+                    return (
+                      list.length > 0 && (
+                        <div className="catalog" key={kind}>
+                          <h2>
+                            {name} <span>{list.length}</span>
+                          </h2>
+                          <ul>
+                            {list.map((r) => (
+                              <li key={r.id}>
+                                <button onClick={() => choose(r)}>
+                                  <Plakard route={r} small />
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )
+                    )
+                  })}
               </>
             )}
           </section>
@@ -242,15 +633,9 @@ export default function App() {
               </p>
             )}
 
-            <label className="field ask">
-              <span>Pupunta ka sa…</span>
-              <select value={dest} onChange={(e) => setDest(e.target.value)}>
-                <option value="">Pumili ng lugar</option>
-                {landmarks.map((l) => (
-                  <option key={l}>{l}</option>
-                ))}
-              </select>
-            </label>
+            <div className="ask">
+              <AskBar key={route.id} label="Dadaan ba sa…?" placeholder="hal. Dadaan ba sa Imus Cathedral?" onPlace={askDest} />
+            </div>
 
             <div aria-live="polite">
               {passes !== null && (
@@ -260,13 +645,25 @@ export default function App() {
                     <strong>{passes ? 'Oo, sakay na!' : 'Hindi dadaan.'}</strong>
                     {passes
                       ? `Dadaan ito malapit sa ${dest}.`
-                      : `Hindi dumadaan ang rutang ito malapit sa ${dest}. Maghanap ng ibang jeep.`}
+                      : `Hindi dumadaan ang rutang ito malapit sa ${dest}. Itanong kung anong sasakyan papunta doon.`}
                   </span>
                 </p>
               )}
+              {passes === false && (
+                <button
+                  className="locate"
+                  onClick={() => {
+                    setGoal(dest)
+                    setMode('ask')
+                    reset()
+                  }}
+                >
+                  Ano ang sasakyan papuntang {dest}? →
+                </button>
+              )}
             </div>
 
-            <RouteMap route={route} dest={dest} />
+            <RouteMap route={route} dest={dest} here={here} />
 
             <h2 className="vialabel">Mga madadaanan</h2>
             {route.via.length > 0 ? (
@@ -275,6 +672,7 @@ export default function App() {
                   <li key={v.name} className={v.name === dest ? 'hit' : ''}>
                     <button onClick={() => setDest(v.name)} aria-pressed={v.name === dest}>
                       {v.name}
+                      {v.k === 't' && <span className="tag">Terminal</span>}
                     </button>
                   </li>
                 ))}
@@ -288,6 +686,7 @@ export default function App() {
                 OpenStreetMap
               </a>
               . Hindi pa nakumpirma sa kalsada. Puwedeng magbago ang ruta.
+              {route.kind === 'p2p' && ' Ang P2P ay humihinto lang sa mga nakalistang stop.'}
             </p>
           </section>
         )}

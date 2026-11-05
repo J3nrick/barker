@@ -1,7 +1,7 @@
 {
   "name": "Dadaan Ba?",
   "short_name": "Dadaan Ba?",
-  "description": "I-scan ang plakard ng jeep para malaman kung saan ito dadaan.",
+  "description": "Saan ang sakayan? Itanong o i-scan ang plakard ng jeep, bus o UV.",
   "lang": "fil",
   "start_url": "./",
   "scope": "./",

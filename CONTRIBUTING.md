@@ -14,12 +14,16 @@ Ginagamit namin ang mga litratong ito para i-test ang scanner at itama ang pagka
 
 Gamitin ang template na **"Bagong ruta"** o **"Maling ruta"**. Isulat ang plakard, ang mga dinadaanan sa pagkakasunod-sunod, at kung kailan mo huling nasakyan.
 
+## 2b. Magdagdag ng sakayan (walang code)
+
+Sa app, buksan ang **Mga sakayan**, pindutin ang **+ Magdagdag ng sakayan**, i-pin ang lugar sa mapa, at i-save. Makikita mo agad ito sa phone mo. Pindutin ang **Ipadala sa GitHub** para mabuksan ang template na **"Bagong sakayan"** na may laman na. Ilalagay ito ng maintainer sa OpenStreetMap (`amenity=taxi` para sa tricycle, `amenity=bus_station` para sa terminal), kaya lalabas ito para sa lahat sa susunod na `fetch_osm.py`.
+
 ## 3. I-mapa ang ruta sa OpenStreetMap
 
 Galing sa OpenStreetMap ang data namin, kaya kapag inayos mo ang ruta doon, makikinabang ang lahat ng app.
 1. Gumawa ng ruta bilang `type=route` + `route=share_taxi` (jeep) relation. Sundan ang [PH public transport guide](https://wiki.openstreetmap.org/wiki/Philippines/Public_transport).
 2. Idagdag ang relation id sa `ROUTES` sa [`app/tools/build_routes.py`](app/tools/build_routes.py), kasama ang plakard text.
-3. I-refresh ang `app/tools/osm/geom.json` gamit ang query sa dulo ng script, tapos patakbuhin ang `python app/tools/build_routes.py`.
+3. Patakbuhin ang `python app/tools/fetch_osm.py`, tapos ang `python app/tools/build_routes.py`.
 4. Mag-PR.
 
 ## 4. Code

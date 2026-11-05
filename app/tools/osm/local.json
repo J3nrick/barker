@@ -1,0 +1,1137 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-11-05T08:18:17Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 1673359257,
+  "lat": 14.4074540,
+  "lon": 120.9030678,
+  "tags": {
+    "addr:city": "Imus",
+    "addr:street": "Lancaster Boulevard",
+    "amenity": "taxi",
+    "name": "Bipra TODA Terminal South",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 1748397819,
+  "lat": 14.4442396,
+  "lon": 120.9939425,
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:street": "Mother Earth Avenue",
+    "amenity": "taxi",
+    "name": "SMCTODA Tricycle Station",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 1749901575,
+  "lat": 14.4401186,
+  "lon": 120.9969051,
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:street": "Maple Street",
+    "addr:street:corner": "Olive",
+    "amenity": "taxi",
+    "bench": "no",
+    "name": "SMCTODA Tricycle Stop",
+    "note": "was tagged highway=\"tricycle_station\"",
+    "public_transport": "platform",
+    "shelter": "no",
+    "tactile_paving": "no",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 1768824989,
+  "lat": 14.4055150,
+  "lon": 120.9252722,
+  "tags": {
+    "addr:street": "Miguel Santo Street",
+    "amenity": "taxi",
+    "mapillary": "1203154023555159",
+    "name": "BIPRA TODA Bucandala Terminal",
+    "taxi_vehicle": "cycle_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 2524731072,
+  "lat": 14.4089011,
+  "lon": 120.9404717,
+  "tags": {
+    "amenity": "bus_station",
+    "bus": "yes",
+    "name": "South Supermarket Filcab Station",
+    "public_transport": "station"
+  }
+},
+{
+  "type": "node",
+  "id": 2524731073,
+  "lat": 14.4045451,
+  "lon": 120.9040454,
+  "tags": {
+    "amenity": "bus_station",
+    "name": "Lancaster Filcab Station",
+    "public_transport": "station",
+    "shelter": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2855102672,
+  "lat": 14.4057451,
+  "lon": 120.9776942,
+  "tags": {
+    "amenity": "bus_station",
+    "name": "Molino UV Express Terminal"
+  }
+},
+{
+  "type": "node",
+  "id": 2855134516,
+  "lat": 14.4054482,
+  "lon": 120.9781574,
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "addr:street": "GSIS Road",
+    "amenity": "taxi",
+    "name": "MGV Toda Tricycle Terminal",
+    "official_name": "Molino III Gardenia Valley Toda Tricycle Terminal",
+    "operator": "Molino III Gardenia Valley Toda Inc.",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 2855146892,
+  "lat": 14.4069782,
+  "lon": 120.9565696,
+  "tags": {
+    "amenity": "taxi",
+    "name": "Buhay na Tubig Tricycle Terminal",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 2855172169,
+  "lat": 14.4273058,
+  "lon": 120.9446528,
+  "tags": {
+    "amenity": "taxi",
+    "name": "Tricycle Terminal",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 2904664054,
+  "lat": 14.3617591,
+  "lon": 120.9280967,
+  "tags": {
+    "addr:street": "Jacoba Tirona Paterno Boulevard",
+    "amenity": "taxi",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 3597900689,
+  "lat": 14.3709153,
+  "lon": 120.9388486,
+  "tags": {
+    "amenity": "fx_station",
+    "name": "UV Express Terminal",
+    "public_transport": "platform",
+    "source": "MMA"
+  }
+},
+{
+  "type": "node",
+  "id": 3602062697,
+  "lat": 14.3957468,
+  "lon": 120.9685572,
+  "tags": {
+    "addr:city": "Imus",
+    "addr:country": "PH",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:quarter": "Mariano Espeleta II",
+    "addr:street": "Inocencio Street",
+    "amenity": "bus_station",
+    "bus": "yes",
+    "name": "UV Express Terminal",
+    "public_transport": "station"
+  }
+},
+{
+  "type": "node",
+  "id": 4215291793,
+  "lat": 14.4244970,
+  "lon": 120.9471530,
+  "tags": {
+    "amenity": "bus_station",
+    "bus": "yes",
+    "name": "Mambog Tricycle Terminal",
+    "public_transport": "station"
+  }
+},
+{
+  "type": "node",
+  "id": 4215291794,
+  "lat": 14.4251971,
+  "lon": 120.9437166,
+  "tags": {
+    "amenity": "taxi",
+    "name": "Buhay na Tubig Tricycle Terminal",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 4215310089,
+  "lat": 14.4246006,
+  "lon": 120.9466268,
+  "tags": {
+    "amenity": "taxi",
+    "name": "Palico Tricycle Terminal",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 5522039286,
+  "lat": 14.4124334,
+  "lon": 120.9412959,
+  "tags": {
+    "amenity": "bus_station",
+    "bus": "yes",
+    "level": "0",
+    "name": "Robinsons Imus Transport Terminal",
+    "public_transport": "station",
+    "smoking": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 5534125936,
+  "lat": 14.3856580,
+  "lon": 120.9788388,
+  "tags": {
+    "amenity": "bus_station",
+    "bus": "yes",
+    "highway": "bus_stop",
+    "name": "Vista Mall Daang Hari Terminal",
+    "network": "P2P",
+    "public_transport": "stop_position",
+    "share_taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5678060673,
+  "lat": 14.4645629,
+  "lon": 120.9673288,
+  "tags": {
+    "amenity": "bus_station",
+    "bus": "yes",
+    "description": "Destinations: Naic, Ternate via Bacao",
+    "highway": "bus_stop",
+    "name": "Zapote Terminal",
+    "public_transport": "platform",
+    "share_taxi": "yes",
+    "source": "Schadow1 Expeditions",
+    "tactile_paving": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 6127598092,
+  "lat": 14.4034069,
+  "lon": 120.9031899,
+  "tags": {
+    "amenity": "bus_station",
+    "bus": "yes",
+    "name": "Tricycle terminal",
+    "network": "Holy Family Parish to Kalayaan Avenue vice versa",
+    "public_transport": "station"
+  }
+},
+{
+  "type": "node",
+  "id": 7298411985,
+  "lat": 14.4100323,
+  "lon": 120.9764949,
+  "tags": {
+    "amenity": "social_facility",
+    "contact:phone": "+63464342794; +63464346716",
+    "indoor": "yes",
+    "name": "Strike Halfway House (Pag-asa Home)",
+    "operator": "Department of Interior and Local Government",
+    "operator:type": "government",
+    "social_facility": "outreach",
+    "social_facility:for": "child"
+  }
+},
+{
+  "type": "node",
+  "id": 8510387313,
+  "lat": 14.4608839,
+  "lon": 120.9945606,
+  "tags": {
+    "name": "PLTODA / CAA Tricycle Terminal",
+    "public_transport": "station"
+  }
+},
+{
+  "type": "node",
+  "id": 9342772649,
+  "lat": 14.4133238,
+  "lon": 120.9406942,
+  "tags": {
+    "addr:barangay": "Bayan Luma IV",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Aguinaldo Highway",
+    "amenity": "taxi",
+    "mapillary": "306850141594627",
+    "name": "RATODA Tricycle Terminal",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 9927056356,
+  "lat": 14.3895127,
+  "lon": 120.9407027,
+  "tags": {
+    "amenity": "taxi",
+    "name": "Pedicab Terminal",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 9963049489,
+  "lat": 14.3944041,
+  "lon": 120.9402655,
+  "tags": {
+    "amenity": "taxi",
+    "name": "Tricycle Terminal",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 9988477453,
+  "lat": 14.3898350,
+  "lon": 120.9399129,
+  "tags": {
+    "amenity": "taxi",
+    "name": "Anabu I-F Pedicab Terminal",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 10043919254,
+  "lat": 14.3879125,
+  "lon": 120.9409456,
+  "tags": {
+    "amenity": "taxi",
+    "operator": "Anabu Pedicab Operators and Drivers Association",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 10044871647,
+  "lat": 14.3862416,
+  "lon": 120.9409929,
+  "tags": {
+    "addr:barangay": "Anabu II-B",
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Anabu Road",
+    "amenity": "taxi",
+    "name": "Regatta Drive Pedicab Terminal",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 10050386670,
+  "lat": 14.3849061,
+  "lon": 120.9413201,
+  "tags": {
+    "amenity": "taxi",
+    "name": "Anabu II-B Pedicab Terminal",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 10086116941,
+  "lat": 14.3867745,
+  "lon": 120.9407954,
+  "tags": {
+    "amenity": "taxi",
+    "name": "Tricycle Terminal",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 10599662443,
+  "lat": 14.4187463,
+  "lon": 120.9722453,
+  "tags": {
+    "name": "Ciudad de Strike Phase 1 & 2",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 11007027101,
+  "lat": 14.3449003,
+  "lon": 120.9817052,
+  "tags": {
+    "amenity": "taxi",
+    "name": "Sakada Tricycle Station",
+    "public_transport": "platform",
+    "smoking": "no",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 11021166400,
+  "lat": 14.3407978,
+  "lon": 120.9373049,
+  "tags": {
+    "amenity": "taxi",
+    "public_transport": "station",
+    "smoking": "no",
+    "taxi_vehicle": "auto_rickshaw",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 11052138453,
+  "lat": 14.3463000,
+  "lon": 120.9816545,
+  "tags": {
+    "addr:street": "Paliparan Road",
+    "amenity": "taxi",
+    "fixme": "name",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 11060770998,
+  "lat": 14.4496208,
+  "lon": 120.9231891,
+  "tags": {
+    "addr:street": "General Yengco Street",
+    "amenity": "taxi",
+    "fixme": "name",
+    "mapillary": "397122465329177",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 11193091732,
+  "lat": 14.3553359,
+  "lon": 120.9117951,
+  "tags": {
+    "amenity": "taxi",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 11193151492,
+  "lat": 14.3546786,
+  "lon": 120.9227625,
+  "tags": {
+    "amenity": "taxi",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 11198649467,
+  "lat": 14.3585670,
+  "lon": 120.9376398,
+  "tags": {
+    "addr:city": "Dasmariñas",
+    "addr:postcode": "4114",
+    "addr:province": "Cavite",
+    "addr:street": "Jacoba Tirona Paterno Boulevard",
+    "amenity": "taxi",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 11824757623,
+  "lat": 14.4647278,
+  "lon": 120.9702203,
+  "tags": {
+    "amenity": "taxi",
+    "description": "ZApote-TRAmo TODA",
+    "name": "ZATRA TODA Terminal",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "node",
+  "id": 11980201640,
+  "lat": 14.4569323,
+  "lon": 120.9950964,
+  "tags": {
+    "amenity": "bus_station",
+    "bus": "yes",
+    "internet_access": "no",
+    "name": "Balikatan Tricycle Terminal",
+    "public_transport": "station"
+  }
+},
+{
+  "type": "node",
+  "id": 13637948456,
+  "lat": 14.4601002,
+  "lon": 120.9660853,
+  "tags": {
+    "amenity": "taxi",
+    "name": "Bitoda Terminal",
+    "operator:short": "BITODA",
+    "operator:type": "association",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "way",
+  "id": 53976467,
+  "center": {
+    "lat": 14.4460970,
+    "lon": 120.9936746
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:street": "CAA Avenue",
+    "amenity": "tricycle_terminal",
+    "landuse": "retail",
+    "name": "Emapalico Tricycle Terminal"
+  }
+},
+{
+  "type": "way",
+  "id": 160918610,
+  "center": {
+    "lat": 14.4440128,
+    "lon": 120.9931694
+  },
+  "tags": {
+    "addr:street": "BF Resort Drive",
+    "amenity": "taxi",
+    "name": "BFRV Toda",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "way",
+  "id": 240601489,
+  "center": {
+    "lat": 14.3465202,
+    "lon": 120.9462649
+  },
+  "tags": {
+    "amenity": "taxi",
+    "building": "transportation",
+    "name": "Cardinal Village Tricycle Station",
+    "public_transport": "station",
+    "smoking": "no",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "way",
+  "id": 258304043,
+  "center": {
+    "lat": 14.4123873,
+    "lon": 120.9905191
+  },
+  "tags": {
+    "addr:barangay": "Molino II",
+    "addr:city": "Bacoor",
+    "addr:country": "PH",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "addr:street": "Marcos Alvarez Avenue",
+    "addr:subdivision": "Green Valley",
+    "amenity": "clinic",
+    "branch": "Molino II, City of Bacoor",
+    "building": "public",
+    "building:levels": "2",
+    "healthcare": "clinic",
+    "name": "Strike sa Serbisyo Health Center",
+    "official_name": "Strike sa Serbisyo Lying-In & City Health Unit",
+    "operator": "Bacoor City Health Office",
+    "operator:type": "government"
+  }
+},
+{
+  "type": "way",
+  "id": 339508018,
+  "center": {
+    "lat": 14.4317581,
+    "lon": 120.9680609
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "building": "office",
+    "leisure": "sports_centre",
+    "name": "Strike Gymnasium"
+  }
+},
+{
+  "type": "way",
+  "id": 411891453,
+  "center": {
+    "lat": 14.3757565,
+    "lon": 120.9386790
+  },
+  "tags": {
+    "addr:barangay": "Anabu II-D",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Aguinaldo Highway",
+    "amenity": "taxi",
+    "building": "roof",
+    "layer": "1",
+    "name": "MCA TODA Terminal",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "way",
+  "id": 423600068,
+  "center": {
+    "lat": 14.3365592,
+    "lon": 120.9547122
+  },
+  "tags": {
+    "addr:city": "Dasmariñas",
+    "addr:country": "PH",
+    "addr:postcode": "4115",
+    "addr:province": "Cavite",
+    "amenity": "taxi",
+    "mapillary": "1198036940939895",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "way",
+  "id": 514479637,
+  "center": {
+    "lat": 14.3370074,
+    "lon": 120.9861365
+  },
+  "tags": {
+    "amenity": "taxi",
+    "name": "Viva Homes Tricycle Station",
+    "public_transport": "station",
+    "smoking": "no",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "way",
+  "id": 593426327,
+  "center": {
+    "lat": 14.4163486,
+    "lon": 120.9813756
+  },
+  "tags": {
+    "leisure": "water_park",
+    "name": "Strike RGP Resort"
+  }
+},
+{
+  "type": "way",
+  "id": 638437001,
+  "center": {
+    "lat": 14.3840114,
+    "lon": 120.9780044
+  },
+  "tags": {
+    "amenity": "bus_station",
+    "bus": "yes",
+    "internet_access": "no",
+    "name": "SM Molino Transport Terminal",
+    "public_transport": "station",
+    "smoking": "no",
+    "tactile_paving": "no",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "way",
+  "id": 797720297,
+  "center": {
+    "lat": 14.3890483,
+    "lon": 120.9773249
+  },
+  "tags": {
+    "amenity": "bus_station",
+    "name": "Kabisig MPTSC UVE Terminal",
+    "public_transport": "station"
+  }
+},
+{
+  "type": "way",
+  "id": 851857812,
+  "center": {
+    "lat": 14.4270707,
+    "lon": 120.9947451
+  },
+  "tags": {
+    "addr:city": "Las Piñas",
+    "addr:postcode": "1740",
+    "addr:street": "Abel Nosce Street",
+    "amenity": "taxi",
+    "building": "roof",
+    "building:levels": "1",
+    "layer": "1",
+    "name": "BF Homes Tricycle Station",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "way",
+  "id": 891301732,
+  "center": {
+    "lat": 14.3968257,
+    "lon": 120.9946981
+  },
+  "tags": {
+    "landuse": "residential",
+    "name": "Strikeville 1 Subdivision",
+    "name:etymology": "Strike Bautista Revilla",
+    "name:etymology:wikidata": "Q3550636",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "way",
+  "id": 916262324,
+  "center": {
+    "lat": 14.4611880,
+    "lon": 120.9941599
+  },
+  "tags": {
+    "landuse": "commercial",
+    "name": "PLTODA / CAA Tricycle Terminal",
+    "public_transport": "station"
+  }
+},
+{
+  "type": "way",
+  "id": 1062241777,
+  "center": {
+    "lat": 14.4456823,
+    "lon": 120.9498098
+  },
+  "tags": {
+    "amenity": "taxi",
+    "name": "SM City Bacoor Tricycle Terminal",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "way",
+  "id": 1146994775,
+  "center": {
+    "lat": 14.3886325,
+    "lon": 120.9676659
+  },
+  "tags": {
+    "addr:city": "Imus",
+    "addr:postcode": "4103",
+    "addr:street": "Daang Hari",
+    "amenity": "taxi",
+    "departures_board": "no",
+    "name": "Pasong Buaya II TODA",
+    "public_transport": "platform",
+    "short_name": "PASIPAG TODA",
+    "surface": "concrete",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "way",
+  "id": 1146997707,
+  "center": {
+    "lat": 14.3925269,
+    "lon": 120.9782205
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:country": "PH",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "alt_name": "CSMTODA Tricycle Terminal 1",
+    "amenity": "taxi",
+    "bench": "yes",
+    "covered": "yes",
+    "departures_board": "no",
+    "level": "0",
+    "mapillary": "767236470868180",
+    "name": "Statefields Tricycle Terminal",
+    "operator": "Camella Springville Molino Tricycle Operators and Drivers Association",
+    "public_transport": "platform",
+    "ref": "1",
+    "surface": "concrete",
+    "tactile_paving": "no",
+    "taxi_vehicle": "auto_rickshaw",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "way",
+  "id": 1146997709,
+  "center": {
+    "lat": 14.3887064,
+    "lon": 120.9806267
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:country": "PH",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "addr:street": "Springville Avenue",
+    "amenity": "taxi",
+    "covered": "yes",
+    "departures_board": "no",
+    "level": "0",
+    "name": "St. John Fisher Tricycle Terminal",
+    "operator": "Camella Springville Molino Tricycle Operators and Drivers Association",
+    "public_transport": "platform",
+    "surface": "concrete",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "way",
+  "id": 1146999215,
+  "center": {
+    "lat": 14.3858629,
+    "lon": 120.9803201
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:country": "PH",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "addr:street": "Molino River Drive",
+    "amenity": "taxi",
+    "covered": "yes",
+    "departures_board": "no",
+    "level": "0",
+    "name": "SOMO Tricycle Terminal",
+    "operator": "Camella Springville Molino Tricycle Operators and Drivers Association",
+    "public_transport": "platform",
+    "surface": "concrete",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "way",
+  "id": 1198626932,
+  "center": {
+    "lat": 14.4226017,
+    "lon": 120.9425114
+  },
+  "tags": {
+    "addr:barangay": "Tanzang Luma II",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Tanzang Luma Road",
+    "amenity": "bus_station",
+    "name": "Imus via Alabang UV Express Terminal"
+  }
+},
+{
+  "type": "way",
+  "id": 1322436124,
+  "center": {
+    "lat": 14.3713774,
+    "lon": 120.9381186
+  },
+  "tags": {
+    "amenity": "taxi",
+    "building": "roof",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "way",
+  "id": 1328391557,
+  "center": {
+    "lat": 14.3652224,
+    "lon": 120.9381009
+  },
+  "tags": {
+    "addr:barangay": "Anabu II-E",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "amenity": "taxi",
+    "building": "roof",
+    "layer": "1",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "way",
+  "id": 1340478604,
+  "center": {
+    "lat": 14.3921079,
+    "lon": 120.9950760
+  },
+  "tags": {
+    "air_conditioning": "no",
+    "alt_name": "Gardenia Kapit-Bisig MPTSC Multicab Terminal",
+    "amenity": "bus_station",
+    "bus": "yes",
+    "internet_access": "no",
+    "loc_name": "Camella North Gold Multi Cab Terminal",
+    "minibus": "yes",
+    "minibus:type": "passenger_kei_truck",
+    "name": "North Springville Yellow Multicab Terminal",
+    "operator": "Gardenia Kapit-Bisig Multipurpose Transport Service Cooperative",
+    "operator:email": "gardeniakapitbisig@gmail.com",
+    "operator:facebook": "100089922575818",
+    "operator:short": "GKBMPTSC",
+    "psv": "yes",
+    "public_transport": "station"
+  }
+},
+{
+  "type": "way",
+  "id": 1374899021,
+  "center": {
+    "lat": 14.3768066,
+    "lon": 120.9397222
+  },
+  "tags": {
+    "addr:barangay": "Anabu II-C",
+    "addr:city": "Imus",
+    "addr:street": "Servando Maliksi Boulevard",
+    "amenity": "taxi",
+    "mapillary": "739666690551522",
+    "name": "Anabu-Pasong Buaya I-Ragatan-Daang Hari Tricycle Terminal",
+    "name:etymology": "Anabu - Pasong Buaya 1 - Ragatan - Daang Hari - Tricycle Operators & Drivers Association (APDAHTODA)",
+    "short_name": "APDAHTODA",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "way",
+  "id": 1381599905,
+  "center": {
+    "lat": 14.4066804,
+    "lon": 120.9401432
+  },
+  "tags": {
+    "addr:barangay": "Bayan Luma VIII",
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "addr:street": "Patindig Araw Road",
+    "amenity": "taxi",
+    "name": "Bucandala Tricycle Station",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "way",
+  "id": 1454562909,
+  "center": {
+    "lat": 14.4450186,
+    "lon": 120.9521931
+  },
+  "tags": {
+    "addr:city": "Bacoor",
+    "addr:postcode": "4102",
+    "addr:province": "Cavite",
+    "addr:street": "Aguinaldo Highway",
+    "addr:street:corner": "Tirona Highway",
+    "amenity": "bus_station",
+    "building": "roof",
+    "bus": "yes",
+    "layer": "1",
+    "name": "SM Bacoor Transport Terminal",
+    "previously": "way:92648252",
+    "public_transport": "station",
+    "smoking": "no",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "way",
+  "id": 1473841718,
+  "center": {
+    "lat": 14.4241364,
+    "lon": 120.9417217
+  },
+  "tags": {
+    "amenity": "taxi",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "way",
+  "id": 1539016426,
+  "center": {
+    "lat": 14.3492952,
+    "lon": 120.9732820
+  },
+  "tags": {
+    "amenity": "taxi",
+    "area": "yes",
+    "auto_rickshaw": "yes",
+    "covered": "no",
+    "level": "0",
+    "location": "outdoor",
+    "name": "SSDGCTODA Tricycle Terminal",
+    "public_transport": "station",
+    "taxi_vehicle": "auto_rickshaw"
+  }
+},
+{
+  "type": "relation",
+  "id": 9035425,
+  "center": {
+    "lat": 14.4461339,
+    "lon": 120.9506011
+  },
+  "tags": {
+    "amenity": "bus_station",
+    "bus": "yes",
+    "internet_access": "no",
+    "name": "Bacoor City Transport Terminal",
+    "previously": "node:4495672195",
+    "public_transport": "station",
+    "smoking": "no",
+    "type": "multipolygon",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "relation",
+  "id": 9336840,
+  "center": {
+    "lat": 14.4208379,
+    "lon": 120.9406773
+  },
+  "tags": {
+    "addr:city": "Imus",
+    "addr:province": "Cavite",
+    "alt_name": "Imus City Transport Terminal",
+    "amenity": "bus_station",
+    "bus": "yes",
+    "name": "Imus Transport Plaza",
+    "previously": "node:1439194307;way:256584092",
+    "public_transport": "station",
+    "smoking": "no",
+    "type": "multipolygon",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "relation",
+  "id": 9503367,
+  "center": {
+    "lat": 14.3998520,
+    "lon": 120.9042513
+  },
+  "tags": {
+    "addr:city": "Imus",
+    "addr:housename": "Lancaster Square",
+    "addr:postcode": "4103",
+    "addr:street": "Lancaster Boulevard",
+    "amenity": "bus_station",
+    "bus": "yes",
+    "email": "lnctapnride@gmail.com",
+    "internet_access": "no",
+    "name": "Lancaster Transport Hub",
+    "phone": "+63 (922) 4912374",
+    "previously": "node:1859839415",
+    "public_transport": "station",
+    "smoking": "no",
+    "source": "Schadow1 Expeditions",
+    "type": "multipolygon",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 13283563,
+  "center": {
+    "lat": 14.3860299,
+    "lon": 120.9614553
+  },
+  "tags": {
+    "addr:barangay": "Pasong Buaya I",
+    "addr:city": "Imus",
+    "addr:neighbourhood": "Vermosa",
+    "addr:postcode": "4103",
+    "addr:province": "Cavite",
+    "addr:street": "Daang Hari",
+    "amenity": "bus_station",
+    "name": "Vermosa Transport Terminal",
+    "start_date": "2024",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 17759451,
+  "center": {
+    "lat": 14.3316308,
+    "lon": 120.9540383
+  },
+  "tags": {
+    "amenity": "bus_station",
+    "fee": "no",
+    "fine:not:bus": "5,000 PHP",
+    "name": "Dasmariñas Arena Bus Station",
+    "orientation": "diagonal",
+    "public_transport": "station",
+    "smoothness": "excellent",
+    "surface": "concrete",
+    "type": "multipolygon"
+  }
+}
+
+  ]
+}

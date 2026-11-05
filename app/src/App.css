@@ -27,8 +27,8 @@ h2 span { background: var(--ink); color: var(--bg); border-radius: 99px; padding
 
 .field { display: grid; gap: 8px; margin-top: 24px; font-size: 14px; font-weight: 700; }
 .field input, .field select { font: 600 17px/1.2 system-ui, sans-serif; min-height: 52px; padding: 12px 16px; border: 2px solid var(--line); border-radius: var(--r-md); background: var(--surface); color: var(--ink); width: 100%; }
-.field input { text-transform: uppercase; letter-spacing: .04em; }
-.field input::placeholder { text-transform: none; letter-spacing: 0; color: var(--muted); font-weight: 400; }
+.field input.plate { text-transform: uppercase; letter-spacing: .04em; }
+.field input.plate::placeholder { text-transform: none; letter-spacing: 0; color: var(--muted); font-weight: 400; }
 .field input:focus, .field select:focus { border-color: var(--ink); outline: none; }
 .note { margin: 12px 0 0; font-size: 15px; color: var(--muted); }
 .error { color: var(--no); }
@@ -80,7 +80,58 @@ h2 span { background: var(--ink); color: var(--bg); border-radius: 99px; padding
 footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); text-align: center; }
 
 /* Mode switch */
-.tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; margin-top: 8px; border-radius: 99px; background: var(--surface); border: 2px solid var(--line); }
+.tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 4px; margin-top: 8px; border-radius: 99px; background: var(--surface); border: 2px solid var(--line); }
 .tabs button { min-height: 44px; border: 0; border-radius: 99px; background: none; font-size: 14px; font-weight: 700; color: var(--muted); cursor: pointer; transition: background 150ms, color 150ms; }
 .tabs button[aria-selected='true'] { background: var(--ink); color: var(--bg); }
 .hint { display: block; margin-top: 8px; font-size: 14px; font-weight: 600; color: var(--muted); }
+
+/* Ask: one field, mic and go share its edge */
+.askbar { display: flex; gap: 8px; }
+.askbar input { flex: 1; min-width: 0; }
+.askbar button { flex: none; width: 52px; min-height: 52px; display: grid; place-items: center; border-radius: var(--r-md); border: 2px solid var(--ink); background: var(--surface); color: var(--ink); cursor: pointer; transition: transform 150ms, background 150ms; }
+.askbar button:active { transform: scale(.94); }
+.askbar .mic { background: var(--red); border-color: var(--red); color: #fff; box-shadow: 0 4px 0 var(--red-deep); }
+.askbar .mic[aria-pressed='true'] { animation: listen 1s ease-in-out infinite alternate; }
+@keyframes listen { to { box-shadow: 0 4px 0 var(--red-deep), 0 0 0 8px rgb(196 18 47 / .25); } }
+@media (prefers-color-scheme: dark) { .askbar .mic { color: #12110e; } }
+.listening { color: var(--red); font-weight: 700; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.chips button { min-height: 40px; padding: 8px 14px; border-radius: 99px; border: 2px solid var(--line); background: var(--surface); font-size: 14px; font-weight: 700; cursor: pointer; }
+.chips button:hover { border-color: var(--ink); }
+
+.locate { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin: 0 0 16px; padding: 8px 14px; border-radius: 99px; border: 2px solid var(--ink); background: none; font-size: 14px; font-weight: 700; cursor: pointer; }
+.locate:disabled { opacity: .6; cursor: progress; }
+.answer + .locate, [aria-live] > .locate { margin-top: 12px; }
+.hint b { color: var(--ink); }
+
+/* Ride kinds: the badge colour tells jeep / bus / UV apart at a glance */
+.plakard em.bus { background: #1f5fbf; color: #fff; }
+.plakard em.p2p { background: #1b1813; color: #fff6d8; }
+.plakard em.uv { background: #fff; }
+
+/* Sakayan list */
+.hubs { list-style: none; margin: 16px 0 0; padding: 0; border-top: 2px solid var(--line); }
+.hubs > li { border-bottom: 2px solid var(--line); }
+.hub { display: flex; justify-content: space-between; align-items: center; gap: 12px; width: 100%; min-height: 60px; padding: 10px 0; border: 0; background: none; text-align: left; cursor: pointer; }
+.hub b { display: block; font-size: 17px; }
+.hub small { color: var(--muted); font-size: 13px; }
+.hub .count { flex: none; font-size: 13px; font-weight: 700; padding: 2px 10px; border-radius: 99px; background: var(--ink); color: var(--bg); }
+.hub[aria-expanded='true'] .count { background: var(--red); color: #fff; }
+.rides { list-style: none; margin: 0; padding: 4px 0 16px; display: grid; gap: 12px; }
+.rides button { width: 100%; padding: 0; border: 0; background: none; cursor: pointer; }
+.tag { margin-left: 8px; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 8px; border-radius: 99px; background: var(--yellow); color: #1b1813; }
+
+/* Sakayan filters, info and the add form */
+.filter { margin: 0 0 16px; }
+.chips button[aria-pressed='true'] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.hub .count.trike { background: var(--trike); color: #12110e; }
+.hubinfo { padding: 0 0 16px; }
+.hubinfo .note { margin: 0 0 12px; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin-top: 12px; }
+.actions a { font-weight: 700; color: var(--red); min-height: 44px; display: inline-flex; align-items: center; }
+.actions button { min-height: 44px; padding: 8px 14px; border-radius: 99px; border: 2px solid var(--line); background: none; font-weight: 700; cursor: pointer; }
+.actions .save { background: var(--red); border-color: var(--red); color: #fff; }
+.actions .save:disabled { opacity: .45; cursor: not-allowed; }
+.more { margin-top: 16px; }
+.addform .field:first-child { margin-top: 0; }

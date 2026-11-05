@@ -29,7 +29,7 @@ function levenshtein(a, b) {
   return prev[b.length]
 }
 
-const ratio = (a, b) => {
+export const ratio = (a, b) => {
   const len = Math.max(a.length, b.length)
   return len === 0 ? 1 : 1 - levenshtein(a, b) / len
 }

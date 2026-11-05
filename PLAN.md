@@ -101,7 +101,7 @@ Voice, GPS "malapit ka na bumaba" alert, pamasahe, bus/UV/tricycle, ibang lungso
 
 Isang CI script ang magche-check na: valid ang JSON, may `plakard` at ≥ 3 `via`, umiiral ang `path` file, at walang duplicate na `id`.
 
-## 8b. Data status (as of 2026-11-04)
+## 8b. Data status (as of 2026-11-05)
 
 Ang route data ay galing na sa **OpenStreetMap** (`app/tools/build_routes.py` → `app/src/routes.json`). Totoong path, operator at mga kalsada ito, at awtomatikong kinukuha ang mga landmark na nasa loob ng 200 m ng ruta.
 
@@ -116,6 +116,10 @@ Ang route data ay galing na sa **OpenStreetMap** (`app/tools/build_routes.py` �
 | DISTRICT IMUS - DISTRICT DASMA | 10600896 | — |
 | VISTA MALL IMUS - NOMO (modern) | 14196973 | MetroExpress Connect |
 | BINAKAYAN - ZAPOTE | 18185851 | — |
+
+**Idinagdag noong 2026-11-05 (v0.2, hindi na lang jeep):** 24 pang ruta mula sa OSM, kaya 33 na lahat. Kasama rito ang mga jeep (Zapote–Alabang, SM Molino–Alabang, Tanza–PITX, Lancaster–Patindig Araw), modern jeep (SoMo–AllHome Kawit, SoMo–Vista Mall GenTri, Cavite City–Zapote), UV Express (Bacoor–PITX, Molino–Lawton, Springville–Alabang/Ayala, Alabang–Imus), city bus (Routes 26/27/28/29/31/32/55 papuntang PITX) at P2P (Imus/NoMo/SoMo–Makati, SoMo–Alabang, Imus–NAIA). Nasa `ROUTES` sa `build_routes.py` ang buong listahan.
+
+**Mga sakayan:** ang mga stop at platform ng bawat OSM route relation, pati ang mga `amenity=bus_station` na terminal, ay nagiging lugar na puwedeng tanungin at sakayan na puwedeng ituro. Ito ang ginagamit ng mode na "Itanong" (boses o type) at "Mga sakayan".
 
 **Mga kulang (wala sa OSM, kailangang i-mapa sa field):** ang mga lumang jeep mula SM Bacoor/Zapote papuntang Imus, Kawit, Noveleta, Rosario, Tanza, Tejero at Trece. Nakalista ang mga ito sa [CommuteTour SM Bacoor](https://ph.commutetour.com/ph/terminal/sm-bacoor/) pero walang path. Kasama rin dito ang Baclaran–Imus.
 
