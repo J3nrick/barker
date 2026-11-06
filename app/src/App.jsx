@@ -986,7 +986,8 @@ export default function App() {
   }
 
   const picker = <RegionPicker current={region} onPick={pick} onCancel={regionById(region) ? () => setPicking(false) : null} />
-  if (picking && loaded !== region) return picker
+  // No area yet (first visit): nothing to show behind the picker.
+  if (!regionById(region) || (picking && loaded !== region)) return picker
   if (failed)
     return (
       <div className="app">
