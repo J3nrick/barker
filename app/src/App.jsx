@@ -56,6 +56,23 @@ const issueUrl = (s) =>
     location: `${s.lat}, ${s.lng}`,
     rides: s.goes,
   })
+// "Something wrong?" on a route: a prefilled issue, so a rider's report already says which route, area and stop.
+const reportUrl = (r, stop) =>
+  'https://github.com/J3nrick/barker/issues/new?' +
+  new URLSearchParams({
+    template: 'wrong-route.yml',
+    title: `Wrong route: ${r.plakard}`,
+    plakard: r.plakard,
+    wrong: [
+      `Area: ${R.meta.name}`,
+      `Barker link: https://barker-ph.vercel.app/${routeLink(r)}`,
+      `OpenStreetMap: https://www.openstreetmap.org/relation/${r.osm}`,
+      ...(stop ? [`Stop I checked: ${stop}`] : []),
+      '',
+      "What's wrong and what's correct:",
+      '',
+    ].join('\n'),
+  })
 // Links look like #route=<id>&in=<region>. Old links used #ruta= and had no region (they were all Cavite).
 const linkParams = () => new URLSearchParams(location.hash.slice(1))
 const linkedRoute = () => linkParams().get('route') ?? linkParams().get('ruta')
@@ -443,6 +460,16 @@ function Barker({ onSwitch }) {
   const [here, setHere] = useState(null)
   const [locating, setLocating] = useState('') // '' | busy | denied
   const [recent, setRecent] = useState(loadRecent)
+  const [online, setOnline] = useState(navigator.onLine)
+  useEffect(() => {
+    const on = () => setOnline(navigator.onLine)
+    addEventListener('online', on)
+    addEventListener('offline', on)
+    return () => {
+      removeEventListener('online', on)
+      removeEventListener('offline', on)
+    }
+  }, [])
 
   const results = useMemo(() => (text.trim() ? match(text, R.routes) : []), [text])
   // Confident only when the best match also clearly beats the runner-up.
@@ -582,6 +609,11 @@ function Barker({ onSwitch }) {
           {R.meta.name} <span aria-hidden="true">▾</span>
         </button>
       </header>
+      {!online && (
+        <p className="offline" role="status">
+          You're offline. Answers use the routes saved on this phone; maps may be blank.
+        </p>
+      )}
 
       <main>
         {!route && (
@@ -886,6 +918,9 @@ function Barker({ onSwitch }) {
               . Not yet confirmed on the road; routes can change.
               {route.kind === 'p2p' && ' P2P buses only stop at their listed stops.'}
             </p>
+            <a className="locate report" href={reportUrl(route, dest)} target="_blank" rel="noreferrer">
+              Something wrong with this route? Tell us →
+            </a>
           </section>
         )}
       </main>

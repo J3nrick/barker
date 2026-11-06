@@ -54,6 +54,17 @@ async function staleWhileRevalidate(req) {
   return hit || fresh
 }
 
+// The page lists what it loaded before this worker took over (see main.jsx); save those same-origin files.
+self.addEventListener('message', (e) => {
+  const urls = Array.isArray(e.data?.save) ? e.data.save : []
+  const ours = urls.filter((u) => typeof u === 'string' && new URL(u, self.location).origin === self.location.origin).slice(0, 300)
+  e.waitUntil(
+    caches.open(SHELL).then(
+      (c) => Promise.all(ours.map(async (u) => (await c.match(u)) || c.add(u).catch(() => {}))), // one failed file shouldn't stop the rest
+    ),
+  )
+})
+
 self.addEventListener('fetch', (e) => {
   const req = e.request
   if (req.method !== 'GET') return

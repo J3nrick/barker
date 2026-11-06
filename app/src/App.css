@@ -205,3 +205,7 @@ a { color: var(--red); }
 .tag.step { background: var(--ink); color: var(--bg); }
 .line .hit .tag.step { background: var(--yes); color: #fff; }
 @media (prefers-color-scheme: dark) { .line .hit .tag.step { color: #12110e; } }
+
+/* Offline notice and the route problem report */
+.offline { position: sticky; top: 60px; z-index: 999; margin: 0 0 8px; padding: 8px 12px; border-radius: var(--r-md); background: var(--yellow); color: #1b1813; font-size: 14px; font-weight: 700; }
+.report { margin-top: 12px; color: var(--ink); text-decoration: none; }
