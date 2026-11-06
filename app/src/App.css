@@ -1,7 +1,8 @@
-.app { max-width: 520px; margin: 0 auto; padding: 0 16px 32px; }
+.app { max-width: 520px; margin: 0 auto; padding: 0 16px calc(96px + env(safe-area-inset-bottom)); } /* room for the tab bar */
 .top { position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 12px 0; background: var(--bg); }
 .brand { background: none; border: 0; padding: 4px 0; cursor: pointer; font: 28px/1 var(--display); letter-spacing: .5px; color: var(--red); text-transform: uppercase; }
-.area { font-size: 13px; font-weight: 700; padding: 4px 12px; border-radius: 99px; border: 2px solid var(--ink); }
+.area { min-height: 36px; font-size: 13px; font-weight: 700; padding: 4px 12px; border-radius: 99px; border: 2px solid var(--ink); background: none; cursor: pointer; }
+.area:hover { background: var(--surface); }
 
 h1 { font: 44px/1.02 var(--display); text-transform: uppercase; margin: 16px 0 12px; text-wrap: balance; }
 .hero > p { margin: 0 0 24px; color: var(--muted); font-size: 17px; }
@@ -78,10 +79,6 @@ h2 span { background: var(--ink); color: var(--bg); border-radius: 99px; padding
 
 footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); text-align: center; }
 
-/* Mode switch */
-.tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 4px; margin-top: 8px; border-radius: 99px; background: var(--surface); border: 2px solid var(--line); }
-.tabs button { min-height: 44px; border: 0; border-radius: 99px; background: none; font-size: 14px; font-weight: 700; color: var(--muted); cursor: pointer; transition: background 150ms, color 150ms; }
-.tabs button[aria-selected='true'] { background: var(--ink); color: var(--bg); }
 .hint { display: block; margin-top: 8px; font-size: 14px; font-weight: 600; color: var(--muted); }
 
 /* Ask: one field, mic and go share its edge */
@@ -166,3 +163,32 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 /* Fare estimate under a ride */
 .farenote { display: block; margin-top: 4px; font-size: 14px; font-weight: 600; color: var(--muted); }
 .wait .farenote { margin-top: 8px; }
+
+/* Bottom tab bar: the three ways in, always under your thumb */
+.tabbar { position: fixed; z-index: 1001; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: repeat(3, 1fr); max-width: 520px; margin: 0 auto;
+  padding: 6px 8px calc(6px + env(safe-area-inset-bottom)); background: var(--bg); border-top: 2px solid var(--line); }
+.tabbar button { display: grid; justify-items: center; gap: 2px; min-height: 56px; padding: 6px 0; border: 0; border-radius: var(--r-md); background: none; color: var(--muted); font-size: 12px; font-weight: 700; cursor: pointer; transition: color 150ms, background 150ms; }
+.tabbar button[aria-current='page'] { color: var(--red); background: var(--surface); }
+.tabbar button:active { transform: scale(.96); }
+
+/* Area picker */
+.picker h1 { margin-top: 24px; }
+.lede { margin: 0 0 20px; color: var(--muted); font-size: 17px; }
+.regions { list-style: none; margin: 8px 0 24px; padding: 0; display: grid; gap: 12px; }
+.region { display: grid; gap: 4px; width: 100%; padding: 18px 20px; text-align: left; border-radius: var(--r-lg); border: 3px solid var(--ink); background: var(--board); color: #1b1813; cursor: pointer; box-shadow: 0 4px 0 rgb(0 0 0 / .15); transition: transform 150ms; }
+.region b { font: 30px/1 var(--display); text-transform: uppercase; color: #b0102a; }
+.region span { font-size: 15px; }
+.region.on { outline: 3px solid var(--red); outline-offset: 3px; }
+.region:active { transform: translateY(2px); }
+.loading .note { margin-top: 40vh; text-align: center; font-size: 17px; }
+
+/* Long route lists fold by kind */
+details.catalog summary { list-style: none; cursor: pointer; }
+details.catalog summary::-webkit-details-marker { display: none; }
+details.catalog summary h2::after { content: '▸'; margin-left: auto; font-size: 16px; color: var(--ink); transition: transform 150ms; }
+details.catalog[open] summary h2::after { transform: rotate(90deg); }
+details.catalog > ul { margin-bottom: 8px; }
+.chiplabel { width: 100%; font-size: 13px; font-weight: 700; color: var(--muted); }
+
+/* Trains get their own badge colour */
+.plakard em.rail { background: #5b2a86; color: #fff; }

@@ -1,2 +1,5 @@
 .claude/
 matcher/
+
+# Metro Manila OSM extracts are ~35 MB; rebuild them with: python app/tools/fetch_osm.py manila
+app/tools/osm/manila/

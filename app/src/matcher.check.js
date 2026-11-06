@@ -5,10 +5,13 @@ import { match } from './matcher.js'
 import { findPlace, parseTrip } from './voice.js'
 import { heading, plan } from './trip.js'
 import { rideStep } from './ride.js'
-import { fare, fareText } from './fare.js'
+import { fare, fareBetween, fareText } from './fare.js'
 
-const { routes } = JSON.parse(readFileSync(new URL('./routes.json', import.meta.url)))
-const places = [...new Set(routes.flatMap((r) => r.via.map((v) => v.name)))]
+import { expand, regionById } from './region.js'
+
+const region = (id) => expand(JSON.parse(readFileSync(new URL(`../public/data/${id}.json`, import.meta.url))), regionById(id))
+const cavite = region('cavite')
+const { routes, places } = cavite
 
 // An array means "both of these, in any order": the same two ends really are painted on a jeep and a bus.
 const cases = {
@@ -132,6 +135,38 @@ for (const [kind, km, want] of [
 ]) {
   const got = fareText(fare(kind, km))
   report(got === want, `${kind} ${km} km: ${got || 'no estimate'}`)
+}
+// Metro Manila: rules-picked routes, trains, and places people name by nickname.
+{
+  const mnl = region('manila')
+  const train = (ref) => mnl.routes.find((r) => r.kind === 'rail' && r.ref === ref)
+  report(
+    ['LRT-1', 'LRT-2', 'MRT-3'].every(train) && mnl.routes.filter((r) => r.kind === 'rail').length === 3,
+    'manila: LRT-1, LRT-2, MRT-3, once each',
+  )
+  // PNR trains are suspended and the subway isn't open; the PNR replacement buses (refs PNR-1, PNR-2) do run.
+  report(
+    !mnl.routes.some((r) => r.kind === 'rail' && /PNR|SUBWAY|MMS/.test(`${r.plakard} ${r.ref}`)),
+    'manila: no suspended or unopened train lines',
+  )
+  for (const [q, want] of [
+    ['paano pumunta sa cubao', 'null > Cubao'],
+    ['papuntang moa', 'null > SM Mall of Asia'], // nickname
+    ['from Monumento to Taft Avenue', 'Monumento > Taft Avenue'], // station renamed for a sponsor
+    ['galing Baclaran papuntang Quiapo', 'Baclaran > Quiapo'],
+  ]) {
+    const { from, to } = parseTrip(q, mnl.places)
+    report(`${from} > ${to}` === want, `manila "${q}" → ${from} > ${to}`)
+  }
+  const go = (from, to) => plan(mnl.routes, mnl.placePos[from], to, mnl.placePos[to])
+  report(
+    go('Cubao', 'Ayala').direct.some((d) => d.r === train('MRT-3')),
+    'manila Cubao → Ayala: the MRT-3 is offered',
+  )
+  report(go('Quiapo', 'Alabang').transfers.length > 0 || go('Quiapo', 'Alabang').direct.length > 0, 'manila Quiapo → Alabang: a way there')
+  report(match('LRT 1', mnl.routes)[0].route === train('LRT-1'), 'manila typing "LRT 1" finds the LRT-1')
+  report(!mnl.places.includes('STI College'), 'manila: chain names far apart are told apart')
+  report(fareText(fareBetween(train('MRT-3'), 'Cubao', 'Ayala')) === '', 'manila: no LTFRB estimate for trains')
 }
 console.log(`\n${pass}/${total} correct`)
 if (pass !== total) process.exitCode = 1

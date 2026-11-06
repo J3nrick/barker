@@ -4,7 +4,7 @@
 
 > **Ask where to catch your ride, or point your camera at a jeepney signboard, and the app tells you where it goes and whether it passes your stop.**
 
-Open-source, offline-friendly web app for commuters in **Imus and Bacoor, Cavite**.
+Open-source, offline-friendly web app for commuters in **Metro Manila** and **Imus and Bacoor, Cavite**.
 
 ---
 
@@ -50,6 +50,7 @@ A jeepney signboard (*plakard*) only shows the **ends** of a route (e.g. "BACLAR
 - Get-off alert: GPS tracking with voice and vibration ~500 m before your stop, at the stop, and if you pass it
 - Which side of the road to wait on, named by the signboard end you ride toward (skipped for loops and unclear routes)
 - Fare estimates from the LTFRB matrices effective 2026-09-28 and the distance along each route; ride frequency where OSM has it
+- Areas: Metro Manila (LRT, MRT, jeeps, buses, UV, P2P, city-run buses; picked from OSM by rules) and Cavite (hand-checked), each loaded only when picked; area picker with GPS; bottom tab bar
 - Installable PWA with offline caching; deployed on Vercel (auto-deploy from `main`) and GitHub Pages
 
 ### Next
@@ -58,6 +59,7 @@ A jeepney signboard (*plakard*) only shows the **ends** of a route (e.g. "BACLAR
 | **v0.3** | Signboard photo test set; fix signboard wording from real photos | ≥ 85% correct matches on 50 real photos |
 | **v0.4** | Test the get-off alert and road-side directions on 3 real trips; load both directions of each route from OSM | Alerts and directions right on 3 real trips |
 | **v0.5** | Check fare estimates on 10 real trips; offline maps (needs our own tiles: OSM's tile policy forbids bulk prefetching) | Fare within ₱2 on 10 real trips |
+| **v0.6** | More areas: Cebu, Davao, Baguio (same rules as Metro Manila) | Each area answers its 10 busiest trips correctly |
 | **v1.0** | All of Cavite (Dasmariñas, Kawit, GenTri), Play Store listing | 150+ verified routes |
 
 ## 6. Tech stack

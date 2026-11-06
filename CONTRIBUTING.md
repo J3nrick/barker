@@ -22,8 +22,8 @@ In the app, open **Ride spots**, tap **+ Add a ride spot**, pin the place on the
 
 Our data comes from OpenStreetMap, so fixing a route there helps every app that uses it.
 1. Map the route as a `type=route` + `route=share_taxi` (jeep) relation. Follow the [PH public transport guide](https://wiki.openstreetmap.org/wiki/Philippines/Public_transport).
-2. Add the relation id to `ROUTES` in [`app/tools/build_routes.py`](app/tools/build_routes.py), with the signboard text.
-3. Run `python app/tools/fetch_osm.py`, then `python app/tools/build_routes.py`.
+2. **Cavite:** add the relation id to `ROUTES` in [`app/tools/build_routes.py`](app/tools/build_routes.py), with the signboard text. **Metro Manila:** routes are picked automatically by the rules in [`app/tools/build_manila.py`](app/tools/build_manila.py), so a well-tagged relation (name, network, stops) shows up on the next build.
+3. Run `python app/tools/fetch_osm.py` (add `manila` for Metro Manila), then `python app/tools/build_routes.py` or `python app/tools/build_manila.py`.
 4. Open a PR.
 
 ## 5. Code

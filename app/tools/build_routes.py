@@ -1,4 +1,4 @@
-"""Builds src/routes.json from OpenStreetMap extracts in tools/osm/.
+"""Builds the Cavite region (public/data/cavite.json) from OpenStreetMap extracts in tools/osm/.
 
 Run: python tools/build_routes.py
 Refresh the extracts first with: python tools/fetch_osm.py
@@ -225,7 +225,7 @@ def main():
                 continue
             i, d, pos = min(((i, dist_m(q, p), q) for q in near for i, p in enumerate(pts)), key=lambda x: x[1])
             if d <= NEAR_M[place["kind"]] or (name in own and d <= 300):
-                via.append((i, {"name": name, "lat": round(pos[0], 5), "lng": round(pos[1], 5), "k": KIND_CODE[place["kind"]], "km": round(along[i] / 1000, 2)}))
+                via.append((i, (name, pos[0], pos[1], KIND_CODE[place["kind"]], round(along[i] / 1000, 2))))
         via.sort(key=lambda x: x[0])
         tags = rel["tags"]
         out.append({
@@ -243,20 +243,43 @@ def main():
             "osm": cfg["osm"][0],
         })
         print(f"{cfg['plakard']:32} {len(pts):5} pts  {len(via):3} via")
+    write_region("cavite", out, load_local(), FETCHED)
 
-    ids = [r["id"] for r in out]
+
+def write_region(region, routes, sakayan, fetched):
+    """public/data/<region>.json plus one public/paths/<region>/<id>.json per route.
+
+    Stops are stored once in a place table and routes point at them ([place index, km along route]), since the
+    same stop appears on many routes. Route lines are only needed on the map, so each is its own small file;
+    `v` (a hash of all lines) goes in the URL so a cached line never outlives a data update.
+    """
+    ids = [r["id"] for r in routes]
     assert len(ids) == len(set(ids)), "duplicate route ids"
-    # Paths are most of the bytes and only needed on the map, so they ship as a separate file the map fetches.
-    # The name carries a content hash so a cached copy never outlives a data update.
-    paths = json.dumps({r["id"]: r.pop("path") for r in out}, separators=(",", ":"))
-    name = f"paths.{hashlib.sha1(paths.encode()).hexdigest()[:8]}.json"
+    table, index = [], {}
+    for r in routes:
+        refs = []
+        for name, lat, lng, k, km in r.pop("via"):
+            key = (name, round(lat, 5), round(lng, 5), k)
+            if key not in index:
+                index[key] = len(table)
+                table.append(list(key))
+            refs.append([index[key], km])
+        r["v"] = refs
+    paths = {r["id"]: r.pop("path") for r in routes}
+    v = hashlib.sha1(json.dumps(paths, separators=(",", ":")).encode()).hexdigest()[:8]
     public = HERE.parent / "public"
-    for old in public.glob("paths.*.json"):
+    folder = public / "paths" / region
+    folder.mkdir(parents=True, exist_ok=True)
+    for old in folder.glob("*.json"):
         old.unlink()
-    (public / name).write_text(paths, "utf-8")
-    meta = {"source": "OpenStreetMap contributors (ODbL)", "fetched": FETCHED, "paths": name}
-    data = {"meta": meta, "routes": out, "sakayan": load_local()}
-    (HERE.parent / "src/routes.json").write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")), "utf-8")
+    for rid, path in paths.items():
+        (folder / f"{rid}.json").write_text(json.dumps(path, separators=(",", ":")), "utf-8")
+    meta = {"region": region, "source": "OpenStreetMap contributors (ODbL)", "fetched": fetched, "v": v}
+    data = {"meta": meta, "places": table, "routes": [{k: x for k, x in r.items() if x is not None} for r in routes], "sakayan": sakayan}
+    (public / "data").mkdir(exist_ok=True)
+    out = public / "data" / f"{region}.json"
+    out.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")), "utf-8")
+    print(f"{out.name}: {len(routes)} routes, {len(table)} stops, {out.stat().st_size // 1024} kB; {len(paths)} route lines")
 
 
 if __name__ == "__main__":

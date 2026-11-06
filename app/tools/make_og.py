@@ -24,13 +24,13 @@ d.rounded_rectangle((bx0, by0, bx1, by1), 18, fill=BOARD, outline=INK, width=10)
 d.rounded_rectangle((bx0 + 16, by0 + 16, bx1 - 16, by1 - 16), 10, outline=INK, width=4)
 d.text((W / 2, (by0 + by1) / 2 + 4), "BARKER", font=display(150), fill=RED, anchor="mm")
 
-d.text((W / 2, 410), "Where to catch your jeep, bus or UV,", font=body(46, True), fill=INK, anchor="mm")
+d.text((W / 2, 410), "Where to catch your train, jeep or bus,", font=body(46, True), fill=INK, anchor="mm")
 d.text((W / 2, 468), "and where it goes.", font=body(46, True), fill=INK, anchor="mm")
-d.text((W / 2, 548), "Ask by voice · Scan the signboard · Get-off alerts", font=body(30), fill=MUTED, anchor="mm")
+d.text((W / 2, 548), "Trains, jeeps, buses, UV · Ask by voice · Get-off alerts", font=body(30), fill=MUTED, anchor="mm")
 
 # Red strip with the area, like a route sticker
 d.rectangle((0, H - 36, W, H), fill=RED)
-d.text((W / 2, H - 18), "IMUS · BACOOR, CAVITE  ·  barker-ph.vercel.app", font=body(20, True), fill="#ffffff", anchor="mm")
+d.text((W / 2, H - 18), "METRO MANILA · CAVITE  ·  barker-ph.vercel.app", font=body(20, True), fill="#ffffff", anchor="mm")
 
 out = Path(__file__).parent.parent / "public" / "og.png"
 img.save(out, optimize=True)

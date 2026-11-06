@@ -38,7 +38,15 @@ const FILLER = new Set(
 // Words that alone don't identify a place, so they don't count toward a match.
 const GENERIC = new Set(['SM', 'CITY', 'MALL', 'THE', 'OF', 'HALL', 'TERMINAL', 'CENTER', 'TRANSPORT', 'STATION', 'MAIN', 'BUILDING'])
 // What people say -> how the place is written.
-const SPOKEN = { DASMA: 'DASMARINAS', GENTRI: 'GENERAL TRIAS', TRECE: 'TRECE MARTIRES', AYALA: 'MAKATI', GMA: 'GMA' }
+const SPOKEN = {
+  DASMA: 'DASMARINAS',
+  GENTRI: 'GENERAL TRIAS',
+  TRECE: 'TRECE MARTIRES',
+  GMA: 'GMA',
+  MOA: 'MALL OF ASIA',
+  PGH: 'PHILIPPINE GENERAL HOSPITAL',
+  BGC: 'BONIFACIO GLOBAL CITY',
+}
 
 // A clipped word ("MOLIN", "DASMARINA") still counts; otherwise plain edit-distance similarity.
 const similar = (w, t) => (w.length >= 4 && t.startsWith(w) ? 0.9 : ratio(w, t))

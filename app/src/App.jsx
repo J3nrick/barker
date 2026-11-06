@@ -6,29 +6,18 @@ import { heading, km, plan } from './trip.js'
 import { fareBetween, fareText } from './fare.js'
 import RouteMap from './RouteMap.jsx'
 import RideAlert from './RideAlert.jsx'
-import data from './routes.json'
+import { REGIONS, loadRegion, regionAt, regionById } from './region.js'
 import './App.css'
 
-const { routes, meta } = data
-const places = [...new Set(routes.flatMap((r) => r.via.map((v) => v.name)))].sort()
-const routesTo = (place) => routes.filter((r) => r.via.some((v) => v.name === place))
+// The region on screen (see region.js). Set when its data finishes loading, before <Barker key={region}> renders,
+// so every helper below reads one consistent dataset.
+let R
 
-const KINDS = { jeep: 'Jeep', modern: 'Modern jeep', uv: 'UV Express', bus: 'Bus', p2p: 'P2P bus' }
-const inArea = (v) => v.lat > 14.33 && v.lat < 14.47 && v.lng > 120.9 && v.lng < 121.0 // Imus + Bacoor
-const placePos = Object.fromEntries(routes.flatMap((r) => r.via.map((v) => [v.name, v])))
+const KINDS = { rail: 'Train', jeep: 'Jeep', modern: 'Modern jeep', uv: 'UV Express', bus: 'Bus', p2p: 'P2P bus' }
 const fmtKm = (d) => (d < 1 ? `${Math.round(d * 1000)} m` : `${d.toFixed(1)} km`)
 const walk = (d) => (d < 0.05 ? 'right there' : `${fmtKm(d)} walk`)
 
-// Every sakayan in Imus/Bacoor: OSM terminals and tricycle stands, plus terminals we only know from route stops.
 const withKey = (h) => ({ ...h, key: `${h.name}@${h.lat},${h.lng}` })
-const hubs = (() => {
-  const list = data.sakayan.map((s) => ({ ...s, rides: s.t === 'terminal' ? routesTo(s.name) : [] }))
-  for (const r of routes)
-    for (const v of r.via)
-      if (v.k === 't' && inArea(v) && !list.some((h) => h.name === v.name))
-        list.push({ name: v.name, lat: v.lat, lng: v.lng, t: 'terminal', rides: routesTo(v.name) })
-  return list.map(withKey).sort((a, b) => b.rides.length - a.rides.length || (a.t === 'trike') - (b.t === 'trike'))
-})()
 
 // Sakayan the user added on this phone. They also get a prefilled GitHub issue so a maintainer can put them on OSM for everyone.
 const MINE = 'dadaan-ba:mine' // pre-rename key, kept so spots saved earlier survive
@@ -57,21 +46,24 @@ const issueUrl = (s) =>
     location: `${s.lat}, ${s.lng}`,
     rides: s.goes,
   })
-// Old links used #ruta=; keep them working.
-const routeFromHash = () => routes.find((r) => location.hash === `#route=${r.id}` || location.hash === `#ruta=${r.id}`) ?? null
+// Links look like #route=<id>&in=<region>. Old links used #ruta= and had no region (they were all Cavite).
+const linkParams = () => new URLSearchParams(location.hash.slice(1))
+const linkedRoute = () => linkParams().get('route') ?? linkParams().get('ruta')
+const routeFromHash = () => R.routes.find((r) => r.id === linkedRoute()) ?? null
+const routeLink = (r) => `#route=${r.id}&in=${R.meta.id}`
 const directions = (h) => `https://www.google.com/maps/dir/?api=1&destination=${h.lat},${h.lng}&travelmode=walking`
 
-/** Without a starting point, suggest boarding at a terminal in Imus/Bacoor. */
+/** Without a starting point, suggest boarding at a terminal inside the region. */
 function boardingPoint(route, goal) {
   const spots = route.via.filter((v) => v.k !== 'l' && v.name !== goal)
-  return spots.find((v) => v.k === 't' && inArea(v)) ?? spots.find(inArea) ?? spots[0] ?? null
+  return spots.find((v) => v.k === 't' && R.inArea(v)) ?? spots.find(R.inArea) ?? spots[0] ?? null
 }
 
 /** Rides to `goal`; with a start point (GPS or a named place) only nearby ones, plus one-transfer trips when none go direct. */
 function tripFor(goal, start) {
-  const any = routesTo(goal).map((r) => ({ r, at: boardingPoint(r, goal) }))
+  const any = R.routesTo(goal).map((r) => ({ r, at: boardingPoint(r, goal) }))
   if (!start) return { walk: false, direct: any, transfers: [], far: false }
-  const t = plan(routes, start, goal, placePos[goal])
+  const t = plan(R.routes, start, goal, R.placePos[goal])
   return {
     ...t,
     far: !t.walk && !t.direct.length && !t.transfers.length,
@@ -80,7 +72,7 @@ function tripFor(goal, start) {
 }
 
 function say1(goal, from, t) {
-  const ride = (r) => `the ${KINDS[r.kind]} ${r.plakard.replace(' - ', ' to ')}`
+  const ride = (r) => `the ${r.kind === 'rail' ? (r.ref ?? 'train') : KINDS[r.kind]} ${r.plakard.replace(' - ', ' to ')}`
   const pre = `To ${goal}${from ? ` from ${from}` : ''}: `
   if (t.walk) return say(`${pre}it's close, you can walk.`)
   const d = t.direct[0]
@@ -125,8 +117,7 @@ function Plakard({ route, small }) {
       {b && <span>{b}</span>}
       {route.kind !== 'jeep' && (
         <em className={route.kind}>
-          {KINDS[route.kind]}
-          {route.ref && ` ${route.ref}`}
+          {route.kind === 'rail' ? (route.ref ?? 'Train') : `${KINDS[route.kind]}${route.ref ? ` ${route.ref}` : ''}`}
         </em>
       )}
     </div>
@@ -152,23 +143,29 @@ function WaitHere({ route, board, dest }) {
     <p className="wait">
       Wait at <b>{board.name}</b>
       {end ? (
-        <>
-          , on the side of the road where traffic goes toward <b>{end}</b>.
-        </>
+        route.kind === 'rail' ? (
+          <>
+            , on the platform for trains toward <b>{end}</b>.
+          </>
+        ) : (
+          <>
+            , on the side of the road where traffic goes toward <b>{end}</b>.
+          </>
+        )
       ) : (
         '.'
       )}
-      {route.kind === 'p2p' ? (
-        <span className="farenote">P2P buses have a fixed fare per route. Check it at the terminal.</span>
-      ) : (
-        <Fare route={route} from={board.name} to={dest} />
-      )}
+      <Fare route={route} from={board.name} to={dest} />
     </p>
   )
 }
 
 /** Estimated fare between two stops, on its own line; nothing when we can't estimate. */
 function Fare({ route, from, to }) {
+  if (route.kind === 'rail')
+    return <span className="farenote">Train fare depends on the stations. Pay at the station or tap a beep card.</span>
+  if (route.kind === 'p2p' || route.fixed)
+    return <span className="farenote">This line sets its own fare (some are free). Check at the stop.</span>
   const text = fareText(fareBetween(route, from, to))
   return text ? <span className="farenote">Fare {text}</span> : null
 }
@@ -178,7 +175,7 @@ function AskBar({ label, placeholder, onPlace }) {
   const [q, setQ] = useState('')
   const [state, setState] = useState('idle') // idle | listening | miss | nomic
   const resolve = (text, spoken) => {
-    const { from, to } = parseTrip(text, places)
+    const { from, to } = parseTrip(text, R.places)
     setState(to ? 'idle' : 'miss')
     if (to) onPlace(to, spoken, from)
   }
@@ -232,7 +229,7 @@ function AskBar({ label, placeholder, onPlace }) {
 }
 
 function SakayanView({ here, locateButton, locating, onRide }) {
-  const [show, setShow] = useState('all') // all | terminal | trike
+  const [show, setShow] = useState('all') // all | train | terminal | trike
   const [open, setOpen] = useState('')
   const [all, setAll] = useState(false)
   const [mine, setMine] = useState(loadMine)
@@ -240,7 +237,7 @@ function SakayanView({ here, locateButton, locating, onRide }) {
 
   const list = useMemo(() => {
     const own = mine.map((m) => withKey({ ...m, rides: [], mine: true }))
-    const shown = [...own, ...hubs].filter((h) => show === 'all' || h.t === show)
+    const shown = [...own.filter(R.inArea), ...R.hubs].filter((h) => show === 'all' || h.t === show)
     return here ? shown.sort((a, b) => km(here, a) - km(here, b)) : shown
   }, [show, here, mine])
   const visible = all ? list : list.slice(0, 20)
@@ -270,19 +267,25 @@ function SakayanView({ here, locateButton, locating, onRide }) {
   return (
     <>
       <h1>Ride spots</h1>
-      <p>Jeep, UV and bus terminals, and tricycle stands, in Imus and Bacoor. Use your location to see the nearest ones.</p>
+      <p>
+        {R.hubs.some((h) => h.t === 'train') ? 'Train stations, terminals' : 'Jeep, UV and bus terminals'} and tricycle stands in{' '}
+        {R.meta.name}. Use your location to see the nearest ones.
+      </p>
       {locateButton}
       {locating === 'denied' && <p className="note error">Couldn't get your location.</p>}
       <div className="chips filter" role="group" aria-label="Type of ride spot">
         {[
           ['all', 'All'],
+          ['train', 'Train'],
           ['terminal', 'Jeep · UV · Bus'],
           ['trike', 'Tricycle'],
-        ].map(([k, label]) => (
-          <button key={k} aria-pressed={show === k} onClick={() => setShow(k)}>
-            {label}
-          </button>
-        ))}
+        ]
+          .filter(([k]) => k === 'all' || R.hubs.some((h) => h.t === k))
+          .map(([k, label]) => (
+            <button key={k} aria-pressed={show === k} onClick={() => setShow(k)}>
+              {label}
+            </button>
+          ))}
       </div>
       <RouteMap
         points={list}
@@ -303,7 +306,7 @@ function SakayanView({ here, locateButton, locating, onRide }) {
               <span>
                 <b>{h.name}</b>
                 <small>
-                  {h.mine ? `Added by you · ${h.kind}` : h.t === 'trike' ? 'Tricycle' : 'Terminal'}
+                  {h.mine ? `Added by you · ${h.kind}` : ({ trike: 'Tricycle', train: 'Train station' }[h.t] ?? 'Terminal')}
                   {here && ` · ${fmtKm(km(here, h))} away`}
                 </small>
               </span>
@@ -413,7 +416,7 @@ function SakayanView({ here, locateButton, locating, onRide }) {
   )
 }
 
-export default function App() {
+function Barker({ onSwitch }) {
   const [status, setStatus] = useState('idle') // idle | reading | done | error
   const [progress, setProgress] = useState(0)
   const [photo, setPhoto] = useState(null)
@@ -428,7 +431,7 @@ export default function App() {
   const [here, setHere] = useState(null)
   const [locating, setLocating] = useState('') // '' | busy | denied
 
-  const results = useMemo(() => (text.trim() ? match(text, routes) : []), [text])
+  const results = useMemo(() => (text.trim() ? match(text, R.routes) : []), [text])
   // Confident only when the best match also clearly beats the runner-up.
   const sure = results[0]?.score >= CONFIDENT && results[0].score - (results[1]?.score ?? 0) >= 0.1
   const route = picked ?? (sure ? results[0].route : null)
@@ -440,7 +443,7 @@ export default function App() {
         (here ? route.via.filter((v) => v.name !== dest).reduce((x, y) => (km(here, x) <= km(here, y) ? x : y), route.via[0]) : null))
       : null
 
-  const start = origin ? placePos[origin] : here
+  const start = origin ? R.placePos[origin] : here
   const trip = useMemo(() => tripFor(goal, start), [goal, start])
 
   useEffect(() => () => photo && URL.revokeObjectURL(photo), [photo])
@@ -477,7 +480,7 @@ export default function App() {
   function askGoal(place, spoken, from = '') {
     setGoal(place)
     setOrigin(from ?? '')
-    if (spoken) say1(place, from, tripFor(place, from ? placePos[from] : here))
+    if (spoken) say1(place, from, tripFor(place, from ? R.placePos[from] : here))
   }
 
   function askDest(place, spoken) {
@@ -508,7 +511,7 @@ export default function App() {
     if (!route || history.state?.r === route.id) return
     // Opened from a shared link: put the home screen underneath, so Back lands there instead of on the link again.
     if (!history.state && routeFromHash() === route) history.replaceState(null, '', location.pathname + location.search)
-    history.pushState({ r: route.id }, '', `#route=${route.id}`)
+    history.pushState({ r: route.id }, '', routeLink(route))
   }, [route])
   useEffect(() => {
     // Back/forward, or a pasted #route= link in an open tab.
@@ -524,7 +527,7 @@ export default function App() {
   const goBack = () => (history.state?.r ? history.back() : reset())
 
   async function share() {
-    const url = `${location.origin}${location.pathname}#route=${route.id}`
+    const url = `${location.origin}${location.pathname}${routeLink(route)}`
     try {
       if (navigator.share) await navigator.share({ title: `${route.plakard} · Barker`, text: `Where the ${route.plakard} goes`, url })
       else {
@@ -547,7 +550,7 @@ export default function App() {
   return (
     <div className="app">
       <datalist id="places">
-        {places.map((p) => (
+        {R.suggest.map((p) => (
           <option key={p} value={p} />
         ))}
       </datalist>
@@ -555,39 +558,35 @@ export default function App() {
         <button className="brand" onClick={() => goBack() || setGoal('') || setOrigin('')} aria-label="Barker, back to start">
           Barker
         </button>
-        <span className="area">Imus · Bacoor</span>
+        <button className="area" onClick={onSwitch} aria-label={`Area: ${R.meta.name}. Change area`}>
+          {R.meta.name} <span aria-hidden="true">▾</span>
+        </button>
       </header>
 
       <main>
         {!route && (
           <section className="hero">
-            <div className="tabs" role="tablist" aria-label="How to search">
-              <button role="tab" aria-selected={mode === 'ask'} onClick={() => setMode('ask')}>
-                Ask
-              </button>
-              <button role="tab" aria-selected={mode === 'scan'} onClick={() => setMode('scan')}>
-                Scan
-              </button>
-              <button role="tab" aria-selected={mode === 'hubs'} onClick={() => setMode('hubs')}>
-                Ride spots
-              </button>
-            </div>
-
             {mode === 'ask' && (
               <>
                 <h1>Where are you going?</h1>
-                <p>Ask by voice or type it. We'll tell you which jeep, bus or UV to take, and where to catch it.</p>
-                <AskBar label="Ask" placeholder="e.g. from SM Bacoor to PITX" onPlace={askGoal} />
+                <p>
+                  Ask by voice or type it. We'll tell you which {R.routes.some((r) => r.kind === 'rail') ? 'train, ' : ''}jeep, bus or UV to
+                  take, and where to catch it.
+                </p>
+                <AskBar
+                  label="Ask"
+                  placeholder={`Where to? e.g. ${[...R.examples].sort((a, b) => a.length - b.length)[0]}`}
+                  onPlace={askGoal}
+                />
 
                 {!goal && (
                   <div className="chips" aria-label="Examples">
-                    {['SM Molino', 'PITX', 'Imus Transport Plaza', 'The District Imus', 'Alabang', 'Makati']
-                      .filter((p) => places.includes(p))
-                      .map((p) => (
-                        <button key={p} onClick={() => askGoal(p, false)}>
-                          {p}
-                        </button>
-                      ))}
+                    <span className="chiplabel">Popular stops:</span>
+                    {R.examples.map((p) => (
+                      <button key={p} onClick={() => askGoal(p, false)}>
+                        {p}
+                      </button>
+                    ))}
                   </div>
                 )}
 
@@ -609,7 +608,7 @@ export default function App() {
                     {locating === 'denied' && !origin && (
                       <p className="note error">Couldn't get your location. Showing terminals instead.</p>
                     )}
-                    {trip.walk && <p className="note">It's close, about {fmtKm(km(start, placePos[goal]))}. You can walk.</p>}
+                    {trip.walk && <p className="note">It's close, about {fmtKm(km(start, R.placePos[goal]))}. You can walk.</p>}
                     {trip.far && (
                       <p className="note">
                         Nothing near {origin || 'you'} goes there. These are all the rides to {goal}:
@@ -741,13 +740,16 @@ export default function App() {
 
                 {!text &&
                   Object.entries(KINDS).map(([kind, name]) => {
-                    const list = routes.filter((r) => r.kind === kind)
+                    const list = R.routes.filter((r) => r.kind === kind)
                     return (
                       list.length > 0 && (
-                        <div className="catalog" key={kind}>
-                          <h2>
-                            {name} <span>{list.length}</span>
-                          </h2>
+                        // Collapsed when long, so a city with hundreds of routes stays easy to scan.
+                        <details className="catalog" key={kind} open={list.length <= 12}>
+                          <summary>
+                            <h2>
+                              {name} <span>{list.length}</span>
+                            </h2>
+                          </summary>
                           <ul>
                             {list.map((r) => (
                               <li key={r.id}>
@@ -757,7 +759,7 @@ export default function App() {
                               </li>
                             ))}
                           </ul>
-                        </div>
+                        </details>
                       )
                     )
                   })}
@@ -852,7 +854,164 @@ export default function App() {
         )}
       </main>
 
-      <footer>Data: © OpenStreetMap contributors (ODbL), fetched {meta.fetched}.</footer>
+      <footer>Data: © OpenStreetMap contributors (ODbL), fetched {R.meta.fetched}.</footer>
+
+      <nav className="tabbar" aria-label="Sections">
+        {[
+          ['ask', 'Ask', MIC],
+          ['scan', 'Scan', CAMERA],
+          ['hubs', 'Ride spots', PIN],
+        ].map(([m, label, icon]) => (
+          <button
+            key={m}
+            aria-current={!route && mode === m ? 'page' : undefined}
+            onClick={() => {
+              if (route) goBack()
+              setMode(m)
+              window.scrollTo({ top: 0 })
+            }}
+          >
+            <Icon d={icon} />
+            <span>{label}</span>
+          </button>
+        ))}
+      </nav>
     </div>
+  )
+}
+
+const REGION_KEY = 'barker:region'
+const savedRegion = () => {
+  try {
+    return localStorage.getItem(REGION_KEY)
+  } catch {
+    return null
+  }
+}
+
+/** First screen, and the "change area" sheet: pick a region, or let GPS pick it. */
+function RegionPicker({ current, onPick, onCancel }) {
+  const [finding, setFinding] = useState('') // '' | busy | outside | denied
+  function nearMe() {
+    if (!('geolocation' in navigator)) return setFinding('denied')
+    setFinding('busy')
+    navigator.geolocation.getCurrentPosition(
+      (p) => {
+        const r = regionAt({ lat: p.coords.latitude, lng: p.coords.longitude })
+        if (r) onPick(r.id)
+        else setFinding('outside')
+      },
+      () => setFinding('denied'),
+      { timeout: 15000 },
+    )
+  }
+  return (
+    <div className="app picker">
+      <header className="top">
+        <span className="brand">Barker</span>
+      </header>
+      <main>
+        <h1>Where do you ride?</h1>
+        <p className="lede">Pick your area. You can switch any time from the top of the screen.</p>
+        <button className="locate" onClick={nearMe} disabled={finding === 'busy'}>
+          <Icon d={PIN} size={18} />
+          {finding === 'busy' ? 'Finding you…' : 'Use my location'}
+        </button>
+        {finding === 'outside' && <p className="note error">Barker doesn't cover where you are yet. Pick the closest area.</p>}
+        {finding === 'denied' && <p className="note error">Couldn't get your location. Pick your area below.</p>}
+        <ul className="regions">
+          {REGIONS.map((r) => (
+            <li key={r.id}>
+              <button
+                className={r.id === current ? 'region on' : 'region'}
+                onClick={() => onPick(r.id)}
+                aria-current={r.id === current || undefined}
+              >
+                <b>{r.name}</b>
+                <span>{r.blurb}</span>
+              </button>
+            </li>
+          ))}
+        </ul>
+        {onCancel && (
+          <button className="back" onClick={onCancel}>
+            ← Back
+          </button>
+        )}
+        <p className="note">
+          More cities are coming.{' '}
+          <a href="https://github.com/J3nrick/barker/issues/new?template=new-route.yml" target="_blank" rel="noreferrer">
+            Ask for yours on GitHub
+          </a>
+          .
+        </p>
+      </main>
+    </div>
+  )
+}
+
+export default function App() {
+  // A shared link names its region; old links without one were all Cavite.
+  const [region, setRegion] = useState(() => linkParams().get('in') ?? (linkedRoute() ? 'cavite' : savedRegion()))
+  const [picking, setPicking] = useState(() => !regionById(region))
+  const [loaded, setLoaded] = useState(null) // the region id whose data is in R
+  const [failed, setFailed] = useState(false)
+
+  useEffect(() => {
+    if (!regionById(region)) return
+    let live = true
+    loadRegion(region).then(
+      (data) => {
+        if (!live) return
+        R = data
+        setLoaded(region)
+      },
+      () => live && setFailed(true),
+    )
+    return () => {
+      live = false
+    }
+  }, [region])
+
+  function pick(id) {
+    try {
+      localStorage.setItem(REGION_KEY, id)
+    } catch {
+      // private mode: ask again next visit
+    }
+    if (id !== region && location.hash) history.replaceState(null, '', location.pathname + location.search)
+    setFailed(false)
+    setRegion(id)
+    setPicking(false)
+  }
+
+  const picker = <RegionPicker current={region} onPick={pick} onCancel={regionById(region) ? () => setPicking(false) : null} />
+  if (picking && loaded !== region) return picker
+  if (failed)
+    return (
+      <div className="app">
+        <p className="note error">Couldn't load {regionById(region).name}. Check your connection.</p>
+        <button className="locate" onClick={() => location.reload()}>
+          Try again
+        </button>
+      </div>
+    )
+  if (loaded !== region)
+    return (
+      <div className="app loading" role="status">
+        <header className="top">
+          <span className="brand">Barker</span>
+        </header>
+        <p className="note">Loading {regionById(region).name}…</p>
+      </div>
+    )
+  // Barker stays mounted under the picker, so cancelling "change area" keeps the screen you were on.
+  return (
+    <>
+      {picking && picker}
+      <div hidden={picking}>
+        <Barker key={region} onSwitch={() => setPicking(true)} />
+      </div>
+    </>
   )
 }

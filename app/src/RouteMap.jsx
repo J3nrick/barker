@@ -1,13 +1,24 @@
 import { useEffect, useRef, useState } from 'react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
-import { meta } from './routes.json'
 
-// Route lines live in public/paths.<hash>.json so the app shell stays small; fetched once, on the first map.
-let pathsReq
-const loadPaths = () => (pathsReq ??= fetch(`./${meta.paths}`).then((r) => (r.ok ? r.json() : Promise.reject(r.status))))
+// Each route's line is its own small file (public/paths/<region>/<id>.json), fetched when its map opens.
+const lines = new Map()
+const loadLine = (url) => {
+  if (!lines.has(url))
+    lines.set(
+      url,
+      fetch(url)
+        .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+        .catch((e) => {
+          lines.delete(url) // offline: try again next time
+          throw e
+        }),
+    )
+  return lines.get(url)
+}
 
-// shortcut: tiles load from tile.openstreetmap.org, so the map needs internet; pre-cache Imus–Bacoor tiles for offline (v0.2).
+// shortcut: tiles load from tile.openstreetmap.org, so the map needs internet; offline maps need self-hosted tiles (OSM forbids bulk prefetching).
 /**
  * One route with its stops, or (with `points`) a set of sakayan to pick from.
  * `onTap` gets {lat, lng} for map taps (to drop a pin when adding a sakayan); `pin` draws that pin.
@@ -17,21 +28,23 @@ export default function RouteMap({ route, dest, here, points, active, onPoint, o
   const map = useRef(null)
   const layer = useRef(null)
   const cb = useRef({})
-  const [paths, setPaths] = useState(null)
+  const [line, setLine] = useState(null) // { url, path }
   useEffect(() => {
     if (route)
-      loadPaths().then(setPaths, () => {
-        pathsReq = null // offline: try again on the next map
-      })
+      loadLine(route.pathUrl).then(
+        (path) => setLine({ url: route.pathUrl, path }),
+        () => {},
+      )
   }, [route])
-  const path = route && paths?.[route.id]
+  const path = route && line?.url === route.pathUrl ? line.path : null
   useEffect(() => {
     cb.current = { onPoint, onTap }
   })
 
   // One map for the component's life, so tapping or selecting doesn't reset the view.
   useEffect(() => {
-    const m = L.map(el.current, { zoomControl: false, attributionControl: true, scrollWheelZoom: false })
+    // Canvas draws a city's worth of ride spots (1000+ dots) much faster than SVG on a phone.
+    const m = L.map(el.current, { zoomControl: false, attributionControl: true, scrollWheelZoom: false, preferCanvas: true })
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
