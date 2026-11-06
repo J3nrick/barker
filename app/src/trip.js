@@ -24,7 +24,8 @@ export function plan(routes, from, goal, goalPos) {
   const direct = toGoal
     .map((r) => ({ r, at: nearest(r, from) }))
     .filter(({ at }) => at && at.d <= WALK && at.name !== goal)
-    .sort((x, y) => x.at.d - y.at.d)
+    // Nearest first; within the same 100 m, a train beats the road (no traffic), then the nearer one.
+    .sort((x, y) => Math.round(x.at.d * 10) - Math.round(y.at.d * 10) || (y.r.kind === 'rail') - (x.r.kind === 'rail') || x.at.d - y.at.d)
   if (direct.length) return { walk: false, direct, transfers: [] }
 
   const transfers = []

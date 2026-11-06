@@ -159,10 +159,7 @@ for (const [kind, km, want] of [
     report(`${from} > ${to}` === want, `manila "${q}" → ${from} > ${to}`)
   }
   const go = (from, to) => plan(mnl.routes, mnl.placePos[from], to, mnl.placePos[to])
-  report(
-    go('Cubao', 'Ayala').direct.some((d) => d.r === train('MRT-3')),
-    'manila Cubao → Ayala: the MRT-3 is offered',
-  )
+  report(go('Cubao', 'Ayala').direct[0]?.r === train('MRT-3'), 'manila Cubao → Ayala: the MRT-3 comes first')
   report(go('Quiapo', 'Alabang').transfers.length > 0 || go('Quiapo', 'Alabang').direct.length > 0, 'manila Quiapo → Alabang: a way there')
   report(match('LRT 1', mnl.routes)[0].route === train('LRT-1'), 'manila typing "LRT 1" finds the LRT-1')
   report(!mnl.places.includes('STI College'), 'manila: chain names far apart are told apart')

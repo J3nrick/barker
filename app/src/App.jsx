@@ -35,6 +35,16 @@ const saveMine = (list) => {
     // private mode: keep it for this visit only
   }
 }
+// The last few trips asked in this area, so a daily commute is one tap.
+const RECENT = 'barker:recent:'
+const loadRecent = () => {
+  try {
+    const list = JSON.parse(localStorage.getItem(RECENT + R.meta.id)) ?? []
+    return list.filter((t) => R.placePos[t.to] && (!t.from || R.placePos[t.from])) // places can drop out of a data update
+  } catch {
+    return []
+  }
+}
 const ADD_KINDS = ['Tricycle / TODA', 'Jeep', 'Modern jeep', 'UV Express', 'Bus', 'Other']
 const issueUrl = (s) =>
   'https://github.com/J3nrick/barker/issues/new?' +
@@ -177,7 +187,9 @@ function AskBar({ label, placeholder, onPlace }) {
   const resolve = (text, spoken) => {
     const { from, to } = parseTrip(text, R.places)
     setState(to ? 'idle' : 'miss')
-    if (to) onPlace(to, spoken, from)
+    if (!to) return
+    document.activeElement?.blur() // drop the phone keyboard so the answer is in view
+    onPlace(to, spoken, from)
   }
   async function talk() {
     setState('listening')
@@ -430,6 +442,7 @@ function Barker({ onSwitch }) {
   const [origin, setOrigin] = useState('') // a named starting place, from "from X to Y"
   const [here, setHere] = useState(null)
   const [locating, setLocating] = useState('') // '' | busy | denied
+  const [recent, setRecent] = useState(loadRecent)
 
   const results = useMemo(() => (text.trim() ? match(text, R.routes) : []), [text])
   // Confident only when the best match also clearly beats the runner-up.
@@ -480,6 +493,13 @@ function Barker({ onSwitch }) {
   function askGoal(place, spoken, from = '') {
     setGoal(place)
     setOrigin(from ?? '')
+    const next = [{ to: place, from: from ?? '' }, ...recent.filter((t) => t.to !== place || t.from !== (from ?? ''))].slice(0, 4)
+    setRecent(next)
+    try {
+      localStorage.setItem(RECENT + R.meta.id, JSON.stringify(next))
+    } catch {
+      // private mode: remember for this visit only
+    }
     if (spoken) say1(place, from, tripFor(place, from ? R.placePos[from] : here))
   }
 
@@ -579,6 +599,16 @@ function Barker({ onSwitch }) {
                   onPlace={askGoal}
                 />
 
+                {!goal && recent.length > 0 && (
+                  <div className="chips" aria-label="Recent trips">
+                    <span className="chiplabel">Recent:</span>
+                    {recent.map((t) => (
+                      <button key={t.from + '>' + t.to} className="recent" onClick={() => askGoal(t.to, false, t.from)}>
+                        {t.from ? `${t.from} → ${t.to}` : t.to}
+                      </button>
+                    ))}
+                  </div>
+                )}
                 {!goal && (
                   <div className="chips" aria-label="Examples">
                     <span className="chiplabel">Popular stops:</span>
@@ -632,8 +662,8 @@ function Barker({ onSwitch }) {
                                 </>
                               ) : (
                                 'Flag it down anywhere on the route'
-                              )}{' '}
-                              · see route →
+                              )}
+                              <span className="seeroute">See route →</span>
                             </span>
                           </button>
                         </li>
@@ -830,14 +860,20 @@ function Barker({ onSwitch }) {
             <h2 className="vialabel">Stops along the way</h2>
             {route.via.length > 0 ? (
               <ol className="line">
-                {route.via.map((v) => (
-                  <li key={v.name} className={v.name === dest ? 'hit' : ''}>
-                    <button onClick={() => setDest(v.name)} aria-pressed={v.name === dest}>
-                      {v.name}
-                      {v.k === 't' && <span className="tag">Terminal</span>}
-                    </button>
-                  </li>
-                ))}
+                {route.via.map((v, i) => {
+                  // With a stop to get on and one to get off, the stops you won't ride past fade back.
+                  const [on, off] = [route.via.indexOf(boardAt), route.via.findIndex((x) => x.name === dest)]
+                  const outside = passes && on >= 0 && (i < Math.min(on, off) || i > Math.max(on, off))
+                  const tag = v.name === dest ? 'Get off' : v === boardAt && passes ? 'Get on' : v.k === 't' ? 'Terminal' : ''
+                  return (
+                    <li key={v.name} className={v.name === dest ? 'hit' : v === boardAt && passes ? 'board' : outside ? 'outside' : ''}>
+                      <button onClick={() => setDest(v.name)} aria-pressed={v.name === dest}>
+                        {v.name}
+                        {tag && <span className={`tag${tag === 'Terminal' ? '' : ' step'}`}>{tag}</span>}
+                      </button>
+                    </li>
+                  )
+                })}
               </ol>
             ) : (
               <p className="note">No landmarks recorded on this route yet. Check the map.</p>

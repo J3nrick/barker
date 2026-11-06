@@ -192,3 +192,16 @@ details.catalog > ul { margin-bottom: 8px; }
 
 /* Trains get their own badge colour */
 .plakard em.rail { background: #5b2a86; color: #fff; }
+
+/* Polish: readable links in both themes, no datalist arrow, a clear "see route", recent trips, get on / get off */
+a { color: var(--red); }
+.askbar input::-webkit-calendar-picker-indicator { display: none !important; }
+.seeroute { display: block; margin-top: 6px; color: var(--red); font-weight: 700; }
+.chips button.recent { border-color: var(--ink); }
+.line .board button { font-weight: 700; }
+.line .board button::before { background: var(--ink); }
+.line .outside button { color: var(--muted); }
+.line .outside button::before { border-color: var(--line); }
+.tag.step { background: var(--ink); color: var(--bg); }
+.line .hit .tag.step { background: var(--yes); color: #fff; }
+@media (prefers-color-scheme: dark) { .line .hit .tag.step { color: #12110e; } }
