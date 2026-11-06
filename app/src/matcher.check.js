@@ -5,6 +5,7 @@ import { match } from './matcher.js'
 import { findPlace, parseTrip } from './voice.js'
 import { heading, plan } from './trip.js'
 import { rideStep } from './ride.js'
+import { fare, fareText } from './fare.js'
 
 const { routes } = JSON.parse(readFileSync(new URL('./routes.json', import.meta.url)))
 const places = [...new Set(routes.flatMap((r) => r.via.map((v) => v.name)))]
@@ -119,6 +120,18 @@ for (const [id, from, to, want] of [
   let s = null
   const got = fixes.map((f) => (s = rideStep(s, f, stop)).phase).join(' ')
   report(got === want, `ride alert phases: ${got}`)
+}
+// Fares (LTFRB, Sept 2026): the minimum covers the first 4 km (jeep) or 5 km (bus); each started km after costs extra.
+for (const [kind, km, want] of [
+  ['jeep', 3, 'about ₱14 (₱11.25 student/senior/PWD)'],
+  ['jeep', 6.5, 'about ₱20 (₱16 student/senior/PWD)'], // 14 + 3 km × 2; 11.25 + 3 × 1.60 = 16.05
+  ['modern', 4, 'about ₱17 (₱13.50 student/senior/PWD)'],
+  ['bus', 10, 'about ₱27.50–₱33 (₱22–₱26.50 student/senior/PWD)'], // ordinary 15 + 5 × 2.49, aircon 18 + 5 × 2.98
+  ['uv', 10, 'about ₱26'],
+  ['p2p', 10, ''],
+]) {
+  const got = fareText(fare(kind, km))
+  report(got === want, `${kind} ${km} km: ${got || 'no estimate'}`)
 }
 console.log(`\n${pass}/${total} correct`)
 if (pass !== total) process.exitCode = 1

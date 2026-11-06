@@ -3,6 +3,7 @@ import { CONFIDENT, match } from './matcher.js'
 import { readPlakard } from './ocr.js'
 import { canListen, listen, parseTrip, say } from './voice.js'
 import { heading, km, plan } from './trip.js'
+import { fareBetween, fareText } from './fare.js'
 import RouteMap from './RouteMap.jsx'
 import RideAlert from './RideAlert.jsx'
 import data from './routes.json'
@@ -157,8 +158,19 @@ function WaitHere({ route, board, dest }) {
       ) : (
         '.'
       )}
+      {route.kind === 'p2p' ? (
+        <span className="farenote">P2P buses have a fixed fare per route. Check it at the terminal.</span>
+      ) : (
+        <Fare route={route} from={board.name} to={dest} />
+      )}
     </p>
   )
+}
+
+/** Estimated fare between two stops, on its own line; nothing when we can't estimate. */
+function Fare({ route, from, to }) {
+  const text = fareText(fareBetween(route, from, to))
+  return text ? <span className="farenote">Fare {text}</span> : null
 }
 
 /** Free-text or spoken question -> a known place. */
@@ -617,6 +629,7 @@ export default function App() {
                                   Board at <b>{at.name}</b>
                                   {at.d !== undefined && ` · ${walk(at.d)}`}
                                   <Toward route={r} from={at.name} to={goal} />
+                                  <Fare route={r} from={at.name} to={goal} />
                                 </>
                               ) : (
                                 'Flag it down anywhere on the route'
@@ -638,6 +651,7 @@ export default function App() {
                                 <span className="hint">
                                   Board at <b>{at.name}</b> · {walk(at.d)}
                                   <Toward route={a} from={at.name} to={via.name} /> · get off at <b>{via.name}</b>
+                                  <Fare route={a} from={at.name} to={via.name} />
                                 </span>
                               </button>
                               <button onClick={() => choose(b, goal, via)}>
@@ -645,6 +659,7 @@ export default function App() {
                                 <span className="hint">
                                   Change here at <b>{via.name}</b> to {goal}
                                   <Toward route={b} from={via.name} to={goal} />
+                                  <Fare route={b} from={via.name} to={goal} />
                                 </span>
                               </button>
                             </li>
@@ -762,10 +777,11 @@ export default function App() {
               </button>
             </div>
             <Plakard route={route} />
-            {(route.operator || route.roads.length > 0) && (
+            {(route.operator || route.roads.length > 0 || route.every) && (
               <p className="op">
                 {route.roads.length > 0 && <>Via {route.roads.join(' · ')}</>}
                 {route.operator && <span>{route.operator}</span>}
+                {route.every && <span>A ride about every {route.every} min (per OpenStreetMap)</span>}
               </p>
             )}
 

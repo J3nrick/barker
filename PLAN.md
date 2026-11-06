@@ -49,6 +49,7 @@ A jeepney signboard (*plakard*) only shows the **ends** of a route (e.g. "BACLAR
 - Route map, shareable route links, Back button support
 - Get-off alert: GPS tracking with voice and vibration ~500 m before your stop, at the stop, and if you pass it
 - Which side of the road to wait on, named by the signboard end you ride toward (skipped for loops and unclear routes)
+- Fare estimates from the LTFRB matrices effective 2026-09-28 and the distance along each route; ride frequency where OSM has it
 - Installable PWA with offline caching; deployed on Vercel (auto-deploy from `main`) and GitHub Pages
 
 ### Next
@@ -56,7 +57,7 @@ A jeepney signboard (*plakard*) only shows the **ends** of a route (e.g. "BACLAR
 |---|---|---|
 | **v0.3** | Signboard photo test set; fix signboard wording from real photos | ≥ 85% correct matches on 50 real photos |
 | **v0.4** | Test the get-off alert and road-side directions on 3 real trips; load both directions of each route from OSM | Alerts and directions right on 3 real trips |
-| **v0.5** | Fares (LTFRB fare matrix), offline map tiles for Imus–Bacoor | Fare within ₱2 on 10 real trips |
+| **v0.5** | Check fare estimates on 10 real trips; offline maps (needs our own tiles: OSM's tile policy forbids bulk prefetching) | Fare within ₱2 on 10 real trips |
 | **v1.0** | All of Cavite (Dasmariñas, Kawit, GenTri), Play Store listing | 150+ verified routes |
 
 ## 6. Tech stack

@@ -121,6 +121,27 @@ def thin(seg, min_m=40):
     return kept + seg[-1:] if len(seg) > 1 else kept
 
 
+def orient(segs):
+    """OSM lists a route's ways in order but not each way's direction; flip ways so each starts where the last ended."""
+    if len(segs) < 2:
+        return segs
+    nxt = segs[1]
+    first = segs[0] if min(dist_m(segs[0][-1], nxt[0]), dist_m(segs[0][-1], nxt[-1])) <= min(dist_m(segs[0][0], nxt[0]), dist_m(segs[0][0], nxt[-1])) else segs[0][::-1]
+    out = [first]
+    for seg in segs[1:]:
+        end = out[-1][-1]
+        out.append(seg if dist_m(end, seg[0]) <= dist_m(end, seg[-1]) else seg[::-1])
+    return out
+
+
+def every(interval):
+    """OSM interval tag ("10" minutes or "hh:mm") -> minutes between rides, or None."""
+    nums = [int(x) for x in re.findall(r"\d+", (interval or "").split(";")[0])]
+    if not nums:
+        return None
+    return (nums[0] * 60 + nums[1] if ":" in interval and len(nums) > 1 else nums[0]) or None
+
+
 def poi_point(e):
     return (e["lat"], e["lon"]) if "lat" in e else (e["center"]["lat"], e["center"]["lon"])
 
@@ -183,7 +204,13 @@ def main():
         rel = rels[cfg["osm"][0]]
         segs = [thin([(round(p["lat"], 5), round(p["lon"], 5)) for p in m["geometry"]])
                 for m in rel["members"] if m["type"] == "way" and m.get("role", "") == "" and "geometry" in m]
+        segs = orient(segs)
         pts = [p for s in segs for p in s]
+        # Distance along the route at each point, for fares; a jump between unconnected OSM ways adds nothing.
+        along = [0.0]
+        for a, b in zip(pts, pts[1:]):
+            step = dist_m(a, b)
+            along.append(along[-1] + (step if step < 1000 else 0))
         assert pts, f"relation {rel['id']} has no geometry"
         own = {LANDMARKS.get(stop_tags[m["ref"]], stop_tags[m["ref"]])
                for m in rel["members"] if m["type"] == "node" and m["ref"] in stop_tags}
@@ -198,7 +225,7 @@ def main():
                 continue
             i, d, pos = min(((i, dist_m(q, p), q) for q in near for i, p in enumerate(pts)), key=lambda x: x[1])
             if d <= NEAR_M[place["kind"]] or (name in own and d <= 300):
-                via.append((i, {"name": name, "lat": round(pos[0], 5), "lng": round(pos[1], 5), "k": KIND_CODE[place["kind"]]}))
+                via.append((i, {"name": name, "lat": round(pos[0], 5), "lng": round(pos[1], 5), "k": KIND_CODE[place["kind"]], "km": round(along[i] / 1000, 2)}))
         via.sort(key=lambda x: x[0])
         tags = rel["tags"]
         out.append({
@@ -210,6 +237,7 @@ def main():
             "ref": tags.get("ref") if cfg["kind"] in ("bus", "p2p") else None,
             "operator": (tags.get("operator") or "").split(";")[0] or None,
             "roads": [r for r in (tags.get("via") or "").split(";") if r],
+            "every": every(tags.get("interval")),
             "via": [v for _, v in via],
             "path": segs,
             "osm": cfg["osm"][0],
