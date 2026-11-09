@@ -1,0 +1,16 @@
+{
+  "name": "barker-promo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render Promo916 out/barker-promo-9x16.mp4 && remotion render Promo169 out/barker-promo-16x9.mp4"
+  },
+  "dependencies": {
+    "@fontsource/anton": "^5.3.0",
+    "@remotion/cli": "4.0.541",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "remotion": "4.0.541"
+  }
+}
