@@ -5,7 +5,8 @@
   "scripts": {
     "studio": "remotion studio",
     "render": "remotion render Promo916 out/barker-promo-9x16.mp4 && remotion render Promo169 out/barker-promo-16x9.mp4 && npm run beat",
-    "beat": "node tools/beat.mjs out/beat.wav && ffmpeg -y -i out/barker-promo-9x16.mp4 -i out/beat.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest out/barker-promo-9x16-beat.mp4 && ffmpeg -y -i out/barker-promo-16x9.mp4 -i out/beat.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest out/barker-promo-16x9-beat.mp4"
+    "beat": "node tools/beat.mjs out/beat.wav && ffmpeg -y -i out/barker-promo-9x16.mp4 -i out/beat.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest out/barker-promo-9x16-beat.mp4 && ffmpeg -y -i out/barker-promo-16x9.mp4 -i out/beat.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest out/barker-promo-16x9-beat.mp4",
+    "explainer": "remotion render Explainer916 out/barker-explainer-9x16.mp4 && remotion render Explainer169 out/barker-explainer-16x9.mp4 && node tools/beat.mjs out/beat-explainer.wav explainer && ffmpeg -y -i out/barker-explainer-9x16.mp4 -i out/beat-explainer.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest out/barker-explainer-9x16-beat.mp4 && ffmpeg -y -i out/barker-explainer-16x9.mp4 -i out/beat-explainer.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest out/barker-explainer-16x9-beat.mp4"
   },
   "dependencies": {
     "@fontsource/anton": "^5.3.0",
