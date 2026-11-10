@@ -6,5 +6,24 @@ export const Root = () => (
   <>
     <Composition id="Promo916" component={Promo} durationInFrames={DURATION} fps={FPS} width={1080} height={1920} />
     <Composition id="Promo169" component={Promo} durationInFrames={DURATION} fps={FPS} width={1920} height={1080} />
+    {/* Metro Manila only: the Manila sample cut. */}
+    <Composition
+      id="Manila916"
+      component={Promo}
+      defaultProps={{ area: 'manila' }}
+      durationInFrames={DURATION}
+      fps={FPS}
+      width={1080}
+      height={1920}
+    />
+    <Composition
+      id="Manila169"
+      component={Promo}
+      defaultProps={{ area: 'manila' }}
+      durationInFrames={DURATION}
+      fps={FPS}
+      width={1920}
+      height={1080}
+    />
   </>
 )

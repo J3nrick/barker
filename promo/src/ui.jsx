@@ -1,5 +1,10 @@
 // Shared look and motion for the promo. Colours, sizes and the signboard mirror app/src/App.css and index.css.
+import { createContext, useContext } from 'react'
 import { Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion'
+
+// Which version is rendering: 'all' (Metro Manila and Cavite) or 'manila' (Metro Manila only).
+export const AreaCtx = createContext('all')
+export const useManila = () => useContext(AreaCtx) === 'manila'
 
 export const C = {
   bg: '#f4efe4',
@@ -167,7 +172,16 @@ export const TabBar = ({ on }) => (
 )
 
 export const Icon = ({ d, size = 22, stroke = 2.2 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round">
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={stroke}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
     <path d={d} />
   </svg>
 )
@@ -187,19 +201,47 @@ export function Caption({ title, sub, at = 0, accent }) {
     <div
       style={{
         position: 'absolute',
-        ...(tall ? { left: 72, right: 72, top: 200 } : { left: 120, width: 760, top: 0, bottom: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center' }),
+        ...(tall
+          ? { left: 72, right: 72, top: 200 }
+          : { left: 120, width: 760, top: 0, bottom: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center' }),
       }}
     >
-      <h1 style={{ margin: 0, font: `${tall ? 104 : 120}px/0.98 ${DISPLAY}`, color: C.cream, textTransform: 'uppercase', textWrap: 'balance' }}>
+      <h1
+        style={{
+          margin: 0,
+          font: `${tall ? 104 : 120}px/0.98 ${DISPLAY}`,
+          color: C.cream,
+          textTransform: 'uppercase',
+          textWrap: 'balance',
+        }}
+      >
         {words.map((w, i) => (
           // Words arrive one after another, 2 frames apart, so the line reads as it lands.
-          <span key={i} style={{ display: 'inline-block', marginRight: '0.22em', ...rise(f, at + i * 2, 36, 12), color: accent?.includes(w) ? C.yellow : C.cream }}>
+          <span
+            key={i}
+            style={{
+              display: 'inline-block',
+              marginRight: '0.22em',
+              ...rise(f, at + i * 2, 36, 12),
+              color: accent?.includes(w) ? C.yellow : C.cream,
+            }}
+          >
             {w}
           </span>
         ))}
       </h1>
       {sub && (
-        <p style={{ margin: `${tall ? 22 : 28}px 0 0`, font: `500 40px/1.3 ${SANS}`, color: '#cfc6b6', textWrap: 'balance', ...rise(f, at + 8, 20, 14) }}>{sub}</p>
+        <p
+          style={{
+            margin: `${tall ? 22 : 28}px 0 0`,
+            font: `500 40px/1.3 ${SANS}`,
+            color: '#cfc6b6',
+            textWrap: 'balance',
+            ...rise(f, at + 8, 20, 14),
+          }}
+        >
+          {sub}
+        </p>
       )}
     </div>
   )
@@ -230,7 +272,17 @@ export function Phone({ children, style, shake = 0 }) {
           boxShadow: '0 40px 80px rgb(0 0 0 / .55), inset 0 0 0 2px #2a2620',
         }}
       />
-      <div style={{ position: 'absolute', inset: 0, borderRadius: 48, overflow: 'hidden', background: C.bg, color: C.ink, font: `16px/1.5 ${SANS}` }}>
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          borderRadius: 48,
+          overflow: 'hidden',
+          background: C.bg,
+          color: C.ink,
+          font: `16px/1.5 ${SANS}`,
+        }}
+      >
         {children}
       </div>
       <div style={{ position: 'absolute', top: 10, left: 140, width: 110, height: 30, borderRadius: 99, background: '#0b0a08' }} />

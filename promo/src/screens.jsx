@@ -1,13 +1,22 @@
 // The app's screens, rebuilt from app/src/App.jsx and App.css so they animate frame by frame.
 // Each takes `f`, the frame since that screen appeared.
 import { interpolateColors } from 'remotion'
-import { ARROW, BELL, C, CHECK, CAMERA, DISPLAY, EIO, Icon, MIC, Plakard, SANS, TabBar, TopBar, rise, tw } from './ui.jsx'
+import { ARROW, BELL, C, CHECK, CAMERA, DISPLAY, EIO, Icon, MIC, Plakard, SANS, TabBar, TopBar, rise, tw, useManila } from './ui.jsx'
 import data from './data.json'
 
 const PAD = { position: 'absolute', inset: 0, padding: '0 18px' }
 const h1 = { font: `44px/1.02 ${DISPLAY}`, textTransform: 'uppercase', margin: '14px 0 10px' }
 const muted = { color: C.muted, fontSize: 16, margin: 0 }
-const h2 = { font: `700 13px/1 ${SANS}`, letterSpacing: '.08em', textTransform: 'uppercase', color: C.muted, display: 'flex', gap: 8, alignItems: 'center', margin: '22px 0 12px' }
+const h2 = {
+  font: `700 13px/1 ${SANS}`,
+  letterSpacing: '.08em',
+  textTransform: 'uppercase',
+  color: C.muted,
+  display: 'flex',
+  gap: 8,
+  alignItems: 'center',
+  margin: '22px 0 12px',
+}
 const count = { background: C.ink, color: C.bg, borderRadius: 99, padding: '2px 8px', letterSpacing: 0 }
 const hint = { display: 'block', marginTop: 8, font: `600 14px/1.45 ${SANS}`, color: C.muted }
 const farenote = { display: 'block', marginTop: 4, font: `600 14px/1.45 ${SANS}`, color: C.muted }
@@ -32,7 +41,19 @@ function AskBar({ text, caret, listening, f, placeholder }) {
         }}
       >
         {text || placeholder}
-        {caret && <span style={{ display: 'inline-block', width: 2, height: 20, marginLeft: 1, verticalAlign: -4, background: C.ink, opacity: f % 16 < 8 ? 1 : 0 }} />}
+        {caret && (
+          <span
+            style={{
+              display: 'inline-block',
+              width: 2,
+              height: 20,
+              marginLeft: 1,
+              verticalAlign: -4,
+              background: C.ink,
+              opacity: f % 16 < 8 ? 1 : 0,
+            }}
+          />
+        )}
       </div>
       <div
         style={{
@@ -48,7 +69,17 @@ function AskBar({ text, caret, listening, f, placeholder }) {
       >
         <Icon d={MIC} />
       </div>
-      <div style={{ width: 52, height: 52, display: 'grid', placeItems: 'center', borderRadius: 14, border: `2px solid ${C.ink}`, background: C.surface }}>
+      <div
+        style={{
+          width: 52,
+          height: 52,
+          display: 'grid',
+          placeItems: 'center',
+          borderRadius: 14,
+          border: `2px solid ${C.ink}`,
+          background: C.surface,
+        }}
+      >
         <Icon d={ARROW} />
       </div>
     </div>
@@ -89,7 +120,9 @@ export function AskScreen({ f }) {
         <p style={muted}>Ask by voice or type it. We'll tell you which train, jeep, bus or UV to take, and where to catch it.</p>
         <div style={{ font: `700 14px/1 ${SANS}`, margin: '20px 0 8px' }}>Ask</div>
         <AskBar f={f} text={heard} caret={f >= 52 && f < 60} listening={listening} placeholder="Where to? e.g. PITX" />
-        <p style={{ ...muted, minHeight: 24, marginTop: 10, color: C.red, fontWeight: 700, opacity: listening ? 1 : 0 }}>Listening… say where you're going.</p>
+        <p style={{ ...muted, minHeight: 24, marginTop: 10, color: C.red, fontWeight: 700, opacity: listening ? 1 : 0 }}>
+          Listening… say where you're going.
+        </p>
 
         <div style={{ ...h2, ...rise(f, 62) }}>
           To Ayala <span style={count}>2</span>
@@ -107,7 +140,9 @@ export function AskScreen({ f }) {
           }}
         >
           From <b>Cubao</b>
-          <span style={{ width: 28, height: 28, borderRadius: 99, background: C.ink, color: C.bg, display: 'grid', placeItems: 'center' }}>×</span>
+          <span style={{ width: 28, height: 28, borderRadius: 99, background: C.ink, color: C.bg, display: 'grid', placeItems: 'center' }}>
+            ×
+          </span>
         </div>
         <div style={{ marginTop: 22, ...rise(f, 68), transform: `${rise(f, 68).transform} scale(${press})` }}>
           <Plakard small a="North Avenue" b="Taft Avenue" badge="MRT-3" kind="rail" />
@@ -166,11 +201,22 @@ export function TowardScreen({ f }) {
         >
           <Icon d={CHECK} size={28} />
           <span>
-            <strong style={{ display: 'block', font: `26px/1.1 ${DISPLAY}`, textTransform: 'uppercase', marginBottom: 4 }}>Yes, hop on!</strong>
+            <strong style={{ display: 'block', font: `26px/1.1 ${DISPLAY}`, textTransform: 'uppercase', marginBottom: 4 }}>
+              Yes, hop on!
+            </strong>
             It passes near Ayala.
           </span>
         </div>
-        <p style={{ margin: '12px 0 0', padding: '14px 16px', borderRadius: 14, border: `2px dashed ${C.ink}`, fontSize: 16, ...rise(f, 12, 16) }}>
+        <p
+          style={{
+            margin: '12px 0 0',
+            padding: '14px 16px',
+            borderRadius: 14,
+            border: `2px dashed ${C.ink}`,
+            fontSize: 16,
+            ...rise(f, 12, 16),
+          }}
+        >
           Wait at <b>Cubao</b>, on the platform for trains toward{' '}
           <b style={{ position: 'relative', color: C.red, whiteSpace: 'nowrap' }}>
             <span
@@ -209,7 +255,10 @@ export function RouteScreen({ f }) {
   const H = 470
   const box = { s: 14.53, n: 14.66, w: 120.97, e: 121.07 }
   const xy = (lat, lng) => [((lng - box.w) / (box.e - box.w)) * W, ((box.n - lat) / (box.n - box.s)) * H]
-  const line = data.mrt.path.flat().map(([la, ln]) => xy(la, ln).join(',')).join(' ')
+  const line = data.mrt.path
+    .flat()
+    .map(([la, ln]) => xy(la, ln).join(','))
+    .join(' ')
   const draw = tw(f, 92, 36, 1, 0, EIO)
   const near = data.spots.filter(([la, ln]) => la > box.s && la < box.n && ln > box.w && ln < box.e)
   const [cx, cy] = xy(stops[ON].lat, stops[ON].lng)
@@ -302,8 +351,29 @@ export function RouteScreen({ f }) {
             const [x, y] = xy(la, ln)
             return <circle key={i} cx={x} cy={y} r={2.2} fill="#b9ad97" />
           })}
-          <polyline points={line} fill="none" stroke={C.ink} strokeOpacity={0.25} strokeWidth={9} strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray={1} strokeDashoffset={draw} />
-          <polyline points={line} fill="none" stroke={C.red} strokeWidth={5} strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray={1} strokeDashoffset={draw} />
+          <polyline
+            points={line}
+            fill="none"
+            stroke={C.ink}
+            strokeOpacity={0.25}
+            strokeWidth={9}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            pathLength={1}
+            strokeDasharray={1}
+            strokeDashoffset={draw}
+          />
+          <polyline
+            points={line}
+            fill="none"
+            stroke={C.red}
+            strokeWidth={5}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            pathLength={1}
+            strokeDasharray={1}
+            strokeDashoffset={draw}
+          />
           {stops.map((s, i) => {
             const [x, y] = xy(s.lat, s.lng)
             const at = 92 + (i / (stops.length - 1)) * 36
@@ -349,7 +419,10 @@ const fmt = (m) => (m < 1000 ? `${Math.round(m / 10) * 10} m` : `${(m / 1000).to
 
 // Get-off alert: press, then riding -> get ready (yellow) -> you're here (green), as RideAlert.jsx words it.
 export function AlertScreen({ f }) {
-  const i = Math.max(0, PHASES.findLastIndex((p) => f >= p.at)) // before the alert starts, show the first phase
+  const i = Math.max(
+    0,
+    PHASES.findLastIndex((p) => f >= p.at),
+  ) // before the alert starts, show the first phase
   const p = PHASES[i]
   const next = PHASES[i + 1]
   const m = tw(f, p.at, (next?.at ?? 150) - p.at - 4, p.from, p.to, (t) => t)
@@ -429,8 +502,30 @@ export function AlertScreen({ f }) {
   )
 }
 
-// Scan: a photo of a Cavite jeep's signboard, the scan line sweeps, and the match lands.
+// Scan: a photo of a jeep's signboard (Cavite, or Manila's Cubao–Divisoria), the scan line sweeps, and the match lands.
+// Both are real routes in the app; the runner-up shares an end, the way a real near-miss would.
+const SCAN = {
+  all: {
+    area: 'Cavite',
+    hint: 'e.g. SM Molino - SM Bacoor',
+    board: ['SM Bacoor', 'SM Molino'],
+    picks: [
+      ['SM Bacoor', 'SM Molino', 0.97],
+      ['SM Molino', 'Trece', 0.42],
+    ],
+  },
+  manila: {
+    area: 'Metro Manila',
+    hint: 'e.g. Cubao - Divisoria',
+    board: ['Cubao', 'Divisoria'],
+    picks: [
+      ['Cubao', 'Divisoria', 0.97],
+      ['Baclaran', 'Divisoria', 0.44],
+    ],
+  },
+}
 export function ScanScreen({ f }) {
+  const S = SCAN[useManila() ? 'manila' : 'all']
   const pct = Math.round(tw(f, 6, 52, 0, 100, (t) => t))
   const reading = f >= 6 && f < 60
   const sweep = ((f - 6) % 40) / 40
@@ -438,7 +533,7 @@ export function ScanScreen({ f }) {
   const up = tw(f, 60, 18, 0, 318, EIO)
   return (
     <div style={PAD}>
-      <TopBar area="Cavite" />
+      <TopBar area={S.area} />
       <div style={{ transform: `translateY(${-up}px)` }}>
         <h1 style={h1}>Where does that ride go?</h1>
         <p style={muted}>Take a photo of the signboard on a jeep, bus or UV. We'll tell you where it passes.</p>
@@ -459,7 +554,15 @@ export function ScanScreen({ f }) {
             boxShadow: `0 6px 0 ${C.redDeep}`,
           }}
         >
-          <span style={{ position: 'absolute', inset: 0, background: 'rgb(0 0 0 / .22)', transform: `scaleX(${reading ? pct / 100 : 0})`, transformOrigin: 'left' }} />
+          <span
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background: 'rgb(0 0 0 / .22)',
+              transform: `scaleX(${reading ? pct / 100 : 0})`,
+              transformOrigin: 'left',
+            }}
+          />
           <span style={{ position: 'relative', display: 'flex', gap: 10, alignItems: 'center' }}>
             {reading ? (
               `Reading the signboard… ${pct}%`
@@ -481,11 +584,44 @@ export function ScanScreen({ f }) {
             background: 'linear-gradient(180deg, #7a1222 0%, #a3172d 38%, #d9d2c2 38%, #d9d2c2 44%, #2c2a26 44%, #3b3832 100%)',
           }}
         >
-          <div style={{ position: 'absolute', left: 0, right: 0, top: 18, height: 6, background: 'repeating-linear-gradient(90deg, #f3b81f 0 18px, #2fa36b 18px 36px, #fff 36px 54px)' }} />
-          <Plakard a="SM Bacoor" b="SM Molino" style={{ position: 'absolute', left: 34, right: 34, top: 44, transform: 'rotate(-2deg)', fontSize: 30 }} />
-          <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: 70, background: 'linear-gradient(transparent, rgb(0 0 0 / .45))' }} />
+          <div
+            style={{
+              position: 'absolute',
+              left: 0,
+              right: 0,
+              top: 18,
+              height: 6,
+              background: 'repeating-linear-gradient(90deg, #f3b81f 0 18px, #2fa36b 18px 36px, #fff 36px 54px)',
+            }}
+          />
+          <Plakard
+            a={S.board[0]}
+            b={S.board[1]}
+            style={{ position: 'absolute', left: 34, right: 34, top: 44, transform: 'rotate(-2deg)', fontSize: 30 }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              left: 0,
+              right: 0,
+              bottom: 0,
+              height: 70,
+              background: 'linear-gradient(transparent, rgb(0 0 0 / .45))',
+            }}
+          />
           {reading && (
-            <div style={{ position: 'absolute', left: 0, right: 0, top: 0, height: 3, background: C.yellow, boxShadow: `0 0 16px 4px ${C.yellow}`, transform: `translateY(${y}px)` }} />
+            <div
+              style={{
+                position: 'absolute',
+                left: 0,
+                right: 0,
+                top: 0,
+                height: 3,
+                background: C.yellow,
+                boxShadow: `0 0 16px 4px ${C.yellow}`,
+                transform: `translateY(${y}px)`,
+              }}
+            />
           )}
         </div>
         <div style={{ font: `700 14px/1 ${SANS}`, margin: '22px 0 8px' }}>Or type what it says</div>
@@ -501,20 +637,27 @@ export function ScanScreen({ f }) {
             color: f >= 60 ? C.ink : C.muted,
           }}
         >
-          {f >= 60 ? 'SM BACOOR - SM MOLINO' : 'e.g. SM Molino - SM Bacoor'}
+          {f >= 60 ? S.board.join(' - ').toUpperCase() : S.hint}
         </div>
         <div style={{ ...h2, ...rise(f, 70) }}>Which one did you see?</div>
-        {[
-          ['SM Bacoor', 'SM Molino', 0.97, 74],
-          ['SM Molino', 'Trece', 0.42, 78],
-        ].map(([a, b, s, at]) => (
-          <div key={a + b} style={{ marginBottom: 16, ...rise(f, at) }}>
-            <Plakard small a={a} b={b} />
-            <span style={{ display: 'block', height: 6, marginTop: 8, borderRadius: 99, background: C.line, overflow: 'hidden' }}>
-              <span style={{ display: 'block', height: '100%', background: C.ink, transform: `scaleX(${tw(f, at + 4, 20, 0, s)})`, transformOrigin: 'left' }} />
-            </span>
-          </div>
-        ))}
+        {S.picks
+          .map(([a, b, s], i) => [a, b, s, 74 + i * 4])
+          .map(([a, b, s, at]) => (
+            <div key={a + b} style={{ marginBottom: 16, ...rise(f, at) }}>
+              <Plakard small a={a} b={b} />
+              <span style={{ display: 'block', height: 6, marginTop: 8, borderRadius: 99, background: C.line, overflow: 'hidden' }}>
+                <span
+                  style={{
+                    display: 'block',
+                    height: '100%',
+                    background: C.ink,
+                    transform: `scaleX(${tw(f, at + 4, 20, 0, s)})`,
+                    transformOrigin: 'left',
+                  }}
+                />
+              </span>
+            </div>
+          ))}
       </div>
       <TabBar on="scan" />
     </div>
