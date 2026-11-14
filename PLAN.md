@@ -4,7 +4,8 @@
 
 > **Ask where to catch your ride, or point your camera at a jeepney signboard, and the app tells you where it goes and whether it passes your stop.**
 
-Open-source, offline-friendly web app for commuters in **Metro Manila** and **Imus and Bacoor, Cavite**.
+Open-source, offline-friendly web app for commuters in **Metro Manila** and **Imus and Bacoor, Cavite**...
+
 
 ---
 
